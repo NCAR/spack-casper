@@ -26,6 +26,7 @@ modules:
       hash_length: 0
       exclude_implicits: true
       exclude:
+      - git-lfs
       - slirp4netns
       - libtree
       - tree
@@ -64,8 +65,6 @@ modules:
       - netcdf-c
       - netcdf-fortran
       - netcdf-cxx4
-      include:
-      - git
       all:
         environment:
           set:
