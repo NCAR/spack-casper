@@ -316,7 +316,6 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.04/opt
       select:
-      - mesa@22.3.2
       - flex@2.6.4
       - git
       - git-lfs
@@ -448,7 +447,6 @@ spack:
         hash_length: 0
         exclude_implicits: true
         exclude:
-        - mesa@22.3.2
         - flex@2.6.4
         - git
         - git-lfs
@@ -615,6 +613,10 @@ spack:
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib64:{prefix}/nvvm/lib64:{prefix}/extras/CUPTI/lib64:{prefix}/extras/Debugger/lib64'
         cudnn:
+          environment:
+            prepend_path:
+              LD_LIBRARY_PATH: '{prefix}/lib'
+        mesa:
           environment:
             prepend_path:
               LD_LIBRARY_PATH: '{prefix}/lib'
