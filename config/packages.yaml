@@ -1,4 +1,6 @@
 packages:
+  llvm:
+    require: '%gcc@7.5.0'
   gawk:
     externals:
     - spec: gawk@4.2.1

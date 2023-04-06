@@ -238,10 +238,6 @@
       "spec": "intel-oneapi-mkl@2023.0.0%oneapi@2023.0.0"
     },
     {
-      "hash": "5gwzyrmixbikmls52o2rkmiheauhhbg5",
-      "spec": "openblas@0.3.21%gcc@12.2.0"
-    },
-    {
       "hash": "tyyogtblckpgmcfxrpiuaeinuicnlo6d",
       "spec": "ncarcompilers@0.8.0%gcc@12.2.0"
     },
@@ -12337,57 +12333,6 @@
       },
       "package_hash": "4do6rjxwb63zf6v4bjhgg4l22xuj34i7tyo57tt5wfne2wthqncq====",
       "hash": "3bttogbel3rwitvnhqo2jqb5iz3qzvxx"
-    },
-    "5gwzyrmixbikmls52o2rkmiheauhhbg5": {
-      "name": "openblas",
-      "version": "0.3.21",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "sles15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "12.2.0"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "bignuma": false,
-        "build_system": "makefile",
-        "consistent_fpcsr": false,
-        "fortran": true,
-        "ilp64": false,
-        "locking": true,
-        "patches": [
-          "114f95f6dae86da66e1ab2b97a1ca157b9ef3c8089948bc3e3ac5dc3a4de0417",
-          "d3d9b15fa39e18cdf972e1e5c78b320e36a24a481abd44e440eaf81bad227edd"
-        ],
-        "pic": true,
-        "shared": true,
-        "symbol_suffix": "none",
-        "threads": "none",
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "patches": [
-        "d3d9b15fa39e18cdf972e1e5c78b320e36a24a481abd44e440eaf81bad227edd",
-        "114f95f6dae86da66e1ab2b97a1ca157b9ef3c8089948bc3e3ac5dc3a4de0417"
-      ],
-      "package_hash": "eev7t4pyearchtvzvd45kbsjjota6kplipnsr5pcfob5ou2ch34a====",
-      "dependencies": [
-        {
-          "name": "perl",
-          "hash": "tvifl24rxom4jqhbdmiqyacvb5zphj6n",
-          "type": [
-            "build"
-          ]
-        }
-      ],
-      "hash": "5gwzyrmixbikmls52o2rkmiheauhhbg5"
     },
     "tyyogtblckpgmcfxrpiuaeinuicnlo6d": {
       "name": "ncarcompilers",
