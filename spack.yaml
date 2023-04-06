@@ -30,7 +30,19 @@ spack:
     template_dirs:
     - /glade/work/csgteam/spack-deployments/casper/23.04/envs/build/templates/modules
   packages:
-    llvm:
+    utf8proc:
+      require: '%gcc@7.5.0'
+    patchelf:
+      require: '%gcc@7.5.0'
+    p7zip:
+      require: '%gcc@7.5.0'
+    mpfr:
+      require: '%gcc@7.5.0'
+    libwhich:
+      require: '%gcc@7.5.0'
+    libunwind:
+      require: '%gcc@7.5.0'
+    gmp:
       require: '%gcc@7.5.0'
     gawk:
       externals:
@@ -114,6 +126,8 @@ spack:
       - spec: ghostscript@9.52
         prefix: /usr
       buildable: false
+    llvm:
+      require: '%gcc@7.5.0'
     cairo:
       require: '%gcc@7.5.0'
     libxcb:
@@ -297,11 +311,12 @@ spack:
     arpack-ng:
       variants: [~mpi]
     openblas:
-      variants: [+fortran]
+      variants: [+fortran, +ilp64, symbol_suffix=64_]
   view:
     baseenv:
       root: /glade/u/apps/casper/23.04/opt
       select:
+      - mesa@22.3.2
       - flex@2.6.4
       - git
       - git-lfs
@@ -433,6 +448,7 @@ spack:
         hash_length: 0
         exclude_implicits: true
         exclude:
+        - mesa@22.3.2
         - flex@2.6.4
         - git
         - git-lfs
@@ -784,3 +800,4 @@ spack:
   - ncview@2.1.8%gcc@12.2.0
   - git-lfs
   - flex@2.6.4
+  - openblas@0.3.21%gcc@12.2.0
