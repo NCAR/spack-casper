@@ -1,5 +1,17 @@
 packages:
-  llvm:
+  utf8proc:
+    require: '%gcc@7.5.0'
+  patchelf:
+    require: '%gcc@7.5.0'
+  p7zip:
+    require: '%gcc@7.5.0'
+  mpfr:
+    require: '%gcc@7.5.0'
+  libwhich:
+    require: '%gcc@7.5.0'
+  libunwind:
+    require: '%gcc@7.5.0'
+  gmp:
     require: '%gcc@7.5.0'
   gawk:
     externals:
@@ -83,6 +95,8 @@ packages:
     - spec: ghostscript@9.52
       prefix: /usr
     buildable: false
+  llvm:
+    require: '%gcc@7.5.0'
   cairo:
     require: '%gcc@7.5.0'
   libxcb:
@@ -266,4 +280,4 @@ packages:
   arpack-ng:
     variants: [~mpi]
   openblas:
-    variants: [+fortran]
+    variants: [+fortran, +ilp64, symbol_suffix=64_]

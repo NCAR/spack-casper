@@ -801,3 +801,4 @@ spack:
   - git-lfs
   - flex@2.6.4
   - openblas@0.3.21%gcc@12.2.0
+  - mesa@22.3.2

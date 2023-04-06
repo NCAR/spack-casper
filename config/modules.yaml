@@ -26,6 +26,7 @@ modules:
       hash_length: 0
       exclude_implicits: true
       exclude:
+      - mesa@22.3.2
       - flex@2.6.4
       - git
       - git-lfs
