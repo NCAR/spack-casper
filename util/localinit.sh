@@ -31,12 +31,6 @@ export PATH=${PATH}:$NCAR_DEFAULT_PATH
 export MANPATH=${MANPATH}:$NCAR_DEFAULT_MANPATH
 export INFOPATH=${INFOPATH}:$NCAR_DEFAULT_INFOPATH
 
-# Load default modules
-if [ -z "$__Init_Default_Modules" -o -z "$LD_LIBRARY_PATH" ]; then
-  __Init_Default_Modules=1; export __Init_Default_Modules;
-  module -q restore 
-fi
-
 # Set PBS workdir if appropriate
 if [ -n "$PBS_O_WORKDIR" ] && [ -z "$NCAR_PBS_JOBINIT" ]; then
     if [ -d "$PBS_O_WORKDIR" ]; then
@@ -55,3 +49,9 @@ fi
 
 # Add Python import monitoring to environment
 export PYTHONPATH=/glade/u/apps/opt/conda/ncarbin/monitor/site-packages:$PYTHONPATH
+
+# Load default modules
+if [ -z "$__Init_Default_Modules" -o -z "$LD_LIBRARY_PATH" ]; then
+  __Init_Default_Modules=1; export __Init_Default_Modules;
+  module -q restore 
+fi

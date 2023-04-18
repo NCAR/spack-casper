@@ -40,12 +40,6 @@ else
     setenv INFOPATH ${INFOPATH}:$NCAR_DEFAULT_INFOPATH
 endif
 
-# Load default modules
-if ( ! $?__Init_Default_Modules || ! $?LD_LIBRARY_PATH ) then
-  setenv __Init_Default_Modules 1
-  module -q restore
-endif
-
 # Set PBS workdir if appropriate
 if ( $?PBS_O_WORKDIR  && ! $?NCAR_PBS_JOBINIT ) then
     if ( -d $PBS_O_WORKDIR ) then
@@ -67,4 +61,10 @@ if ( ! ($?PYTHONPATH) ) then
     setenv PYTHONPATH=/glade/u/apps/opt/conda/ncarbin/monitor/site-packages
 else
     setenv PYTHONPATH=/glade/u/apps/opt/conda/ncarbin/monitor/site-packages:$PYTHONPATH
+endif
+
+# Load default modules
+if ( ! $?__Init_Default_Modules || ! $?LD_LIBRARY_PATH ) then
+  setenv __Init_Default_Modules 1
+  module -q restore
 endif
