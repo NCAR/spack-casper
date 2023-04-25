@@ -31,6 +31,7 @@ export PATH=${PATH}:$NCAR_DEFAULT_PATH
 export MANPATH=${MANPATH}:$NCAR_DEFAULT_MANPATH
 export INFOPATH=${INFOPATH}:$NCAR_DEFAULT_INFOPATH
 
+
 # Set PBS workdir if appropriate
 if [ -n "$PBS_O_WORKDIR" ] && [ -z "$NCAR_PBS_JOBINIT" ]; then
     if [ -d "$PBS_O_WORKDIR" ]; then
@@ -42,7 +43,11 @@ fi
 
 # Set number of GPUs (analogous to NCPUS)
 if command -v nvidia-smi &> /dev/null; then
-    export NGPUS=`nvidia-smi -L | wc -l`
+    export NGPUS=`nvidia-smi -L |& grep -c UUID`
+    
+    if  [ $NGPUS -gt 0 ]; then
+        export MPICH_GPU_MANAGED_MEMORY_SUPPORT_ENABLED=1
+    fi
 else
     export NGPUS=0
 fi
@@ -55,3 +60,6 @@ if [ -z "$__Init_Default_Modules" -o -z "$LD_LIBRARY_PATH" ]; then
   __Init_Default_Modules=1; export __Init_Default_Modules;
   module -q restore 
 fi
+
+# Hide specified modules
+export LMOD_MODULERCFILE=/glade/work/csgteam/spack-deployments/casper/23.04/envs/public/util/hidden-modules
