@@ -1,0 +1,57 @@
+compilers:
+- compiler:
+    spec: gcc@7.5.0
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    operating_system: opensuse15
+    modules: []
+    environment: {}
+- compiler:
+    spec: nvhpc@21.3
+    paths:
+      cc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/bin/nvc
+      cxx: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/bin/nvc++
+      f77: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/bin/nvfortran
+      fc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/bin/nvfortran
+    operating_system: opensuse15
+    modules: []
+    environment:
+      prepend_path:
+        LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/21.3/Linux_x86_64/21.3/compilers/lib
+- compiler:
+    spec: nvhpc@23.3
+    paths:
+      cc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3/Linux_x86_64/23.3/compilers/bin/nvc
+      cxx: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3/Linux_x86_64/23.3/compilers/bin/nvc++
+      f77: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3/Linux_x86_64/23.3/compilers/bin/nvfortran
+      fc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3/Linux_x86_64/23.3/compilers/bin/nvfortran
+    operating_system: opensuse15
+    modules: []
+    environment:
+      prepend_path:
+        LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3/Linux_x86_64/23.3/compilers/lib
+- compiler:
+    spec: oneapi@2023.1.0
+    paths:
+      cc: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/bin/icx
+      cxx: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/bin/icpx
+      f77: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/bin/intel64/ifort
+      fc: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/bin/intel64/ifort
+    operating_system: opensuse15
+    modules: []
+    environment:
+      prepend_path:
+        LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/compiler/lib/intel64
+- compiler:
+    spec: gcc@12.2.0
+    paths:
+      cc: /glade/u/apps/casper/23.05/spack/opt/spack//gcc/12.2.0/bin/gcc
+      cxx: /glade/u/apps/casper/23.05/spack/opt/spack//gcc/12.2.0/bin/g++
+      f77: /glade/u/apps/casper/23.05/spack/opt/spack//gcc/12.2.0/bin/gfortran
+      fc: /glade/u/apps/casper/23.05/spack/opt/spack//gcc/12.2.0/bin/gfortran
+    operating_system: opensuse15
+    modules: []
+    environment: {}
