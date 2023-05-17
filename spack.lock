@@ -560,6 +560,10 @@
     {
       "hash": "stjbstnelbjrh3ydmcayfeovgua3u42s",
       "spec": "nccmp@1.9.0.1%gcc@12.2.0"
+    },
+    {
+      "hash": "xaupxgjcdemc46ktmiluzzynj7gqvlp6",
+      "spec": "parallel"
     }
   ],
   "concrete_specs": {
@@ -21455,6 +21459,41 @@
         }
       ],
       "hash": "stjbstnelbjrh3ydmcayfeovgua3u42s"
+    },
+    "xaupxgjcdemc46ktmiluzzynj7gqvlp6": {
+      "name": "parallel",
+      "version": "20220522",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "opensuse15",
+        "target": "x86_64_v3"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "7.5.0"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "autotools",
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "ev6v63iz2vysqnjvwbnsur67nyf6woelfdf47ybvktuimkcdxtlq====",
+      "dependencies": [
+        {
+          "name": "perl",
+          "hash": "kevau6xugllgcsatt5ietonp3645yr7c",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "xaupxgjcdemc46ktmiluzzynj7gqvlp6"
     }
   }
 }

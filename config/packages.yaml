@@ -1,4 +1,139 @@
 packages:
+  gmake:
+    externals:
+    - spec: gmake@4.2.1
+      prefix: /usr
+    buildable: false
+    require: '%gcc@7.5.0'
+  flex:
+    externals:
+    - spec: flex@2.6.4+lex
+      prefix: /usr
+    require: '%gcc@7.5.0'
+  findutils:
+    externals:
+    - spec: findutils@4.8.0
+      prefix: /usr
+    buildable: false
+  pkg-config:
+    externals:
+    - spec: pkg-config@0.29.2
+      prefix: /usr
+    buildable: false
+    require: '%gcc@7.5.0'
+  texinfo:
+    externals:
+    - spec: texinfo@6.5
+      prefix: /usr
+    require: '%gcc@7.5.0'
+  diffutils:
+    externals:
+    - spec: diffutils@3.6
+      prefix: /usr
+    buildable: false
+  libtool:
+    externals:
+    - spec: libtool@2.4.6
+      prefix: /usr
+  coreutils:
+    externals:
+    - spec: coreutils@8.32
+      prefix: /usr
+  openssl:
+    externals:
+    - spec: openssl@1.1.1l
+      prefix: /usr
+    buildable: false
+  git:
+    externals:
+    - spec: git@2.35.3+tcltk
+      prefix: /usr
+    variants: [+svn]
+  gawk:
+    externals:
+    - spec: gawk@4.2.1
+      prefix: /usr
+  m4:
+    externals:
+    - spec: m4@1.4.18
+      prefix: /usr
+    buildable: false
+  autoconf:
+    externals:
+    - spec: autoconf@2.69
+      prefix: /usr
+  groff:
+    externals:
+    - spec: groff@1.22.4
+      prefix: /usr
+  subversion:
+    externals:
+    - spec: subversion@1.14.1
+      prefix: /usr
+  bison:
+    externals:
+    - spec: bison@3.0.4
+      prefix: /usr
+    require: '%gcc@7.5.0'
+  cmake:
+    externals:
+    - spec: cmake@3.20.4
+      prefix: /usr
+    require: '%gcc@7.5.0'
+    variants: [~ownlibs]
+  cvs:
+    externals:
+    - spec: cvs@1.12.13
+      prefix: /usr
+  openssh:
+    externals:
+    - spec: openssh@8.4p1
+      prefix: /usr
+  curl:
+    externals:
+    - spec: curl@7.79.1+gssapi+ldap+nghttp2
+      prefix: /usr
+    require: '%gcc@7.5.0'
+    variants: [+libidn2]
+  gcc:
+    externals:
+    - spec: gcc@7.5.0 languages=c,c++,fortran
+      prefix: /usr
+      extra_attributes:
+        compilers:
+          c: /usr/bin/gcc-7
+          cxx: /usr/bin/g++-7
+          fortran: /usr/bin/gfortran-7
+    variants: [+piclibs, 'languages=c,c++,fortran,go']
+  openjdk:
+    externals:
+    - spec: openjdk@11.0.18_0-suse-150000.3.93.1-x8664
+      prefix: /usr
+    require: '%gcc@7.5.0'
+  rsync:
+    externals:
+    - spec: rsync@3.2.3
+      prefix: /usr
+  bash:
+    externals:
+    - spec: bash@4.4.23
+      prefix: /usr
+    buildable: false
+  cpio:
+    externals:
+    - spec: cpio@2.13
+      prefix: /usr
+    buildable: false
+  lustre:
+    externals:
+    - spec: lustre@2.15.2
+      prefix: /usr
+    buildable: false
+  ghostscript:
+    externals:
+    - spec: ghostscript@9.52
+      prefix: /usr
+    buildable: false
   bzip2:
     require: '%gcc@7.5.0'
   libxcb:
@@ -37,17 +172,11 @@ packages:
     require: '%gcc@7.5.0'
   xz:
     require: '%gcc@7.5.0'
-  texinfo:
-    require: '%gcc@7.5.0'
   util-linux-uuid:
     require: '%gcc@7.5.0'
   perl:
     require: '%gcc@7.5.0'
   libjpeg-turbo:
-    require: '%gcc@7.5.0'
-  flex:
-    require: '%gcc@7.5.0'
-  bison:
     require: '%gcc@7.5.0'
   sqlite:
     require: '%gcc@7.5.0'
@@ -92,94 +221,6 @@ packages:
       prefix: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0
     - spec: intel-oneapi-compilers@2023.0.0
       prefix: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0
-    buildable: false
-  gawk:
-    externals:
-    - spec: gawk@4.2.1
-      prefix: /usr
-  gcc:
-    externals:
-    - spec: gcc@7.5.0 languages=c,c++,fortran
-      prefix: /usr
-      extra_attributes:
-        compilers:
-          c: /usr/bin/gcc-7
-          cxx: /usr/bin/g++-7
-          fortran: /usr/bin/gfortran-7
-    variants: [+piclibs, 'languages=c,c++,fortran,go']
-  groff:
-    externals:
-    - spec: groff@1.22.4
-      prefix: /usr
-  openjdk:
-    require: '%gcc@7.5.0'
-    externals:
-    - spec: openjdk@11.0.18_0-suse-150000.3.93.1-x8664
-      prefix: /usr
-  openssh:
-    externals:
-    - spec: openssh@8.4p1
-      prefix: /usr
-  rsync:
-    externals:
-    - spec: rsync@3.2.3
-      prefix: /usr
-  bash:
-    externals:
-    - spec: bash@4.4.23
-      prefix: /usr
-    buildable: false
-  cpio:
-    externals:
-    - spec: cpio@2.13
-      prefix: /usr
-    buildable: false
-  diffutils:
-    externals:
-    - spec: diffutils@3.6
-      prefix: /usr
-    buildable: false
-  findutils:
-    externals:
-    - spec: findutils@4.8.0
-      prefix: /usr
-    buildable: false
-  gmake:
-    require: '%gcc@7.5.0'
-    externals:
-    - spec: gmake@4.2.1
-      prefix: /usr
-    buildable: false
-  lustre:
-    externals:
-    - spec: lustre@2.15.2
-      prefix: /usr
-    buildable: false
-  m4:
-    externals:
-    - spec: m4@1.4.18
-      prefix: /usr
-    buildable: false
-  pkg-config:
-    require: '%gcc@7.5.0'
-    externals:
-    - spec: pkg-config@0.29.2
-      prefix: /usr
-    buildable: false
-  tar:
-    externals:
-    - spec: tar@1.34
-      prefix: /usr
-    buildable: false
-  ghostscript:
-    externals:
-    - spec: ghostscript@9.52
-      prefix: /usr
-    buildable: false
-  openssl:
-    externals:
-    - spec: openssl@1.1.1l
-      prefix: /usr
     buildable: false
   all:
     'compiler:': [gcc@7.5.0, gcc, nvhpc, oneapi, intel]
@@ -229,8 +270,6 @@ packages:
   zstd:
     require: '%gcc@7.5.0'
     variants: [+programs]
-  git:
-    variants: [+svn]
   netcdf:
     variants: [+dap, ~mpi]
   netcdf-c:
@@ -268,9 +307,6 @@ packages:
     variants: [+external-libfabric]
   gdb:
     variants: [+gold, +ld, +lto, +tui, ~python, ~debuginfod]
-  curl:
-    require: '%gcc@7.5.0'
-    variants: [+libidn2]
   gdal:
     variants: [+blosc, +curl, +deflate, +expat, +geos, +gif, +grass, +grib, +hdf5,
       +iconv, +jasper, +jpeg, +libcsf, +liblzma, +lz4, +netcdf, +pcidsk, +png, +qhull,
@@ -279,9 +315,6 @@ packages:
     variants: [~mpi]
   openblas:
     variants: [+fortran]
-  cmake:
-    require: '%gcc@7.5.0'
-    variants: [~ownlibs]
   libarchive:
     require: compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
   cairo:
