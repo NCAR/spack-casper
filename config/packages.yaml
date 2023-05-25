@@ -297,3 +297,7 @@ packages:
     variants: [+netcdf4, ~netcdf3, +mysql, +udf, +proj4]
   visit:
     variants: [+vtk-m]
+  gnuplot:
+    variants: [+X, +wx, +qt]
+  qt:
+    variants: [+gtk, +opengl, +examples]

@@ -10,14 +10,6 @@
       "spec": "nvhpc@21.3"
     },
     {
-      "hash": "coxt4ilo2egl6dwhi2gb6rfcq2vakbod",
-      "spec": "nvhpc@23.3"
-    },
-    {
-      "hash": "hbbizqubcpx2yglwffhkxdshiw26mets",
-      "spec": "intel-oneapi-compilers@2023.1.0"
-    },
-    {
       "hash": "4hnceuafsxu76ayngd7ynu7tythoc63c",
       "spec": "gcc@12.2.0"
     },
@@ -354,10 +346,6 @@
       "spec": "esmf@8.4.2%gcc@12.2.0~mpi ^parallelio~mpi"
     },
     {
-      "hash": "anuttc5ns42st277uatq55d4uy7xdhuj",
-      "spec": "esmf@8.4.2%nvhpc@21.3~mpi ^nvhpc ^parallelio~mpi"
-    },
-    {
       "hash": "3rvmwl75ujnzctpfliouwmikfy6vkkdx",
       "spec": "gdal@3.6.4%gcc@12.2.0 ^hdf5~mpi"
     },
@@ -514,10 +502,6 @@
       "spec": "parallelio@2.5.10%oneapi@2023.0.0~mpi~pnetcdf"
     },
     {
-      "hash": "uivqy4p7dr6on7zunc3gndu2jc3sr4i5",
-      "spec": "esmf@8.4.2%nvhpc@23.1~mpi ^nvhpc ^parallelio~mpi"
-    },
-    {
       "hash": "7t53reh3hazbdedbd4irycyualb47qu7",
       "spec": "esmf@8.4.2%oneapi@2023.0.0~mpi ^intel-oneapi-mkl ^parallelio~mpi"
     },
@@ -564,14 +548,6 @@
     {
       "hash": "ywemx6rfu2mcbk7i57nduhb2fpaf7dou",
       "spec": "esmf@8.4.2%gcc@12.2.0+mpi+pnetcdf ^openmpi@4.1.5%gcc@12.2.0"
-    },
-    {
-      "hash": "46jqi7ulz5rzlwey3k2pg7tktmak6f2p",
-      "spec": "esmf@8.4.2%nvhpc@21.3+mpi+pnetcdf ^nvhpc ^openmpi@4.1.5%nvhpc@21.3"
-    },
-    {
-      "hash": "dk4xqij325boe5v5sqa77aa7o24ysqys",
-      "spec": "esmf@8.4.2%nvhpc@23.1+mpi+pnetcdf ^nvhpc ^openmpi@4.1.5%nvhpc@23.1"
     },
     {
       "hash": "afsptyrshqqbw4jwl46jii5w2ruyjhzc",
@@ -628,71 +604,6 @@
       },
       "package_hash": "rlwnb2j44y6dq2itmhru6xaj6nyi5xt4wm2izvyzxizym2si37ha====",
       "hash": "vtvadetfs7623diugkkuiti5tcv3hrjv"
-    },
-    "coxt4ilo2egl6dwhi2gb6rfcq2vakbod": {
-      "name": "nvhpc",
-      "version": "23.3",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "opensuse15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "7.5.0"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "blas": true,
-        "build_system": "generic",
-        "install_type": "single",
-        "lapack": true,
-        "mpi": false,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "external": {
-        "path": "/glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3",
-        "module": null,
-        "extra_attributes": {}
-      },
-      "package_hash": "k4gkvfjxndy5ubd3hzdi466zovdh5d3bx5j3wkdns4zj22r4k4nq====",
-      "hash": "coxt4ilo2egl6dwhi2gb6rfcq2vakbod"
-    },
-    "hbbizqubcpx2yglwffhkxdshiw26mets": {
-      "name": "intel-oneapi-compilers",
-      "version": "2023.1.0",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "opensuse15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "7.5.0"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "generic",
-        "envmods": true,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "external": {
-        "path": "/glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0",
-        "module": null,
-        "extra_attributes": {}
-      },
-      "package_hash": "hjqc2wqeislhzlrsmzixfb27xrjwiyi7ew47a4xxvnpu7tg5l4ka====",
-      "hash": "hbbizqubcpx2yglwffhkxdshiw26mets"
     },
     "4hnceuafsxu76ayngd7ynu7tythoc63c": {
       "name": "gcc",
@@ -16168,116 +16079,6 @@
       ],
       "hash": "u5i72g4ulvprglu4yhsuymebjqlzjkkb"
     },
-    "anuttc5ns42st277uatq55d4uy7xdhuj": {
-      "name": "esmf",
-      "version": "8.4.2",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "opensuse15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "nvhpc",
-        "version": "21.3"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "makefile",
-        "debug": false,
-        "esmf_comm": "auto",
-        "esmf_os": "auto",
-        "esmf_pio": "auto",
-        "external-lapack": true,
-        "external-parallelio": true,
-        "mpi": false,
-        "netcdf": true,
-        "patches": [
-          "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb"
-        ],
-        "pnetcdf": false,
-        "shared": true,
-        "xerces": false,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "patches": [
-        "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb"
-      ],
-      "package_hash": "o7norn3czmbi7bas4raklydj3rqdej43rtel2qxcu6ntlo2kda3q====",
-      "dependencies": [
-        {
-          "name": "netcdf-c",
-          "hash": "sae4ub7g6opgqvfskb6xz6lwavrmk7bh",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "netcdf-fortran",
-          "hash": "z2hu7qrhfh7zji72z6qjxsxazs4ejkxf",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "nvhpc",
-          "hash": "q67qrhvfxp5c7nqei2jg3wgjqow4n2gn",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "parallelio",
-          "hash": "v3p6gkbamjubz4jpudoletofuplwoq5g",
-          "type": [
-            "build",
-            "link"
-          ]
-        }
-      ],
-      "hash": "anuttc5ns42st277uatq55d4uy7xdhuj"
-    },
-    "q67qrhvfxp5c7nqei2jg3wgjqow4n2gn": {
-      "name": "nvhpc",
-      "version": "23.3",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "opensuse15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "nvhpc",
-        "version": "21.3"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "blas": true,
-        "build_system": "generic",
-        "install_type": "single",
-        "lapack": true,
-        "mpi": false,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "external": {
-        "path": "/glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3",
-        "module": null,
-        "extra_attributes": {}
-      },
-      "package_hash": "k4gkvfjxndy5ubd3hzdi466zovdh5d3bx5j3wkdns4zj22r4k4nq====",
-      "hash": "q67qrhvfxp5c7nqei2jg3wgjqow4n2gn"
-    },
     "3rvmwl75ujnzctpfliouwmikfy6vkkdx": {
       "name": "gdal",
       "version": "3.6.4",
@@ -20203,116 +20004,6 @@
       ],
       "hash": "oijpnub7env54if3wazwgt37dsm4lofw"
     },
-    "uivqy4p7dr6on7zunc3gndu2jc3sr4i5": {
-      "name": "esmf",
-      "version": "8.4.2",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "opensuse15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "nvhpc",
-        "version": "23.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "makefile",
-        "debug": false,
-        "esmf_comm": "auto",
-        "esmf_os": "auto",
-        "esmf_pio": "auto",
-        "external-lapack": true,
-        "external-parallelio": true,
-        "mpi": false,
-        "netcdf": true,
-        "patches": [
-          "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb"
-        ],
-        "pnetcdf": false,
-        "shared": true,
-        "xerces": false,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "patches": [
-        "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb"
-      ],
-      "package_hash": "o7norn3czmbi7bas4raklydj3rqdej43rtel2qxcu6ntlo2kda3q====",
-      "dependencies": [
-        {
-          "name": "netcdf-c",
-          "hash": "e6zjj6pw6dku6bjwncsggv4y2cxqqg2p",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "netcdf-fortran",
-          "hash": "3io7imshr5jeqyua5buiseiped4ks64b",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "nvhpc",
-          "hash": "qj4tgjccimae63bwljy4jpdygf3v4phj",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "parallelio",
-          "hash": "7cmchmjraemzfb6elkdmqelv7yqcv3vw",
-          "type": [
-            "build",
-            "link"
-          ]
-        }
-      ],
-      "hash": "uivqy4p7dr6on7zunc3gndu2jc3sr4i5"
-    },
-    "qj4tgjccimae63bwljy4jpdygf3v4phj": {
-      "name": "nvhpc",
-      "version": "23.3",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "opensuse15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "nvhpc",
-        "version": "23.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "blas": true,
-        "build_system": "generic",
-        "install_type": "single",
-        "lapack": true,
-        "mpi": false,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "external": {
-        "path": "/glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3",
-        "module": null,
-        "extra_attributes": {}
-      },
-      "package_hash": "k4gkvfjxndy5ubd3hzdi466zovdh5d3bx5j3wkdns4zj22r4k4nq====",
-      "hash": "qj4tgjccimae63bwljy4jpdygf3v4phj"
-    },
     "7t53reh3hazbdedbd4irycyualb47qu7": {
       "name": "esmf",
       "version": "8.4.2",
@@ -21609,190 +21300,6 @@
         }
       ],
       "hash": "ywemx6rfu2mcbk7i57nduhb2fpaf7dou"
-    },
-    "46jqi7ulz5rzlwey3k2pg7tktmak6f2p": {
-      "name": "esmf",
-      "version": "8.4.2",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "opensuse15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "nvhpc",
-        "version": "21.3"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "makefile",
-        "debug": false,
-        "esmf_comm": "auto",
-        "esmf_os": "auto",
-        "esmf_pio": "auto",
-        "external-lapack": true,
-        "external-parallelio": true,
-        "mpi": true,
-        "netcdf": true,
-        "patches": [
-          "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb"
-        ],
-        "pnetcdf": true,
-        "shared": true,
-        "xerces": false,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "patches": [
-        "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb"
-      ],
-      "package_hash": "o7norn3czmbi7bas4raklydj3rqdej43rtel2qxcu6ntlo2kda3q====",
-      "dependencies": [
-        {
-          "name": "netcdf-c",
-          "hash": "s7qwzavnzrxb7nj4s5vkayiorhjicp5n",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "netcdf-fortran",
-          "hash": "7w4r27u4ylt5d2ie6msngcnv5vvhhtdt",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "nvhpc",
-          "hash": "q67qrhvfxp5c7nqei2jg3wgjqow4n2gn",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "openmpi",
-          "hash": "eqgj2o4c4gd6fik5iaikpf5bxturbqmz",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "parallel-netcdf",
-          "hash": "6gm7hzjxcowqibtwjnt4oqxed7ocsuun",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "parallelio",
-          "hash": "ivkryeuv2crv3d2x6qeoz5tp6w5kjnbh",
-          "type": [
-            "build",
-            "link"
-          ]
-        }
-      ],
-      "hash": "46jqi7ulz5rzlwey3k2pg7tktmak6f2p"
-    },
-    "dk4xqij325boe5v5sqa77aa7o24ysqys": {
-      "name": "esmf",
-      "version": "8.4.2",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "opensuse15",
-        "target": "x86_64_v3"
-      },
-      "compiler": {
-        "name": "nvhpc",
-        "version": "23.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "makefile",
-        "debug": false,
-        "esmf_comm": "auto",
-        "esmf_os": "auto",
-        "esmf_pio": "auto",
-        "external-lapack": true,
-        "external-parallelio": true,
-        "mpi": true,
-        "netcdf": true,
-        "patches": [
-          "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb"
-        ],
-        "pnetcdf": true,
-        "shared": true,
-        "xerces": false,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "patches": [
-        "f63d4050cf90cc3577291804b752e37d87a657e0775fb5c8ddfec540a7aa73eb"
-      ],
-      "package_hash": "o7norn3czmbi7bas4raklydj3rqdej43rtel2qxcu6ntlo2kda3q====",
-      "dependencies": [
-        {
-          "name": "netcdf-c",
-          "hash": "suzwdfvigbvqsaf4obrygrfxfbl6pvcb",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "netcdf-fortran",
-          "hash": "mwxn3zivnhhtfjrgzyzpa7lhfziq45zs",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "nvhpc",
-          "hash": "qj4tgjccimae63bwljy4jpdygf3v4phj",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "openmpi",
-          "hash": "2hcs2bfi3yx56xctoq65lbiyd3qneukc",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "parallel-netcdf",
-          "hash": "7olvnpyyzkpk6u4ndimgcwxuvysoogx3",
-          "type": [
-            "build",
-            "link"
-          ]
-        },
-        {
-          "name": "parallelio",
-          "hash": "oifpt3hhcodm2zguyl2sp7lsft2gt53z",
-          "type": [
-            "build",
-            "link"
-          ]
-        }
-      ],
-      "hash": "dk4xqij325boe5v5sqa77aa7o24ysqys"
     },
     "afsptyrshqqbw4jwl46jii5w2ruyjhzc": {
       "name": "esmf",
