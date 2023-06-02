@@ -26,6 +26,9 @@ modules:
       hash_length: 0
       exclude_implicits: true
       exclude:
+      - pandoc
+      - gnuplot
+      - qt@5.14.2
       - grads
       - bbcp
       - parallel
@@ -226,6 +229,8 @@ modules:
             PATH: '{^squashfs.prefix}/bin'
         filter:
           exclude_env_vars: [GOPATH]
+      octave:
+        autoload: none
       netcdf~mpi:
         template: conflict-serial.lua
       netcdf+mpi:
@@ -259,6 +264,9 @@ modules:
       - cdo
       - wgrib2
       - ncview
+      - nccmp
+      - visit
+      - octave
       defaults:
       - netcdf@4.9.1
       - parallel-netcdf@1.12.3
