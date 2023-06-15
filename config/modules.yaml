@@ -29,7 +29,6 @@ modules:
       - pandoc
       - gnuplot
       - qt@5.14.2
-      - grads
       - bbcp
       - parallel
       - imagemagick
@@ -229,6 +228,10 @@ modules:
             PATH: '{^squashfs.prefix}/bin'
         filter:
           exclude_env_vars: [GOPATH]
+      parallelio:
+        environment:
+          set:
+            PIO: '{prefix}'
       octave:
         autoload: none
       netcdf~mpi:

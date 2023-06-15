@@ -329,7 +329,7 @@ packages:
   libffi:
     require: '@:3.3'
   wgrib2:
-    variants: [+netcdf4, ~netcdf3, +mysql, +udf, +proj4]
+    variants: [+netcdf4, ~netcdf3, +udf, +proj4, ~checks]
   gnuplot:
     variants: [+X, +wx, +qt]
   qt:
@@ -345,5 +345,3 @@ packages:
       +openpmd, +osmesa, +pagosa, +python, +qt, +visitbridge]
   adios2:
     variants: [+hdf5, +python]
-  harfbuzz:
-    variants: [+graphite2]
