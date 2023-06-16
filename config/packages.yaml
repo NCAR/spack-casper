@@ -345,3 +345,7 @@ packages:
       +openpmd, +osmesa, +pagosa, +python, +qt, +visitbridge]
   adios2:
     variants: [+hdf5, +python]
+  ffmpeg:
+    variants: [+X, +drawtext, +libaom, +libmp3lame, +libopenjpeg, +libopus, +libsnappy,
+      +libspeex, +libssh, +libvorbis, +libvpx, +libwebp, +libx264, +libxml2, +libzmq,
+      +libzma, +sdl2]

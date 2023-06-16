@@ -373,10 +373,15 @@ spack:
         +openpmd, +osmesa, +pagosa, +python, +qt, +visitbridge]
     adios2:
       variants: [+hdf5, +python]
+    ffmpeg:
+      variants: [+X, +drawtext, +libaom, +libmp3lame, +libopenjpeg, +libopus, +libsnappy,
+        +libspeex, +libssh, +libvorbis, +libvpx, +libwebp, +libx264, +libxml2, +libzmq,
+        +libzma, +sdl2]
   view:
     baseenv:
       root: /glade/u/apps/casper/23.06/opt
       select:
+      - ffmpeg
       - pandoc
       - gnuplot
       - qt@5.14.2
@@ -534,6 +539,7 @@ spack:
         hash_length: 0
         exclude_implicits: true
         exclude:
+        - ffmpeg
         - pandoc
         - gnuplot
         - qt@5.14.2
@@ -946,3 +952,5 @@ spack:
   - visit@3.3.3%gcc@12.2.0 ^adios2%gcc@12.2.0 ^conduit%gcc@12.2.0 ^openblas%gcc@12.2.0
     ^openmpi@4.1.5%gcc@12.2.0
   - paraview@5.11.1%gcc@12.2.0 ^adios2%gcc@12.2.0 ^openblas%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - ffmpeg
+  - grib-util
