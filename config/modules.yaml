@@ -183,11 +183,8 @@ modules:
       netcdf:
         autoload: all
       parallel-netcdf:
-        filter:
-          exclude_env_vars: [NCAR_ROOT_PARALLEL_NETCDF]
         environment:
           set:
-            NCAR_ROOT_PNETCDF: '{prefix}'
             PNETCDF: '{prefix}'
       cuda:
         environment:
