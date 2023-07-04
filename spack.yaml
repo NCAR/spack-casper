@@ -27,20 +27,11 @@ spack:
     template_dirs:
     - /glade/work/csgteam/spack-deployments/casper/23.06/envs/build/templates/modules
   packages:
-    protobuf:
-      require: '%gcc@7.5.0'
-    pegtl:
-      require: '%gcc@7.5.0'
-    libtheora:
-      require: '%gcc@7.5.0'
-    libogg:
-      require: '%gcc@7.5.0'
-    jsoncpp:
-      require: '%gcc@7.5.0'
-    eigen:
-      require: '%gcc@7.5.0'
-    cli11:
-      require: '%gcc@7.5.0'
+    linaro-forge:
+      externals:
+      - spec: linaro-forge@23.0
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/linaro-forge/23.0
+      buildable: false
     gawk:
       externals:
       - spec: gawk@4.2.1
@@ -130,6 +121,20 @@ spack:
       - spec: openssl@1.1.1l
         prefix: /usr
       buildable: false
+    protobuf:
+      require: '%gcc@7.5.0'
+    pegtl:
+      require: '%gcc@7.5.0'
+    libtheora:
+      require: '%gcc@7.5.0'
+    libogg:
+      require: '%gcc@7.5.0'
+    jsoncpp:
+      require: '%gcc@7.5.0'
+    eigen:
+      require: '%gcc@7.5.0'
+    cli11:
+      require: '%gcc@7.5.0'
     fltk:
       require: '%gcc@7.5.0'
     glpk:
@@ -232,6 +237,8 @@ spack:
       buildable: false
     nvhpc:
       externals:
+      - spec: nvhpc@23.5
+        prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5
       - spec: nvhpc@23.3
         prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3
       - spec: nvhpc@23.1
@@ -322,7 +329,7 @@ spack:
     charliecloud:
       variants: [+squashfuse]
     parallelio:
-      variants: [+pnetcdf, ~logging]
+      variants: [+pnetcdf, ~logging, +ncint]
     esmf:
       variants: [~mpi, ~xerces, +external-lapack, +parallelio, ~pnetcdf]
     ncl:
@@ -509,6 +516,18 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.0.0/compiler/latest/linux/compiler/lib/intel64
+  - compiler:
+      spec: nvhpc@23.5
+      paths:
+        cc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/bin/nvc
+        cxx: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/bin/nvc++
+        f77: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/bin/nvfortran
+      operating_system: opensuse15
+      modules: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5/Linux_x86_64/23.5/compilers/lib
   modules:
     'default:':
       roots:
@@ -951,3 +970,23 @@ spack:
   - paraview@5.11.1%gcc@12.2.0 ^adios2%gcc@12.2.0 ^openblas%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - ffmpeg
   - grib-util
+  - linaro-forge@23.0
+  - nvhpc@23.5
+  - openmpi@4.1.5%nvhpc@23.5
+  - ncarcompilers@1.0.0%nvhpc@23.5
+  - fftw@3.3.10%nvhpc@23.5~mpi
+  - udunits@2.2.28%nvhpc@23.5
+  - hdf5@1.12.2%nvhpc@23.5~mpi
+  - netcdf@4.9.2%nvhpc@23.5~mpi
+  - proj@8.2.1%nvhpc@23.5
+  - geos@3.9.1%nvhpc@23.5
+  - hdf@4.2.15%nvhpc@23.5
+  - eccodes@2.25.0%nvhpc@23.5
+  - mpi-serial@2.3.0%nvhpc@23.5
+  - parallelio@2.5.10%nvhpc@23.5~mpi~pnetcdf
+  - esmf@8.4.2%nvhpc@23.5~mpi ^nvhpc@23.5 ^parallelio~mpi
+  - parallel-netcdf@1.12.3%nvhpc@23.5 ^openmpi@4.1.5%nvhpc@23.5
+  - hdf5@1.12.2%nvhpc@23.5+mpi ^openmpi@4.1.5%nvhpc@23.5
+  - netcdf@4.9.2%nvhpc@23.5+mpi ^openmpi@4.1.5%nvhpc@23.5
+  - fftw@3.3.10%nvhpc@23.5+mpi ^openmpi@4.1.5%nvhpc@23.5
+  - parallelio@2.6.0%oneapi@2023.0.0 ^openmpi@4.1.5%oneapi@2023.0.0

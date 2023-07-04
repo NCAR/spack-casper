@@ -1,18 +1,9 @@
 packages:
-  protobuf:
-    require: '%gcc@7.5.0'
-  pegtl:
-    require: '%gcc@7.5.0'
-  libtheora:
-    require: '%gcc@7.5.0'
-  libogg:
-    require: '%gcc@7.5.0'
-  jsoncpp:
-    require: '%gcc@7.5.0'
-  eigen:
-    require: '%gcc@7.5.0'
-  cli11:
-    require: '%gcc@7.5.0'
+  linaro-forge:
+    externals:
+    - spec: linaro-forge@23.0
+      prefix: /glade/u/apps/common/23.04/spack/opt/spack/linaro-forge/23.0
+    buildable: false
   gawk:
     externals:
     - spec: gawk@4.2.1
@@ -102,6 +93,20 @@ packages:
     - spec: openssl@1.1.1l
       prefix: /usr
     buildable: false
+  protobuf:
+    require: '%gcc@7.5.0'
+  pegtl:
+    require: '%gcc@7.5.0'
+  libtheora:
+    require: '%gcc@7.5.0'
+  libogg:
+    require: '%gcc@7.5.0'
+  jsoncpp:
+    require: '%gcc@7.5.0'
+  eigen:
+    require: '%gcc@7.5.0'
+  cli11:
+    require: '%gcc@7.5.0'
   fltk:
     require: '%gcc@7.5.0'
   glpk:
@@ -204,6 +209,8 @@ packages:
     buildable: false
   nvhpc:
     externals:
+    - spec: nvhpc@23.5
+      prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.5
     - spec: nvhpc@23.3
       prefix: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3
     - spec: nvhpc@23.1
@@ -294,7 +301,7 @@ packages:
   charliecloud:
     variants: [+squashfuse]
   parallelio:
-    variants: [+pnetcdf, ~logging]
+    variants: [+pnetcdf, ~logging, +ncint]
   esmf:
     variants: [~mpi, ~xerces, +external-lapack, +parallelio, ~pnetcdf]
   ncl:
