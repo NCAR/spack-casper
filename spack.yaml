@@ -388,6 +388,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.06/opt
       select:
+      - nghttp2
       - ffmpeg
       - pandoc
       - gnuplot
