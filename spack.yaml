@@ -388,11 +388,11 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.06/opt
       select:
+      - texlive
       - nghttp2
       - ffmpeg
       - pandoc
       - gnuplot
-      - qt@5.14.2
       - bbcp
       - parallel
       - imagemagick
@@ -404,6 +404,7 @@ spack:
       - tree
       - gdb
       - emacs
+      - qt@5.14.2
       - openjdk
       - meson
       - python
@@ -471,18 +472,6 @@ spack:
       environment:
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/nvhpc/23.3/Linux_x86_64/23.3/compilers/lib
-  - compiler:
-      spec: oneapi@2023.1.0
-      paths:
-        cc: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/bin/icx
-        cxx: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/bin/icpx
-        f77: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/bin/intel64/ifort
-        fc: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/bin/intel64/ifort
-      operating_system: opensuse15
-      modules: []
-      environment:
-        prepend_path:
-          LD_LIBRARY_PATH: /glade/u/apps/common/23.04/spack/opt/spack/intel-oneapi-compilers/2023.1.0/compiler/latest/linux/compiler/lib/intel64
   - compiler:
       spec: gcc@12.2.0
       paths:
@@ -559,8 +548,10 @@ spack:
         hash_length: 0
         exclude_implicits: true
         exclude:
+        - nghttp2
         - ffmpeg
         - pandoc
+        - texlive
         - gnuplot
         - qt@5.14.2
         - bbcp
@@ -813,4 +804,181 @@ spack:
     ncar_mirror_global: /glade/u/apps/casper/mirror
   repos:
   - /glade/work/csgteam/spack-deployments/casper/23.06/envs/build/repos/ncar.hpcd
-  specs: []
+  specs:
+  - nvhpc@21.3
+  - nvhpc@23.1
+  - nvhpc@23.5
+  - intel-oneapi-compilers@2023.0.0
+  - gcc@12.2.0
+  - automake
+  - autoconf@2.71
+  - libtool
+  - openssl
+  - curl
+  - unzip
+  - libszip
+  - bzip2
+  - xz
+  - libpng
+  - libjpeg-turbo
+  - libtiff
+  - libtirpc
+  - jasper
+  - ncurses
+  - readline
+  - sqlite
+  - texinfo
+  - bison
+  - ruby
+  - tcl
+  - flex@2.6.4
+  - squashfs
+  - squashfuse
+  - antlr
+  - zstd
+  - python
+  - meson
+  - openjdk
+  - tmux
+  - emacs
+  - gdb
+  - tree
+  - libtree
+  - slirp4netns
+  - git
+  - git-lfs
+  - nano
+  - imagemagick
+  - parallel
+  - bbcp
+  - qt@5.14.2
+  - gnuplot
+  - texlive
+  - pandoc
+  - ffmpeg
+  - nghttp2
+  - lmod
+  - cmake
+  - miniconda3
+  - arm-forge@22.1.3
+  - go
+  - apptainer
+  - perl
+  - pcre
+  - podman
+  - peak-memusage
+  - charliecloud ^libfuse@3.11
+  - cuda@11.7.1
+  - cudnn@8.5.0.96-11.7
+  - intel-oneapi-compilers-classic@2021.8.0
+  - ncl ^esmf@8.0.1~external-lapack ^hdf5~mpi
+  - ucx
+  - ncvis
+  - grads
+  - wgrib2
+  - grib-util
+  - linaro-forge@23.0
+  - openmpi@4.1.5%gcc@12.2.0
+  - intel-oneapi-mkl@2023.0.0%oneapi@2023.0.0
+  - openblas@0.3.21%gcc@12.2.0
+  - ncarcompilers@1.0.0%gcc@12.2.0
+  - ncarcompilers@1.0.0%nvhpc@21.3
+  - ncarcompilers@1.0.0%nvhpc@23.1
+  - ncarcompilers@1.0.0%nvhpc@23.5
+  - ncarcompilers@1.0.0%oneapi@2023.0.0
+  - fftw@3.3.10%gcc@12.2.0~mpi
+  - fftw@3.3.10%nvhpc@21.3~mpi
+  - fftw@3.3.10%nvhpc@23.1~mpi
+  - fftw@3.3.10%nvhpc@23.5~mpi
+  - fftw@3.3.10%oneapi@2023.0.0~mpi
+  - udunits@2.2.28%gcc@12.2.0
+  - udunits@2.2.28%nvhpc@21.3
+  - udunits@2.2.28%nvhpc@23.1
+  - udunits@2.2.28%nvhpc@23.5
+  - openmpi@4.1.5%nvhpc@21.3
+  - openmpi@4.1.5%nvhpc@23.1
+  - openmpi@4.1.5%nvhpc@23.5
+  - openmpi@4.1.5%oneapi@2023.0.0
+  - udunits@2.2.28%oneapi@2023.0.0
+  - hdf5@1.12.2%gcc@12.2.0~mpi
+  - hdf5@1.12.2%nvhpc@21.3~mpi
+  - hdf5@1.12.2%nvhpc@23.1~mpi
+  - hdf5@1.12.2%nvhpc@23.5~mpi
+  - hdf5@1.12.2%oneapi@2023.0.0~mpi
+  - netcdf@4.9.2%gcc@12.2.0~mpi
+  - netcdf@4.9.2%nvhpc@21.3~mpi
+  - netcdf@4.9.2%nvhpc@23.1~mpi
+  - netcdf@4.9.2%nvhpc@23.5~mpi
+  - netcdf@4.9.2%oneapi@2023.0.0~mpi
+  - proj@8.2.1%gcc@12.2.0
+  - proj@8.2.1%nvhpc@21.3
+  - proj@8.2.1%nvhpc@23.1
+  - proj@8.2.1%nvhpc@23.5
+  - proj@8.2.1%oneapi@2023.0.0
+  - geos@3.9.1%gcc@12.2.0
+  - geos@3.9.1%nvhpc@21.3
+  - geos@3.9.1%nvhpc@23.1
+  - geos@3.9.1%nvhpc@23.5
+  - geos@3.9.1%oneapi@2023.0.0
+  - hdf@4.2.15%gcc@12.2.0
+  - hdf@4.2.15%nvhpc@21.3
+  - hdf@4.2.15%nvhpc@23.1
+  - hdf@4.2.15%nvhpc@23.5
+  - hdf@4.2.15%oneapi@2023.0.0 cflags="-std=c90 -Wno-error=int-conversion"
+  - eccodes@2.25.0%gcc@12.2.0
+  - eccodes@2.25.0%nvhpc@21.3
+  - eccodes@2.25.0%nvhpc@23.1
+  - eccodes@2.25.0%nvhpc@23.5
+  - eccodes@2.25.0%oneapi@2023.0.0
+  - mpi-serial@2.3.0%gcc@12.2.0
+  - mpi-serial@2.3.0%nvhpc@21.3
+  - mpi-serial@2.3.0%nvhpc@23.1
+  - mpi-serial@2.3.0%nvhpc@23.5
+  - mpi-serial@2.3.0%oneapi@2023.0.0
+  - parallelio@2.5.10%gcc@12.2.0~mpi~pnetcdf
+  - parallelio@2.5.10%nvhpc@21.3~mpi~pnetcdf
+  - parallelio@2.5.10%nvhpc@23.1~mpi~pnetcdf
+  - parallelio@2.5.10%nvhpc@23.5~mpi~pnetcdf
+  - parallelio@2.5.10%oneapi@2023.0.0~mpi~pnetcdf
+  - esmf@8.4.2%gcc@12.2.0~mpi ^parallelio~mpi
+  - esmf@8.4.2%nvhpc@21.3~mpi ^nvhpc@21.3 ^parallelio~mpi
+  - esmf@8.4.2%nvhpc@23.1~mpi ^nvhpc@23.1 ^parallelio~mpi
+  - esmf@8.4.2%nvhpc@23.5~mpi ^nvhpc@23.5 ^parallelio~mpi
+  - esmf@8.4.2%oneapi@2023.0.0~mpi ^intel-oneapi-mkl ^parallelio~mpi
+  - gdal@3.6.4%gcc@12.2.0 ^hdf5~mpi
+  - parallel-netcdf@1.12.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - parallel-netcdf@1.12.3%nvhpc@21.3 ^openmpi@4.1.5%nvhpc@21.3
+  - parallel-netcdf@1.12.3%nvhpc@23.1 ^openmpi@4.1.5%nvhpc@23.1
+  - parallel-netcdf@1.12.3%nvhpc@23.5 ^openmpi@4.1.5%nvhpc@23.5
+  - parallel-netcdf@1.12.3%oneapi@2023.0.0 ^openmpi@4.1.5%oneapi@2023.0.0
+  - hdf5@1.12.2%gcc@12.2.0+mpi ^openmpi@4.1.5%gcc@12.2.0
+  - hdf5@1.12.2%nvhpc@21.3+mpi ^openmpi@4.1.5%nvhpc@21.3
+  - hdf5@1.12.2%nvhpc@23.1+mpi ^openmpi@4.1.5%nvhpc@23.1
+  - hdf5@1.12.2%nvhpc@23.5+mpi ^openmpi@4.1.5%nvhpc@23.5
+  - hdf5@1.12.2%oneapi@2023.0.0+mpi ^openmpi@4.1.5%oneapi@2023.0.0
+  - netcdf@4.9.2%gcc@12.2.0+mpi ^openmpi@4.1.5%gcc@12.2.0
+  - netcdf@4.9.2%nvhpc@21.3+mpi ^openmpi@4.1.5%nvhpc@21.3
+  - netcdf@4.9.2%nvhpc@23.1+mpi ^openmpi@4.1.5%nvhpc@23.1
+  - netcdf@4.9.2%nvhpc@23.5+mpi ^openmpi@4.1.5%nvhpc@23.5
+  - netcdf@4.9.2%oneapi@2023.0.0+mpi ^openmpi@4.1.5%oneapi@2023.0.0
+  - fftw@3.3.10%gcc@12.2.0+mpi ^openmpi@4.1.5%gcc@12.2.0
+  - fftw@3.3.10%nvhpc@21.3+mpi ^openmpi@4.1.5%nvhpc@21.3
+  - fftw@3.3.10%nvhpc@23.1+mpi ^openmpi@4.1.5%nvhpc@23.1
+  - fftw@3.3.10%nvhpc@23.5+mpi ^openmpi@4.1.5%nvhpc@23.5
+  - fftw@3.3.10%oneapi@2023.0.0+mpi ^openmpi@4.1.5%oneapi@2023.0.0
+  - parallelio@2.6.0%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - parallelio@2.6.0%nvhpc@21.3 ^openmpi@4.1.5%nvhpc@21.3
+  - parallelio@2.6.0%nvhpc@23.1 ^openmpi@4.1.5%nvhpc@23.1
+  - parallelio@2.6.0%oneapi@2023.0.0 ^openmpi@4.1.5%oneapi@2023.0.0
+  - esmf@8.4.2%gcc@12.2.0+mpi+pnetcdf ^openmpi@4.1.5%gcc@12.2.0
+  - esmf@8.4.2%nvhpc@21.3+mpi+pnetcdf ^nvhpc@21.3 ^openmpi@4.1.5%nvhpc@21.3
+  - esmf@8.4.2%nvhpc@23.1+mpi+pnetcdf ^nvhpc@23.1 ^openmpi@4.1.5%nvhpc@23.1
+  - esmf@8.4.2%oneapi@2023.0.0+mpi+pnetcdf ^intel-oneapi-mkl ^openmpi@4.1.5%oneapi@2023.0.0
+  - nco@5.1.4%gcc@12.2.0
+  - cdo@2.1.1%gcc@12.2.0
+  - ncview@2.1.8%gcc@12.2.0
+  - nccmp@1.9.0.1%gcc@12.2.0
+  - octave@8.1.0%gcc@12.2.0
+  - paraview@5.11.1%gcc@12.2.0 ^adios2%gcc@12.2.0 ^openblas%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - visit@3.3.3%gcc@12.2.0 ^adios2%gcc@12.2.0 ^conduit%gcc@12.2.0 ^openblas%gcc@12.2.0
+    ^openmpi@4.1.5%gcc@12.2.0

@@ -26,8 +26,10 @@ modules:
       hash_length: 0
       exclude_implicits: true
       exclude:
+      - nghttp2
       - ffmpeg
       - pandoc
+      - texlive
       - gnuplot
       - qt@5.14.2
       - bbcp
