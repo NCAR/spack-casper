@@ -776,7 +776,7 @@ spack:
           netcdf: netcdf/{version}
           intel-oneapi-compilers: intel-oneapi/{version}
           intel-oneapi-compilers-classic: intel-classic/{^intel-oneapi-compilers.version}
-          intel-oneapi-mpi: impi/{version}
+          intel-oneapi-mpi: intel-mpi/{version}
           intel-oneapi-mkl: mkl/{version}
           miniconda3: conda/latest
         core_compilers:
@@ -979,6 +979,3 @@ spack:
   - ncview@2.1.8%gcc@12.2.0
   - nccmp@1.9.0.1%gcc@12.2.0
   - octave@8.1.0%gcc@12.2.0
-  - paraview@5.11.1%gcc@12.2.0 ^adios2%gcc@12.2.0 ^openblas%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
-  - visit@3.3.3%gcc@12.2.0 ^adios2%gcc@12.2.0 ^conduit%gcc@12.2.0 ^openblas%gcc@12.2.0
-    ^openmpi@4.1.5%gcc@12.2.0
