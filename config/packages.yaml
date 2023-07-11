@@ -121,6 +121,7 @@ packages:
     require: '%gcc@7.5.0'
   libfabric:
     require: '%gcc@7.5.0'
+    variants: ['fabrics=mrail,shm,sockets,tcp,udp,verbs']
   libtool:
     require: '%gcc@7.5.0'
   autoconf:
@@ -269,7 +270,7 @@ packages:
   ucx:
     require: '%gcc@7.5.0'
     variants: [+cm, +cma, +cuda, +dc, +dm, +gdrcopy, +ib_hw_tm, +knem, +mlx5_dv,
-      +rc, +rdmacm, +thread_multiple, +ud, +verbs, +vfs, +xpmem]
+      +rc, +rdmacm, +thread_multiple, +ud, +verbs, +vfs]
   zstd:
     require: '%gcc@7.5.0'
     variants: [+programs]
@@ -312,7 +313,7 @@ packages:
     variants: [+gold, +ld, +lto, +tui, ~python, ~debuginfod]
   curl:
     require: '%gcc@7.5.0'
-    variants: [+libidn2, +nghttp2]
+    variants: [+libidn2, +nghttp2, tls=openssl]
   gdal:
     variants: [+blosc, +curl, +deflate, +expat, +geos, +gif, +grass, +grib, +hdf5,
       +iconv, +jasper, +jpeg, +libcsf, +liblzma, +lz4, +netcdf, +pcidsk, +png, +qhull,
