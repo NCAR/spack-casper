@@ -552,7 +552,7 @@ packages:
     require:
     - '%gcc@7.5.0'
   openmpi:
-    require: fabrics=cma,knem,ucx schedulers=tm +gpfs +lustre
+    require: fabrics=cma,knem,ucx schedulers=tm +gpfs +lustre +internal-pmix
     variants:
     - +cuda
   openpbs:
