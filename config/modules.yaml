@@ -90,7 +90,6 @@ modules:
       - nghttp2
       - ffmpeg
       - pandoc
-      - texlive
       - gnuplot
       - qt@5.14.2
       - bbcp
@@ -239,6 +238,10 @@ modules:
             NCAR_SPACK_HASH_VTUNE: '{hash}'
           append_path:
             LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
+      julia:
+        environment:
+          append_path:
+            PATH: '{^llvm.prefix}/bin'
       miniconda3:
         filter:
           exclude_env_vars:

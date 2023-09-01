@@ -524,6 +524,9 @@ packages:
     - spec: nvhpc@23.7
       prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/23.7
     buildable: false
+  ocl-icd:
+    variants:
+    - +headers
   octave:
     variants:
     - +arpack
@@ -613,6 +616,9 @@ packages:
     require: '%gcc@7.5.0'
   pmix:
     require: '%gcc@7.5.0'
+  pocl:
+    variants:
+    - +icd
   protobuf:
     require: '%gcc@7.5.0'
   py-setuptools:
@@ -670,6 +676,10 @@ packages:
   util-linux-uuid:
     require: '%gcc@7.5.0'
   visit:
+    variants:
+    - +hdf5
+    - +mpi
+    - +netcdf
     require:
     - any_of:
       - '^adios2@2.9: %gcc@11:'

@@ -551,6 +551,9 @@ spack:
       - spec: nvhpc@23.7
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/23.7
       buildable: false
+    ocl-icd:
+      variants:
+      - +headers
     octave:
       variants:
       - +arpack
@@ -640,6 +643,9 @@ spack:
       require: '%gcc@7.5.0'
     pmix:
       require: '%gcc@7.5.0'
+    pocl:
+      variants:
+      - +icd
     protobuf:
       require: '%gcc@7.5.0'
     py-setuptools:
@@ -697,6 +703,10 @@ spack:
     util-linux-uuid:
       require: '%gcc@7.5.0'
     visit:
+      variants:
+      - +hdf5
+      - +mpi
+      - +netcdf
       require:
       - any_of:
         - '^adios2@2.9: %gcc@11:'
@@ -747,7 +757,6 @@ spack:
       - nghttp2
       - ffmpeg
       - pandoc
-      - texlive
       - gnuplot
       - qt@5.14.2
       - bbcp
@@ -935,7 +944,6 @@ spack:
         - nghttp2
         - ffmpeg
         - pandoc
-        - texlive
         - gnuplot
         - qt@5.14.2
         - bbcp
@@ -1084,6 +1092,10 @@ spack:
               NCAR_SPACK_HASH_VTUNE: '{hash}'
             append_path:
               LD_LIBRARY_PATH: '{prefix}/vtune/latest/lib64'
+        julia:
+          environment:
+            append_path:
+              PATH: '{^llvm.prefix}/bin'
         miniconda3:
           filter:
             exclude_env_vars:
@@ -1188,6 +1200,22 @@ spack:
             - GOPATH
   concretizer:
     unify: false
+  bootstrap:
+    enable: true
+    root: /glade/work/csgteam/spack-deployments/bootstrap/23.09
+    sources:
+    - name: github-actions-v0.4
+      metadata: $spack/share/spack/bootstrap/github-actions-v0.4
+    - name: github-actions-v0.3
+      metadata: $spack/share/spack/bootstrap/github-actions-v0.3
+    - name: spack-install
+      metadata: $spack/share/spack/bootstrap/spack-install
+    trusted:
+    # By default we trust bootstrapping from sources and from binaries
+    # produced on Github via the workflow
+      github-actions-v0.4: true
+      github-actions-v0.3: true
+      spack-install: true
   mirrors:
     ncar_mirror_global: /glade/u/apps/casper/mirror
     ncar_mirror_local: /glade/u/apps/casper/mirror
@@ -1336,3 +1364,4 @@ spack:
   - adios2@2.9.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - adios2@2.9.1%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
   - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - pocl@3.0
