@@ -314,6 +314,11 @@ packages:
     - ~python
   giflib:
     require: '%gcc@7.5.0'
+  gimp:
+    # Turning docs on adds the dependency to itstool, which breaks a lot of reuse
+    # because of libxml2+python requirement
+    variants:
+    - ~doc
   git:
     variants:
     - +svn

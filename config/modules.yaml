@@ -37,8 +37,8 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
-      - visit
       - paraview
+      - visit
       - octave
       - nccmp
       - ncview
@@ -87,6 +87,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - openblas
       - nghttp2
       - ffmpeg
       - pandoc
