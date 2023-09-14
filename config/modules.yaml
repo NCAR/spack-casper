@@ -37,9 +37,9 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - octave
       - paraview
       - visit
-      - octave
       - nccmp
       - ncview
       - cdo
@@ -87,6 +87,8 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - openssl
+      - qhull
       - openblas
       - nghttp2
       - ffmpeg
@@ -130,7 +132,6 @@ modules:
       - libszip
       - unzip
       - curl
-      - openssl
       - libtool
       - autoconf@2.71
       - automake

@@ -362,6 +362,9 @@ spack:
       variants:
       - +papi
       - +pmpi
+    grads:
+      variants:
+      - +dap
     groff:
       require:
       - '%gcc@7.5.0'
@@ -915,9 +918,9 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - octave
         - paraview
         - visit
-        - octave
         - nccmp
         - ncview
         - cdo
@@ -965,6 +968,8 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - openssl
+        - qhull
         - openblas
         - nghttp2
         - ffmpeg
@@ -1008,7 +1013,6 @@ spack:
         - libszip
         - unzip
         - curl
-        - openssl
         - libtool
         - autoconf@2.71
         - automake
@@ -1312,7 +1316,6 @@ spack:
   - intel-oneapi-compilers-classic@2021.10.0
   - ucx
   - ncvis
-  - grads
   - wgrib2
   - grib-util
   - linaro-forge@23.0
@@ -1357,12 +1360,10 @@ spack:
   - esmf@8.5.0%gcc@12.2.0~mpi
   - esmf@8.5.0%nvhpc@23.7~mpi ^nvhpc@23.7
   - esmf@8.5.0%oneapi@2023.2.1~mpi
-  - gdal@3.7.1%gcc@12.2.0
   - nco@5.1.6%gcc@12.2.0
   - cdo@2.2.2%gcc@12.2.0
   - ncview@2.1.9%gcc@12.2.0
   - nccmp@1.9.1.0%gcc@12.2.0
-  - octave@8.2.0%gcc@12.2.0
   - openmpi@4.1.5%gcc@12.2.0
   - openmpi@4.1.5%nvhpc@23.7
   - openmpi@4.1.5%oneapi@2023.2.1
@@ -1392,3 +1393,4 @@ spack:
   - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - openblas
   - ncl
+  - qhull

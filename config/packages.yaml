@@ -335,6 +335,9 @@ packages:
     variants:
     - +papi
     - +pmpi
+  grads:
+    variants:
+    - +dap
   groff:
     require:
     - '%gcc@7.5.0'
