@@ -1394,3 +1394,6 @@ spack:
   - openblas
   - ncl
   - qhull
+  - gdal@3.7.1%gcc@12.2.0
+  - octave@8.2.0%gcc@12.2.0
+  - grads
