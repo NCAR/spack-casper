@@ -5,7 +5,10 @@ export MODULEPATH_ROOT=/glade/u/apps/casper/modules
 # Lmod configuration
 export LMOD_SYSTEM_NAME=casper
 export LMOD_SYSTEM_DEFAULT_MODULES="ncarenv/23.09:intel/2023.2.1:ncarcompilers/1.0.0:openmpi/4.1.5:netcdf/4.9.2"
-export MODULEPATH=/glade/u/apps/casper/modules/environment
+
+if [ "$MODULEPATH" != *"${MODULEPATH_ROOT}"* ]; then
+    export MODULEPATH=$MODULEPATH_ROOT/environment
+fi
 
 # Location of Lmod initialization scripts
 export LMOD_ROOT=/glade/u/apps/casper/23.09/spack/opt/spack/lmod/8.7.24/gcc/7.5.0/m4jx
