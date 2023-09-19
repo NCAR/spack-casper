@@ -918,9 +918,9 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - visit
         - octave
         - paraview
-        - visit
         - nccmp
         - ncview
         - cdo
@@ -1390,10 +1390,10 @@ spack:
   - adios2@2.9.1%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
   - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - pocl@3.0
-  - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - openblas
   - ncl
   - qhull
   - gdal@3.7.1%gcc@12.2.0
   - octave@8.2.0%gcc@12.2.0
   - grads
+  - xxdiff

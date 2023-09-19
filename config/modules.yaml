@@ -37,9 +37,9 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - visit
       - octave
       - paraview
-      - visit
       - nccmp
       - ncview
       - cdo
