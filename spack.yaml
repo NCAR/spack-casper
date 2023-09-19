@@ -1397,3 +1397,4 @@ spack:
   - octave@8.2.0%gcc@12.2.0
   - grads
   - xxdiff
+  - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
