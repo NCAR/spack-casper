@@ -244,6 +244,19 @@ modules:
         environment:
           append_path:
             PATH: '{^llvm.prefix}/bin'
+      llvm+clang:
+        filter:
+          exclude_env_vars:
+          - NCAR_INC_LLVM
+          - NCAR_LDFLAGS_LLVM
+          - NCAR_ROOT_LLVM
+          - NCAR_SPACK_HASH_LLVM
+        environment:
+          set:
+            NCAR_INC_CLANG: '{prefix}/include'
+            NCAR_LDFLAGS_CLANG: '{prefix}/lib'
+            NCAR_ROOT_CLANG: '{prefix}'
+            NCAR_SPACK_HASH_CLANG: '{hash}'
       miniconda3:
         filter:
           exclude_env_vars:
@@ -341,6 +354,7 @@ modules:
         intel-oneapi-vtune: vtune/{version}
         miniconda3: conda/latest
         parallelio1: parallelio/{version}
+        llvm+clang: clang/{version}
       singularityce:
         environment:
           prepend_path:

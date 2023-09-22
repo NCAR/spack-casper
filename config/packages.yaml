@@ -141,6 +141,12 @@ packages:
     require: '%gcc@7.5.0'
   automake:
     require: '%gcc@7.5.0'
+  binutils:
+    variants:
+    - +libiberty
+    - +ld
+    - +gas
+    - +gold
   bison:
     require: '%gcc@7.5.0'
   bzip2:

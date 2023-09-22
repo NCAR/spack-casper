@@ -168,6 +168,12 @@ spack:
       require: '%gcc@7.5.0'
     automake:
       require: '%gcc@7.5.0'
+    binutils:
+      variants:
+      - +libiberty
+      - +ld
+      - +gas
+      - +gold
     bison:
       require: '%gcc@7.5.0'
     bzip2:
@@ -1125,6 +1131,19 @@ spack:
           environment:
             append_path:
               PATH: '{^llvm.prefix}/bin'
+        llvm+clang:
+          filter:
+            exclude_env_vars:
+            - NCAR_INC_LLVM
+            - NCAR_LDFLAGS_LLVM
+            - NCAR_ROOT_LLVM
+            - NCAR_SPACK_HASH_LLVM
+          environment:
+            set:
+              NCAR_INC_CLANG: '{prefix}/include'
+              NCAR_LDFLAGS_CLANG: '{prefix}/lib'
+              NCAR_ROOT_CLANG: '{prefix}'
+              NCAR_SPACK_HASH_CLANG: '{hash}'
         miniconda3:
           filter:
             exclude_env_vars:
@@ -1222,6 +1241,7 @@ spack:
           intel-oneapi-vtune: vtune/{version}
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
+          llvm+clang: clang/{version}
         singularityce:
           environment:
             prepend_path:
@@ -1400,3 +1420,6 @@ spack:
   - grads
   - xxdiff
   - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
+  - vexcl@1.4.3 ^boost@1.81.0
+  - llvm@16.0.6+clang+mlir+z3+zstd
+  - intel-oneapi-vtune@2023.2.0
