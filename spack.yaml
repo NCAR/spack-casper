@@ -883,6 +883,24 @@ spack:
       operating_system: opensuse15
       modules: []
       environment: {}
+  - compiler:
+      spec: clang@16.0.6
+      paths:
+        cc: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/16.0.6/gcc/7.5.0/zlkv/bin/clang
+        cxx: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/16.0.6/gcc/7.5.0/zlkv/bin/clang
+        f77: None
+        fc: None
+      operating_system: opensuse15
+      modules: []
+  - compiler:
+      spec: clang@14.0.6
+      paths:
+        cc: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/14.0.6/gcc/7.5.0/zwd4/bin/clang
+        cxx: /glade/u/apps/casper/23.09/spack/opt/spack//llvm/14.0.6/gcc/7.5.0/zwd4/bin/clang
+        f77: None
+        fc: None
+      operating_system: opensuse15
+      modules: []
   modules:
     'default:':
       roots:
@@ -1423,3 +1441,4 @@ spack:
   - vexcl@1.4.3 ^boost@1.81.0
   - llvm@16.0.6+clang+mlir+z3+zstd
   - intel-oneapi-vtune@2023.2.0
+  - vapor@3.9.0
