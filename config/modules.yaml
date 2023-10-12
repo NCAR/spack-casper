@@ -244,6 +244,8 @@ modules:
         environment:
           append_path:
             PATH: '{^llvm.prefix}/bin'
+          set:
+            VGL_GLLIB: /usr/lib64/libGL.so.1
       llvm+clang:
         filter:
           exclude_env_vars:
