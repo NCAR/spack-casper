@@ -1246,6 +1246,8 @@ spack:
               NCAR_ROOT_PARALLELIO: '{prefix}'
               NCAR_SPACK_HASH_PARALLELIO: '{hash}'
               PIO: '{prefix}'
+        paraview:
+          autoload: none
         visit:
           autoload: none
         projections:
@@ -1273,7 +1275,7 @@ spack:
     unify: false
   bootstrap:
     enable: true
-    root: /glade/work/csgteam/spack-deployments/bootstrap/23.09
+    root: /glade/u/apps/casper/23.09/opt/view
     sources:
     - name: github-actions-v0.4
       metadata: $spack/share/spack/bootstrap/github-actions-v0.4
@@ -1451,3 +1453,4 @@ spack:
   - parallelio@2.6.2%nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
   - parallelio@2.6.2%oneapi@2023.2.1 ^openmpi@4.1.5%oneapi@2023.2.1
   - esmf@8.5.0%nvhpc@23.7+mpi+pnetcdf ^nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
+  - eigen@3.4.0
