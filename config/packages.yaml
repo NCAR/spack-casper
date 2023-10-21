@@ -184,6 +184,8 @@ packages:
     externals:
     - spec: cuda@11.8.0
       prefix: /glade/u/apps/common/23.08/spack/opt/spack/cuda/11.8.0
+    - spec: cuda@12.2.1
+      prefix: /glade/u/apps/common/23.08/spack/opt/spack/cuda/12.2.1
     buildable: false
   cudnn:
     require: '%gcc@7.5.0'
@@ -756,3 +758,20 @@ packages:
   mesa-glu:
     require:
     - '%gcc@7.5.0'
+  rstudio:
+    externals:
+    - spec: rstudio@2023.09.0
+      prefix: /glade/u/apps/opt/rstudio/2023.09.0
+    buildable: false
+    require:
+    - '%gcc@7.5.0'
+  ospray:
+    externals:
+    - spec: ospray@2.12.0
+      prefix: /glade/u/apps/opt/ospray/2.12.0
+    buildable: false
+    require:
+    - '%gcc@7.5.0'
+  vapor:
+    variants:
+    - +ospray
