@@ -36,6 +36,8 @@ compilers:
     environment:
       prepend_path:
         LD_LIBRARY_PATH: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2023.2.1/compiler/latest/linux/compiler/lib/intel64
+      set:
+        NVCCFLAGS: -allow-unsupported-compiler
 - compiler:
     spec: gcc@12.2.0
     paths:
@@ -45,7 +47,9 @@ compilers:
       fc: /glade/u/apps/casper/23.09/spack/opt/spack//gcc/12.2.0/vfou/bin/gfortran
     operating_system: opensuse15
     modules: []
-    environment: {}
+    environment:
+      set:
+        NVCCFLAGS: -allow-unsupported-compiler
 - compiler:
     spec: clang@16.0.6
     paths:
