@@ -1490,5 +1490,4 @@ spack:
   - matlab@R2023a
   - idl@8.9.0
   - rstudio@2023.09.0
-  - osu-micro-benchmarks%gcc@12.2.0 ^openmpi@4.1.5%gcc@12.2.0
   - osu-micro-benchmarks%nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
