@@ -366,3 +366,10 @@ modules:
         filter:
           exclude_env_vars:
           - GOPATH
+      rstudio:
+        filter:
+          exclude_env_vars:
+          - CMAKE_PREFIX_PATH
+        environment:
+          prepend_path:
+            PATH: '{prefix}'

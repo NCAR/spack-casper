@@ -1290,6 +1290,13 @@ spack:
           filter:
             exclude_env_vars:
             - GOPATH
+        rstudio:
+          filter:
+            exclude_env_vars:
+            - CMAKE_PREFIX_PATH
+          environment:
+            prepend_path:
+              PATH: '{prefix}'
   concretizer:
     unify: false
   bootstrap:
@@ -1473,3 +1480,6 @@ spack:
   - esmf@8.5.0%nvhpc@23.7+mpi+pnetcdf ^nvhpc@23.7 ^openmpi@4.1.5%nvhpc@23.7
   - eigen@3.4.0
   - vapor@3.9.0
+  - matlab@R2023a
+  - idl@8.9.0
+  - rstudio@2023.09.0
