@@ -586,9 +586,6 @@ packages:
   openssh:
     require:
     - '%gcc@7.5.0'
-  osu-micro-benchmarks:
-    variants:
-    - +cuda
   pango:
     variants:
     - +X
