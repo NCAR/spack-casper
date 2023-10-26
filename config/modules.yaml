@@ -38,8 +38,8 @@ modules:
       - gcc@7.5.0
       core_specs:
       - visit
-      - octave
       - paraview
+      - octave
       - nccmp
       - ncview
       - cdo
@@ -87,6 +87,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - git-lfs
       - openssl
       - qhull
       - openblas
@@ -99,7 +100,6 @@ modules:
       - parallel
       - imagemagick
       - nano
-      - git-lfs
       - git
       - slirp4netns
       - libtree
