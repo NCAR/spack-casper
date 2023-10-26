@@ -4,7 +4,7 @@ setenv MODULEPATH_ROOT /glade/u/apps/casper/modules
 
 # Lmod configuration
 setenv LMOD_SYSTEM_NAME casper
-setenv LMOD_SYSTEM_DEFAULT_MODULES "ncarenv/23.09:intel/2023.2.1:ncarcompilers/1.0.0:openmpi/4.1.5:netcdf/4.9.2"
+setenv LMOD_SYSTEM_DEFAULT_MODULES "ncarenv/23.09:intel/2023.2.1:ncarcompilers/1.0.0:openmpi/4.1.6:netcdf/4.9.2"
 
 if ( ! $?MODULEPATH ) then
     setenv MODULEPATH $MODULEPATH_ROOT/environment
