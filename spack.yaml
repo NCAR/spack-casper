@@ -691,6 +691,9 @@ spack:
     pocl:
       variants:
       - +icd
+    postgresql:
+      variants:
+      - +xml
     protobuf:
       require: '%gcc@7.5.0'
     py-setuptools:
@@ -814,6 +817,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - postgresql
       - xxdiff
       - nghttp2
       - ffmpeg
@@ -1023,6 +1027,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - postgresql
         - qhull
         - openblas
         - xxdiff
@@ -1496,3 +1501,4 @@ spack:
   - octave@8.2.0%gcc@12.2.0
   - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - postgresql

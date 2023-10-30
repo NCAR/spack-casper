@@ -664,6 +664,9 @@ packages:
   pocl:
     variants:
     - +icd
+  postgresql:
+    variants:
+    - +xml
   protobuf:
     require: '%gcc@7.5.0'
   py-setuptools:
