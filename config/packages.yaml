@@ -517,6 +517,9 @@ packages:
     - +gpfs
     - +lustre
     - +xattr
+  mysql:
+    variants:
+    - cxxstd=11
   ncl:
     # Newer ESMF versions cause issues for NCL
     # TODO - bake this into recipe?

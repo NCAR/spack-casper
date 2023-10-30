@@ -88,9 +88,10 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - mysql@8.0.15
       - postgresql
       - qhull
-      - openblas
+      - openblas %gcc@7.5.0
       - xxdiff
       - nghttp2
       - ffmpeg

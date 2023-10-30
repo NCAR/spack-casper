@@ -544,6 +544,9 @@ spack:
       - +gpfs
       - +lustre
       - +xattr
+    mysql:
+      variants:
+      - cxxstd=11
     ncl:
       # Newer ESMF versions cause issues for NCL
       # TODO - bake this into recipe?
@@ -817,6 +820,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - mysql@8.0.15
       - postgresql
       - xxdiff
       - nghttp2
@@ -1027,9 +1031,10 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - mysql@8.0.15
         - postgresql
         - qhull
-        - openblas
+        - openblas %gcc@7.5.0
         - xxdiff
         - nghttp2
         - ffmpeg
@@ -1502,3 +1507,4 @@ spack:
   - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - postgresql
+  - mysql@8.0.15
