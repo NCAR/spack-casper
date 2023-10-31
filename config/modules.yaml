@@ -142,6 +142,7 @@ modules:
       - autoconf@2.71
       - flex@2.6.4
       - lmod
+      - perl
       exclude_implicits: true
       fftw+mpi:
         template: conflict-mpi.lua
