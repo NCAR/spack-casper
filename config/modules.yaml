@@ -88,6 +88,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - mysql@8.0.19
       - mariadb
       - openssl
       - mysql@8.0.15
