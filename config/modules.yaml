@@ -88,6 +88,8 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - mariadb
+      - openssl
       - mysql@8.0.15
       - postgresql
       - qhull
@@ -134,7 +136,6 @@ modules:
       - libszip
       - unzip
       - curl
-      - openssl
       - libtool
       - automake
       - autoconf@2.71

@@ -820,6 +820,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - mariadb
       - mysql@8.0.15
       - postgresql
       - xxdiff
@@ -1031,6 +1032,8 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - mariadb
+        - openssl
         - mysql@8.0.15
         - postgresql
         - qhull
@@ -1077,7 +1080,6 @@ spack:
         - libszip
         - unzip
         - curl
-        - openssl
         - libtool
         - automake
         - autoconf@2.71
@@ -1507,4 +1509,4 @@ spack:
   - paraview@5.11.1%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - postgresql
-  - mysql@8.0.15
+  - mariadb
