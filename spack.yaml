@@ -1540,3 +1540,4 @@ spack:
   - mysql@8.0.19
   - vim
   - ed
+  - emacs
