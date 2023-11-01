@@ -255,6 +255,11 @@ spack:
       - jp2k=jasper
     eigen:
       require: '%gcc@7.5.0'
+    emacs:
+      require:
+      - any_of:
+        - ^gtkplus+cups
+        when: +X
     esmf:
       # If external-lapack not forced, concretizer will try to be lazy and
       # avoid lapack requirements by switching to internal despite variant
@@ -760,6 +765,21 @@ spack:
     vapor:
       variants:
       - +ospray
+    vim:
+      variants:
+      - +cscope
+      - +x
+      - +gui
+      - +gtk
+      - +lua
+      - +perl
+      - +python
+      - +ruby
+      - features=huge
+      require:
+      - any_of:
+        - ^gtkplus+cups
+        when: +gtk
     visit:
       variants:
       - +hdf5
@@ -817,6 +837,8 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - ed
+      - vim
       - mysql@8.0.19
       - mariadb
       - mysql@8.0.15
@@ -1031,6 +1053,8 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - ed
+        - vim
         - mysql@8.0.19
         - mariadb
         - openssl
@@ -1511,3 +1535,5 @@ spack:
   - visit@3.3.3%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - postgresql
   - mysql@8.0.19
+  - vim
+  - ed

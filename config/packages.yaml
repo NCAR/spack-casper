@@ -228,6 +228,11 @@ packages:
     - jp2k=jasper
   eigen:
     require: '%gcc@7.5.0'
+  emacs:
+    require:
+    - any_of:
+      - ^gtkplus+cups
+      when: +X
   esmf:
     # If external-lapack not forced, concretizer will try to be lazy and
     # avoid lapack requirements by switching to internal despite variant
@@ -733,6 +738,21 @@ packages:
   vapor:
     variants:
     - +ospray
+  vim:
+    variants:
+    - +cscope
+    - +x
+    - +gui
+    - +gtk
+    - +lua
+    - +perl
+    - +python
+    - +ruby
+    - features=huge
+    require:
+    - any_of:
+      - ^gtkplus+cups
+      when: +gtk
   visit:
     variants:
     - +hdf5
