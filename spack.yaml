@@ -841,6 +841,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - ncftp
       - ed
       - vim
       - mysql@8.0.19
@@ -1057,6 +1058,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - ncftp
         - emacs
         - ed
         - vim
@@ -1541,3 +1543,4 @@ spack:
   - vim
   - ed
   - emacs
+  - ncftp
