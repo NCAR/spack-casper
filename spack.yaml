@@ -256,6 +256,10 @@ spack:
     eigen:
       require: '%gcc@7.5.0'
     emacs:
+      variants:
+      - +X
+      - +json
+      - +treesitter
       require:
       - any_of:
         - ^gtkplus+cups
@@ -1053,6 +1057,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - emacs
         - ed
         - vim
         - mysql@8.0.19
@@ -1078,7 +1083,6 @@ spack:
         - libtree
         - tree
         - gdb
-        - emacs
         - tmux
         - openjdk
         - meson
@@ -1402,7 +1406,6 @@ spack:
   - meson
   - openjdk
   - tmux
-  - emacs
   - gdb
   - tree
   - libtree

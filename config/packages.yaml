@@ -229,6 +229,10 @@ packages:
   eigen:
     require: '%gcc@7.5.0'
   emacs:
+    variants:
+    - +X
+    - +json
+    - +treesitter
     require:
     - any_of:
       - ^gtkplus+cups

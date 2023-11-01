@@ -88,6 +88,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - emacs
       - ed
       - vim
       - mysql@8.0.19
@@ -113,7 +114,6 @@ modules:
       - libtree
       - tree
       - gdb
-      - emacs
       - tmux
       - openjdk
       - meson
