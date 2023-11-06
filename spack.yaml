@@ -841,6 +841,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - ncompress
       - ncftp
       - ed
       - vim
@@ -1058,6 +1059,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - ncompress
         - ncftp
         - emacs
         - ed
@@ -1544,3 +1546,4 @@ spack:
   - ed
   - emacs
   - ncftp
+  - ncompress
