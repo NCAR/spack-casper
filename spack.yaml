@@ -1554,3 +1554,4 @@ spack:
   - emacs
   - ncftp
   - ncompress
+  - ncl
