@@ -382,6 +382,11 @@ packages:
     - +hl
     - +szip
     - ~mpi
+  hdf-eos5:
+    require:
+    - any_of:
+      - ^hdf5@1.10
+      when: '%gcc@7.5.0'
   hwloc:
     require: '%gcc@7.5.0'
     variants:
@@ -530,12 +535,15 @@ packages:
     # Newer ESMF versions cause issues for NCL
     # TODO - bake this into recipe?
     require:
-    - ^esmf@:8.0.1 ~external-lapack
-    - ^hdf5~mpi
+    - '%gcc@7.5.0'
     variants:
     - +gdal
     - +grib
     - +hdf4
+    externals:
+    - spec: ncl@6.6.2
+      prefix: /glade/u/apps/opt/ncl/6.6.2
+    buildable: false
   netcdf:
     variants:
     - +dap
