@@ -553,6 +553,9 @@ spack:
       - spec: miniconda3@4.12.0
         prefix: /glade/u/apps/opt/conda
       buildable: false
+    motif:
+      require:
+      - ^autoconf@2.69
     mpifileutils:
       variants:
       - +gpfs
@@ -849,6 +852,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - xnedit
       - ncompress
       - ncftp
       - ed
@@ -1067,6 +1071,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - xnedit
         - ncompress
         - ncftp
         - emacs
@@ -1555,3 +1560,4 @@ spack:
   - ncftp
   - ncompress
   - ncl
+  - xnedit

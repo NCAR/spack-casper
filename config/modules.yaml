@@ -88,6 +88,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - xnedit
       - ncompress
       - ncftp
       - emacs
