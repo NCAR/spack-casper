@@ -1286,6 +1286,14 @@ spack:
             set:
               NCAR_EXCLUDE_ASNEEDED: '1'
           template: ncar_wrapper.lua
+        cdo:
+          autoload: none
+        nco:
+          autoload: none
+        ncview:
+          autoload: none
+        nccmp:
+          autoload: none
         netcdf:
           autoload: all
         netcdf+mpi:
