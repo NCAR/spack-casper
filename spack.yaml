@@ -1559,5 +1559,5 @@ spack:
   - emacs
   - ncftp
   - ncompress
-  - ncl
   - xnedit
+  - ncl
