@@ -159,6 +159,7 @@ modules:
             NCAR_BUILD_ENV: casper-{name}-{version}
             NCAR_BUILD_ENV_COMPILER: casper-{name}-{version}
             NCAR_ID_COMPILER: '{name}-{version}'
+            NCAR_ROOT_COMPILER: '{prefix}'
       hash_length: 0
       hdf5+mpi:
         template: conflict-mpi.lua
@@ -186,6 +187,7 @@ modules:
             NCAR_BUILD_ENV_COMPILER: casper-oneapi-{version}
             NCAR_ID_COMPILER: oneapi-{version}
             NCAR_ROOT_ONEAPI: '{prefix}'
+            NCAR_ROOT_COMPILER: '{prefix}'
             NCAR_SPACK_HASH_ONEAPI: '{hash}'
             OMPI_CC: icx
             OMPI_CXX: icpx
@@ -213,6 +215,7 @@ modules:
             NCAR_BUILD_ENV_COMPILER: casper-intel-{^intel-oneapi-compilers.version}
             NCAR_ID_COMPILER: intel-{^intel-oneapi-compilers.version}
             NCAR_ROOT_INTEL: '{^intel-oneapi-compilers.prefix}'
+            NCAR_ROOT_COMPILER: '{^intel-oneapi-compilers.prefix}'
             NCAR_SPACK_HASH_INTEL: '{hash}'
             OMPI_CC: icc
             OMPI_CXX: icpc
@@ -267,9 +270,13 @@ modules:
           - NCAR_SPACK_HASH_LLVM
         environment:
           set:
+            NCAR_BUILD_ENV: casper-clang-{version}
+            NCAR_BUILD_ENV_COMPILER: casper-clang-{version}
+            NCAR_ID_COMPILER: clang-{version}
             NCAR_INC_CLANG: '{prefix}/include'
             NCAR_LDFLAGS_CLANG: '{prefix}/lib'
             NCAR_ROOT_CLANG: '{prefix}'
+            NCAR_ROOT_COMPILER: '{prefix}'
             NCAR_SPACK_HASH_CLANG: '{hash}'
       miniconda3:
         filter:
@@ -298,6 +305,7 @@ modules:
           set:
             NCAR_BUILD_ENV_MPI: casper-{compiler.name}-{compiler.version}-{name}-{version}
             NCAR_ID_MPI: '{name}-{version}'
+            NCAR_ROOT_MPI: '{prefix}'
       ncarcompilers:
         environment:
           set:
@@ -323,6 +331,7 @@ modules:
             NCAR_BUILD_ENV: casper-{name}-{version}
             NCAR_BUILD_ENV_COMPILER: casper-{name}-{version}
             NCAR_ID_COMPILER: '{name}-{version}'
+            NCAR_ROOT_COMPILER: '{prefix}'
             NVIDIA_PATH: '{prefix}'
             NVIDIA_VERSION: '{version}'
           prepend_path:
