@@ -1578,3 +1578,4 @@ spack:
   - ncompress
   - xnedit
   - ncl
+  - gdal@3.7.1%oneapi@2023.2.1
