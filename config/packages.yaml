@@ -251,6 +251,9 @@ packages:
     - ~xerces
   expat:
     require: '%gcc@7.5.0'
+  ferret:
+    variants:
+    - +datasets
   ffmpeg:
     variants:
     - +X

@@ -278,6 +278,9 @@ spack:
       - ~xerces
     expat:
       require: '%gcc@7.5.0'
+    ferret:
+      variants:
+      - +datasets
     ffmpeg:
       variants:
       - +X
@@ -1579,3 +1582,4 @@ spack:
   - xnedit
   - ncl
   - gdal@3.7.1%oneapi@2023.2.1
+  - ferret
