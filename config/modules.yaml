@@ -37,6 +37,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - gmt
       - visit
       - paraview
       - octave

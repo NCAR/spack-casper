@@ -377,6 +377,20 @@ spack:
       - '%gcc@7.5.0'
     glpk:
       require: '%gcc@7.5.0'
+    gmt:
+      variants:
+      - +ffmpeg
+      - +fftw
+      - +geos
+      - +ghostscript
+      - +glib
+      # This option needs to be off for now b/c graphicsmagick has issues with libxml2 linking
+      # (it wants ftp support, which libxml2 doesnt current have in Spack
+      - ~graphicsmagick
+      - +pcre
+      require:
+      - +blas
+      - +lapack
     gnuplot:
       variants:
       - +X
@@ -391,6 +405,12 @@ spack:
     grads:
       variants:
       - +dap
+    graphicsmagick:
+      # graphicsmagick can't built using libjpeg>2
+      # https://github.com/ImageMagick/ImageMagick/issues/6514
+      require:
+      - ^libjpeg-turbo@:2
+      - '%gcc@7.5.0'
     groff:
       require:
       - '%gcc@7.5.0'
@@ -1023,6 +1043,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - gmt
         - visit
         - paraview
         - octave
@@ -1583,3 +1604,4 @@ spack:
   - ncl
   - gdal@3.7.1%oneapi@2023.2.1
   - ferret
+  - gmt@6.4.0%gcc@12.2.0
