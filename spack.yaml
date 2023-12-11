@@ -154,6 +154,9 @@ spack:
         - '%oneapi ^intel-oneapi-mkl'
         - '%nvhpc ^nvhpc'
         when: ^lapack
+      - any_of:
+        - ^pkg-config
+        when: ^pkgconfig
     antlr:
       require: '%gcc@7.5.0'
     apptainer:
@@ -928,6 +931,7 @@ spack:
       - curl
       - openssl
       - libtool
+      - autoconf-archive
       - automake
       - autoconf@2.71
       - git
@@ -1095,6 +1099,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - autoconf-archive
         - xnedit
         - ncompress
         - ncftp
@@ -1605,3 +1610,4 @@ spack:
   - gdal@3.7.1%oneapi@2023.2.1
   - ferret
   - gmt@6.4.0%gcc@12.2.0
+  - autoconf-archive

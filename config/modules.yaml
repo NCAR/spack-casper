@@ -89,6 +89,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - autoconf-archive
       - xnedit
       - ncompress
       - ncftp
