@@ -1611,3 +1611,6 @@ spack:
   - ferret
   - gmt@6.4.0%gcc@12.2.0
   - autoconf-archive
+  - mpi-serial@2.5.0%gcc@12.2.0
+  - mpi-serial@2.5.0%nvhpc@23.7
+  - mpi-serial@2.5.0%oneapi@2023.2.1
