@@ -37,14 +37,14 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - cdo
       - gmt
+      - nco
       - visit
       - paraview
       - octave
       - nccmp
       - ncview
-      - cdo
-      - nco
       - cuda
       - r
       - cmake
@@ -79,10 +79,10 @@ modules:
             DARSHAN_SHARED_LIB: '{prefix}/lib/libdarshan.so'
       defaults:
       - netcdf@4.9.2
-      - parallel-netcdf@1.12.3
-      - fftw@3.3.10
       - openmpi@4.1.6
       - cuda@12.2.1
+      - gcc@12.2.0
+      - intel-oneapi-compilers@2023.2.1
       - nvhpc@23.7
       - parallelio+mpi
       - esmf+mpi
@@ -351,6 +351,12 @@ modules:
             OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
           prepend_path:
             LD_LIBRARY_PATH: '{prefix}/lib'
+      openmpi@5:
+        environment:
+          set:
+            # https://github.com/open-mpi/ompi/issues/9647
+            OMPI_MCA_rmaps_default_mapping_policy: :hwtcpus
+            OMPI_MCA_smsc: ^knem
       parallel-netcdf:
         environment:
           set:

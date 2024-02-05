@@ -1,6 +1,6 @@
 # Location variables
-export INSTALLPATH_ROOT=/glade/u/apps/casper/default/spack/opt/spack
-export MODULEPATH_ROOT=/glade/u/apps/casper/modules
+export INSTALLPATH_ROOT=/glade/work/csgteam/spack-deployments/casper/23.10/envs/public/opt
+export MODULEPATH_ROOT=/glade/work/csgteam/spack-deployments/casper/23.10/envs/public/modules
 
 # Lmod configuration
 export LMOD_SYSTEM_NAME=casper
