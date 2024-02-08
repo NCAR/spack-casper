@@ -490,7 +490,9 @@ packages:
     require:
     - '%gcc@7.5.0'
   libarchive:
-    require: compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+    require:
+    - compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+    - '%gcc@7.5.0'
   libcatalyst:
     require:
     - '%gcc@7.5.0'
@@ -911,5 +913,14 @@ packages:
     require:
     - '%gcc@7.5.0'
   c-blosc2:
+    require:
+    - '%gcc@7.5.0'
+  attr:
+    require:
+    - '%gcc@7.5.0'
+  libcap:
+    require:
+    - '%gcc@7.5.0'
+  lwgrp:
     require:
     - '%gcc@7.5.0'

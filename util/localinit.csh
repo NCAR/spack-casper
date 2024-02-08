@@ -1,6 +1,6 @@
 # Location variables
-setenv INSTALLPATH_ROOT /glade/work/csgteam/spack-deployments/casper/23.10/envs/public/opt
-setenv MODULEPATH_ROOT /glade/work/csgteam/spack-deployments/casper/23.10/envs/public/modules
+setenv INSTALLPATH_ROOT /glade/u/apps/casper/default/spack/opt/spack
+setenv MODULEPATH_ROOT /glade/u/apps/casper/modules
 
 # Lmod configuration
 setenv LMOD_SYSTEM_NAME casper

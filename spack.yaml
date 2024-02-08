@@ -517,7 +517,9 @@ spack:
       require:
       - '%gcc@7.5.0'
     libarchive:
-      require: compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+      require:
+      - compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+      - '%gcc@7.5.0'
     libcatalyst:
       require:
       - '%gcc@7.5.0'
@@ -938,6 +940,15 @@ spack:
       require:
       - '%gcc@7.5.0'
     c-blosc2:
+      require:
+      - '%gcc@7.5.0'
+    attr:
+      require:
+      - '%gcc@7.5.0'
+    libcap:
+      require:
+      - '%gcc@7.5.0'
+    lwgrp:
       require:
       - '%gcc@7.5.0'
   view:
@@ -1795,3 +1806,4 @@ spack:
   - nco@5.1.9%gcc@12.2.0
   - gmt@6.5.0%gcc@12.2.0
   - cdo@2.3.0%gcc@12.2.0 ^proj@8
+  - mpifileutils@0.11.1%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
