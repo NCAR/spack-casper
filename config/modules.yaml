@@ -34,6 +34,10 @@ modules:
         filter:
           exclude_env_vars:
           - GOPATH
+      charliecloud:
+        environment:
+          prepend_path:
+            PYTHONPATH: /glade/u/apps/casper/23.10/opt/pythonpkgs/lib/python3.10/site-packages
       core_compilers:
       - gcc@7.5.0
       core_specs:
