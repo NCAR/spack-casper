@@ -37,7 +37,7 @@ modules:
       charliecloud:
         environment:
           prepend_path:
-            PYTHONPATH: /glade/u/apps/casper/23.10/opt/pythonpkgs/lib/python3.10/site-packages
+            PATH: /glade/u/apps/casper/23.10/opt/wrappers/{name}/{version}/{hash:4}/bin
       core_compilers:
       - gcc@7.5.0
       core_specs:
@@ -403,6 +403,9 @@ modules:
             PIO: '{prefix}'
       paraview:
         autoload: none
+        environment:
+          prepend_path:
+            PATH: /glade/u/apps/casper/23.10/opt/wrappers/{name}/{version}/{hash:4}/bin
       projections:
         all: '{name}/{version}'
         fftw+mpi: fftw-mpi/{version}
