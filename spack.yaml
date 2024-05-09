@@ -1230,6 +1230,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - py-tabulate
         - autoconf-archive
         - xnedit
         - ncompress
@@ -1854,3 +1855,4 @@ spack:
   - madis
   - vapor@3.9.2
   - ncarcompilers@1.0.0%clang@16.0.6
+  - py-tabulate

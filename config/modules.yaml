@@ -93,6 +93,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - py-tabulate
       - autoconf-archive
       - xnedit
       - ncompress
