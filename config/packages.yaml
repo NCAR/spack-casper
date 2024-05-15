@@ -662,6 +662,13 @@ packages:
     variants:
     - +fortran
     - threads=openmp
+  opengl:
+    externals:
+    - spec: opengl@4.5
+      prefix: /usr
+    buildable: false
+    require:
+    - '%gcc@7.5.0'
   openmpi:
     require:
     # Make sure to get rid of knem next time!

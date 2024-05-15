@@ -689,6 +689,13 @@ spack:
       variants:
       - +fortran
       - threads=openmp
+    opengl:
+      externals:
+      - spec: opengl@4.5
+        prefix: /usr
+      buildable: false
+      require:
+      - '%gcc@7.5.0'
     openmpi:
       require:
       # Make sure to get rid of knem next time!
@@ -1857,3 +1864,4 @@ spack:
   - ncarcompilers@1.0.0%clang@16.0.6
   - py-tabulate
   - py-pandas@2.1.4
+  - vapor@3.9.2 ^opengl
