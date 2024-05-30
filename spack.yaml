@@ -984,6 +984,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - ripgrep
       - xnedit
       - ncompress
       - ncftp
@@ -1245,6 +1246,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - ripgrep
         - py-pandas@2.1.4
         - py-tabulate
         - autoconf-archive
@@ -1876,3 +1878,4 @@ spack:
   - py-pandas@2.1.4
   - vapor@3.9.2 ^opengl
   - neovim
+  - ripgrep

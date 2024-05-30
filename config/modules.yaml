@@ -93,6 +93,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - ripgrep
       - py-pandas@2.1.4
       - py-tabulate
       - autoconf-archive
