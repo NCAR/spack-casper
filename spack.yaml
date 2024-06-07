@@ -509,10 +509,6 @@ spack:
       require: '%gcc@7.5.0'
     jsoncpp:
       require: '%gcc@7.5.0'
-    julia:
-      require:
-      - ^llvm~clang~gold~polly
-      - ^openblas threads=openmp
     krb5:
       require:
       - '%gcc@7.5.0'
@@ -538,10 +534,6 @@ spack:
     libgd:
       # gnuplot fails to build with newer version due to libiconv linking failure
       require: '@2.2.4'
-    libgit2:
-      # Julia is demanding...
-      require:
-      - '@1.5'
     libjpeg-turbo:
       require: '%gcc@7.5.0'
     libogg:
@@ -550,10 +542,10 @@ spack:
       require: '%gcc@7.5.0'
     libssh2:
       # Julia again...
-      require:
-      - '@1.10'
       variants:
       - crypto=mbedtls
+      require:
+      - '%gcc@7.5.0'
     libszip:
       require: '%gcc@7.5.0'
     libtheora:
@@ -565,6 +557,8 @@ spack:
     libtool:
       require: '%gcc@7.5.0'
     libunwind:
+      require:
+      - '%gcc@7.5.0'
       variants:
       - +cxx_exceptions
       - +debug_frame
@@ -604,7 +598,11 @@ spack:
       require:
       - '@2.28'
       - libs=static,shared
+      - '%gcc@7.5.0'
     mesa-glu:
+      require:
+      - '%gcc@7.5.0'
+    mpfr:
       require:
       - '%gcc@7.5.0'
     mgard:
@@ -655,9 +653,6 @@ spack:
     netcdf-cxx4:
       variants:
       - ~doxygen
-    nghttp2:
-      # Thanks Julia...
-      require: '@1.48'
     ninja:
       require: '%gcc@7.5.0'
     numactl:
@@ -669,6 +664,8 @@ spack:
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/23.7
       - spec: nvhpc@24.1
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1
+      - spec: nvhpc@24.3
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.3
       buildable: false
     ocl-icd:
       variants:
@@ -776,6 +773,7 @@ spack:
       # Version 0.18 breaks when using gcc@7.5.0
       require:
       - '@:0.17'
+      - '%gcc@7.5.0'
     pcre:
       require: '%gcc@7.5.0'
     pcre2:
@@ -978,6 +976,30 @@ spack:
       - spec: intel-oneapi-advisor@2024.0.0
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-advisor/2024.0.0
       buildable: false
+      require:
+      - '%gcc@7.5.0'
+    lwgrp,:
+      require:
+      - '%gcc@7.5.0'
+    utf8proc:
+      require:
+      - '%gcc@7.5.0'
+    p7zip:
+      require:
+      - '%gcc@7.5.0'
+    openlibm:
+      require:
+      - '%gcc@7.5.0'
+    libwhich:
+      require:
+      - '%gcc@7.5.0'
+    libgit2:
+      require:
+      - '%gcc@7.5.0'
+    libblastrampoline:
+      require:
+      - '%gcc@7.5.0'
+    dsfmt:
       require:
       - '%gcc@7.5.0'
   view:
@@ -1879,3 +1901,4 @@ spack:
   - vapor@3.9.2 ^opengl
   - neovim
   - ripgrep
+  - julia@1.10.2
