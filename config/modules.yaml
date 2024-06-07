@@ -90,6 +90,7 @@ modules:
       - nvhpc@23.7
       - parallelio+mpi
       - esmf+mpi
+      - julia@1.9.2
       esmf:
         autoload: none
       exclude:
