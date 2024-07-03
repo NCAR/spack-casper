@@ -1587,6 +1587,10 @@ spack:
           environment:
             prepend_path:
               PATH: /glade/u/apps/casper/23.10/opt/wrappers/{name}/{version}/{hash:4}/bin
+        podman:
+          environment:
+            set:
+              CONTAINERS_STORAGE_CONF: /glade/u/apps/etc/containers/storage.conf
         projections:
           all: '{name}/{version}'
           fftw+mpi: fftw-mpi/{version}
