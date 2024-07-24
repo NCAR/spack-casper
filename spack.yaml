@@ -1913,3 +1913,6 @@ spack:
   - julia@1.10.2
   - matlab@R2024a
   - idl@9.0.0
+  - eccodes@2.36.0%gcc@13.2.0
+  - eccodes@2.36.0%nvhpc@24.1
+  - eccodes@2.36.0%oneapi@2024.0.2
