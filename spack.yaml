@@ -670,6 +670,8 @@ spack:
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.1
       - spec: nvhpc@24.3
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.3
+      - spec: nvhpc@24.7
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.7
       buildable: false
     ocl-icd:
       variants:
@@ -1175,6 +1177,18 @@ spack:
       environment:
         set:
           NVCCFLAGS: -allow-unsupported-compiler
+  - compiler:
+      spec: nvhpc@24.7
+      paths:
+        cc: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.7/Linux_x86_64/24.7/compilers/bin/nvc
+        cxx: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.7/Linux_x86_64/24.7/compilers/bin/nvc++
+        f77: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.7/Linux_x86_64/24.7/compilers/bin/nvfortran
+        fc: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.7/Linux_x86_64/24.7/compilers/bin/nvfortran
+      operating_system: opensuse15
+      modules: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /glade/u/apps/common/23.08/spack/opt/spack/nvhpc/24.7/Linux_x86_64/24.7/compilers/lib
   modules:
     'default:':
       roots:
@@ -1916,3 +1930,25 @@ spack:
   - eccodes@2.36.0%gcc@13.2.0
   - eccodes@2.36.0%nvhpc@24.1
   - eccodes@2.36.0%oneapi@2024.0.2
+  - nvhpc@24.7
+  - openmpi@5.0.0%nvhpc@24.7
+  - ncarcompilers@1.0.0%nvhpc@24.7
+  - fftw@3.3.10%nvhpc@24.7~mpi
+  - udunits@2.2.28%nvhpc@24.7
+  - hdf5@1.14.3%nvhpc@24.7~mpi
+  - netcdf@4.9.2%nvhpc@24.7~mpi
+  - proj@9.2.1%nvhpc@24.7
+  - geos@3.12.1%nvhpc@24.7
+  - hdf@4.2.15%nvhpc@24.7
+  - eccodes@2.36.0%nvhpc@24.7
+  - mpi-serial@2.5.0%nvhpc@24.7
+  - parallelio@2.6.2%nvhpc@24.7~mpi~pnetcdf
+  - esmf@8.6.0%nvhpc@24.7~mpi ^nvhpc@24.7
+  - parallel-netcdf@1.12.3%nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
+  - hdf5@1.14.3%nvhpc@24.7+mpi ^openmpi@5.0.0%nvhpc@24.7
+  - netcdf@4.9.2%nvhpc@24.7+mpi ^openmpi@5.0.0%nvhpc@24.7
+  - fftw@3.3.10%nvhpc@24.7+mpi ^openmpi@5.0.0%nvhpc@24.7
+  - darshan-runtime@3.4.4%nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
+  - parallelio@2.6.2%nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
+  - esmf@8.6.0%nvhpc@24.7+mpi+pnetcdf ^nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
+  - osu-micro-benchmarks%nvhpc@24.7+cuda ^openmpi@5.0.0%nvhpc@24.7
