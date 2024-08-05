@@ -1952,3 +1952,4 @@ spack:
   - parallelio@2.6.2%nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
   - esmf@8.6.0%nvhpc@24.7+mpi+pnetcdf ^nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
   - osu-micro-benchmarks%nvhpc@24.7+cuda ^openmpi@5.0.0%nvhpc@24.7
+  - ecflow@5.11.4
