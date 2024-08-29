@@ -1501,6 +1501,10 @@ spack:
               NCAR_ROOT_CLANG: '{prefix}'
               NCAR_ROOT_COMPILER: '{prefix}'
               NCAR_SPACK_HASH_CLANG: '{hash}'
+        matlab:
+          environment:
+            set:
+              MW_FEATURE_MathworksServiceHostIsOnByDefault: '0'
         miniconda3:
           filter:
             exclude_env_vars:
