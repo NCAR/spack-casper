@@ -146,6 +146,8 @@ packages:
       - intel-oneapi-mkl
       'zlib-api:':
       - zlib
+      tbb:
+      - intel-oneapi-tbb
     permissions:
       read: world
       write: user
@@ -912,6 +914,11 @@ packages:
     buildable: false
     require:
     - '%gcc@7.5.0'
+  intel-oneapi-mkl:
+    require:
+    - one_of:
+      - +gfortran threads=openmp
+      when: '%gcc'
   py-fypp:
     require:
     - '%gcc@7.5.0'

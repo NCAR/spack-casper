@@ -173,6 +173,8 @@ spack:
         - intel-oneapi-mkl
         'zlib-api:':
         - zlib
+        tbb:
+        - intel-oneapi-tbb
       permissions:
         read: world
         write: user
@@ -939,6 +941,11 @@ spack:
       buildable: false
       require:
       - '%gcc@7.5.0'
+    intel-oneapi-mkl:
+      require:
+      - one_of:
+        - +gfortran threads=openmp
+        when: '%gcc'
     py-fypp:
       require:
       - '%gcc@7.5.0'
@@ -1960,3 +1967,5 @@ spack:
   - osu-micro-benchmarks%nvhpc@24.7+cuda ^openmpi@5.0.0%nvhpc@24.7
   - ecflow@5.11.4
   - cudnn@9.2.0.82-12
+  - intel-oneapi-mkl@2024.0.0%gcc@12.2.0
+  - intel-oneapi-mkl@2024.2.1%gcc@13.2.0
