@@ -1969,3 +1969,4 @@ spack:
   - cudnn@9.2.0.82-12
   - intel-oneapi-mkl@2024.0.0%gcc@12.2.0
   - intel-oneapi-mkl@2024.2.1%gcc@13.2.0
+  - vapor@3.9.3 ^opengl
