@@ -266,6 +266,8 @@ spack:
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/cudnn/8.7.0.84-11.8
       - spec: cudnn@9.2.0.82-12
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/cudnn/9.2.0.82-12
+      - spec: cudnn@8.8.1.3-12
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/cudnn/8.8.1.3-12
       buildable: false
     curl:
       # Need mbedtls option for Julia - most other packages seem to prefer openSSL
@@ -498,6 +500,8 @@ spack:
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2023.2.1
       - spec: intel-oneapi-compilers@2024.0.2
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2024.0.2
+      - spec: intel-oneapi-compilers@2024.2.1
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-compilers/2024.2.1
       buildable: false
     intel-oneapi-mpi:
       variants:
@@ -587,6 +591,8 @@ spack:
         prefix: /glade/u/apps/common/23.04/spack/opt/spack/linaro-forge/23.0
       - spec: linaro-forge@23.1
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/linaro-forge/23.1
+      - spec: linaro-forge@24.0.4
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/linaro-forge/24.0.4
       buildable: false
     lz4:
       require: '%gcc@7.5.0'
@@ -938,6 +944,8 @@ spack:
       externals:
       - spec: intel-oneapi-inspector@2024.0.0
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-inspector/2024.0.0
+      - spec: intel-oneapi-inspector@2024.2.0
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-inspector/2024.2.0
       buildable: false
       require:
       - '%gcc@7.5.0'
@@ -983,6 +991,8 @@ spack:
       externals:
       - spec: intel-oneapi-vtune@2024.0.0
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-vtune/2024.0.0
+      - spec: intel-oneapi-vtune@2024.2.1
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-vtune/2024.2.1
       buildable: false
       require:
       - '%gcc@7.5.0'
@@ -990,6 +1000,8 @@ spack:
       externals:
       - spec: intel-oneapi-advisor@2024.0.0
         prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-advisor/2024.0.0
+      - spec: intel-oneapi-advisor@2024.2.1
+        prefix: /glade/u/apps/common/23.08/spack/opt/spack/intel-oneapi-advisor/2024.2.1
       buildable: false
       require:
       - '%gcc@7.5.0'
@@ -1970,3 +1982,4 @@ spack:
   - intel-oneapi-mkl@2024.0.0%gcc@12.2.0
   - intel-oneapi-mkl@2024.2.1%gcc@13.2.0
   - vapor@3.9.3 ^opengl
+  - linaro-forge@24.0.4
