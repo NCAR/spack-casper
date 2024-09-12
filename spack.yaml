@@ -1033,6 +1033,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - rclone
       - ripgrep
       - xnedit
       - ncompress
@@ -1308,6 +1309,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - rclone
         - ripgrep
         - py-pandas@2.1.4
         - py-tabulate
@@ -1993,3 +1995,4 @@ spack:
   - intel-oneapi-mkl@2024.2.1%gcc@13.2.0
   - vapor@3.9.3 ^opengl
   - linaro-forge@24.0.4
+  - rclone

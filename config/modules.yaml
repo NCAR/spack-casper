@@ -94,6 +94,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - rclone
       - ripgrep
       - py-pandas@2.1.4
       - py-tabulate
