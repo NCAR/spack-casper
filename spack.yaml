@@ -1996,3 +1996,4 @@ spack:
   - vapor@3.9.3 ^opengl
   - linaro-forge@24.0.4
   - rclone
+  - intel-oneapi-mpi@2021.11.0%oneapi@2024.0.2
