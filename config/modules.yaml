@@ -261,6 +261,8 @@ modules:
           - NCAR_SPACK_HASH_INTEL_ONEAPI_MPI
         environment:
           set:
+            FI_PROVIDER_PATH: '{^libfabric.prefix}'
+            I_MPI_OFI_LIBRARY: '{^libfabric.prefix}/lib/libfabric.so.1'
             I_MPI_HYDRA_BOOTSTRAP: rsh
             I_MPI_HYDRA_BOOTSTRAP_EXEC: pbs_tmrsh
             NCAR_ROOT_INTEL_MPI: '{prefix}'
