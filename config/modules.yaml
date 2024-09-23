@@ -94,6 +94,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - openjpeg
       - rclone
       - ripgrep
       - py-pandas@2.1.4
@@ -394,6 +395,7 @@ modules:
           set:
             OMPI_MCA_oob_tcp_if_exclude: mgt
             OMPI_MCA_shmem_mmap_enable_nfs_warning: '0'
+            OMPI_MCA_plm: tm
           prepend_path:
             LD_LIBRARY_PATH: '{prefix}/lib'
       openmpi@5:
@@ -402,6 +404,7 @@ modules:
             # https://github.com/open-mpi/ompi/issues/9647
             OMPI_MCA_rmaps_default_mapping_policy: :hwtcpus
             OMPI_MCA_smsc: ^knem
+            OMPI_MCA_prte_silence_shared_fs: '1'
       parallel-netcdf:
         environment:
           set:
