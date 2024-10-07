@@ -1064,6 +1064,7 @@ spack:
       - tmux
       - openjdk
       - meson
+      - py-pip
       - python
       - zstd
       - antlr
@@ -1349,6 +1350,7 @@ spack:
         - openjdk
         - meson
         - python
+        - py-pip
         - zstd
         - antlr
         - squashfuse
@@ -2003,3 +2005,5 @@ spack:
   - linaro-forge@24.0.4
   - rclone
   - openjpeg
+  - julia@1.10.5
+  - py-pip

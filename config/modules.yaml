@@ -133,6 +133,7 @@ modules:
       - openjdk
       - meson
       - python
+      - py-pip
       - zstd
       - antlr
       - squashfuse
