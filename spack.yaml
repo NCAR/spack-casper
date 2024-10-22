@@ -1033,6 +1033,8 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/23.10/opt/view
       select:
+      - npm
+      - node-js
       - openjpeg
       - rclone
       - ripgrep
@@ -1311,6 +1313,8 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - npm
+        - node-js
         - openjpeg
         - rclone
         - ripgrep
@@ -2007,3 +2011,5 @@ spack:
   - openjpeg
   - julia@1.10.5
   - py-pip
+  - node-js
+  - npm

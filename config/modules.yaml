@@ -94,6 +94,8 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - npm
+      - node-js
       - openjpeg
       - rclone
       - ripgrep
