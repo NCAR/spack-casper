@@ -61,28 +61,6 @@ modules:
       - nvhpc
       - visit
       - paraview
-      - octave
-      - gsl
-      - nco
-      - gmt
-      - cdo
-      - nccmp
-      - ncview
-      - eigen
-      - vapor
-      - darshan-util
-      - ecflow
-      - neovim
-      - madis
-      - ferret
-      - doxygen
-      - linaro-forge
-      - grib-util
-      - wgrib2
-      - grads
-      - ncvis
-      - ucx
-      - ncl
       - r
       cuda:
         environment:

@@ -21,6 +21,9 @@ packages:
     buildable: false
     require:
     - '%gcc'
+  glibc:
+    require:
+    - '%gcc'
   lustre:
     externals:
     - spec: lustre@2.15.4.2_cray_42_ga614b9c
@@ -244,7 +247,7 @@ packages:
   esmf:
     variants:
     - +external-parallelio
-    - +parallelio
+    - +external-lapack
     - ~mpi
     - ~pnetcdf
     - ~xerces
@@ -678,7 +681,13 @@ packages:
   numactl:
     require: '%gcc'
   nvhpc:
-    require: '%gcc'
+    require:
+    - '%gcc'
+    prefer:
+    - ~mpi
+  nvtop:
+    variants:
+    - support=nvidia
   ocl-icd:
     variants:
     - +headers

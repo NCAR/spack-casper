@@ -48,6 +48,9 @@ spack:
       buildable: false
       require:
       - '%gcc'
+    glibc:
+      require:
+      - '%gcc'
     lustre:
       externals:
       - spec: lustre@2.15.4.2_cray_42_ga614b9c
@@ -271,7 +274,7 @@ spack:
     esmf:
       variants:
       - +external-parallelio
-      - +parallelio
+      - +external-lapack
       - ~mpi
       - ~pnetcdf
       - ~xerces
@@ -705,7 +708,13 @@ spack:
     numactl:
       require: '%gcc'
     nvhpc:
-      require: '%gcc'
+      require:
+      - '%gcc'
+      prefer:
+      - ~mpi
+    nvtop:
+      variants:
+      - support=nvidia
     ocl-icd:
       variants:
       - +headers
@@ -1177,28 +1186,6 @@ spack:
         - nvhpc
         - visit
         - paraview
-        - octave
-        - gsl
-        - nco
-        - gmt
-        - cdo
-        - nccmp
-        - ncview
-        - eigen
-        - vapor
-        - darshan-util
-        - ecflow
-        - neovim
-        - madis
-        - ferret
-        - doxygen
-        - linaro-forge
-        - grib-util
-        - wgrib2
-        - grads
-        - ncvis
-        - ucx
-        - ncl
         - r
         cuda:
           environment:
@@ -1679,3 +1666,28 @@ spack:
   - charliecloud
   - cuda@12.3.2
   - cudnn@8.9.7.29-12
+  - ncl
+  - ucx
+  - ncvis
+  - grads
+  - wgrib2
+  - grib-util
+  - linaro-forge@24.1
+  - doxygen
+  - ferret
+  - madis
+  - neovim
+  - ecflow
+  - darshan-util@3.4.6
+  - vapor@3.9.3
+  - julia@1.11.2
+  - eigen@3.4.0
+  - ncview@2.1.9
+  - nccmp@1.9.1.0
+  - cdo@2.4.4
+  - gmt@6.5.0
+  - nco@5.2.4
+  - gsl@2.7.1
+  - octave@9.1.0
+  - intel-oneapi-mkl@2024.2.2%oneapi@2024.2.1
+  - nvtop
