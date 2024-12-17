@@ -107,8 +107,8 @@ packages:
       when: ^pkgconfig
     - spec: ^zlib
       when: ^zlib-api
-    - spec: cuda_arch=60,70,80
-      when: +cuda
+    - spec: cuda_arch=60,70,80,89,90 ^cuda@12.3.2
+      when: ^cuda
     # Without these, these packages will use GCC versions
     # (not yet true for nvhpc/cce, but check when those runtimes are added)
     - spec: ^hdf5 %oneapi
@@ -189,9 +189,6 @@ packages:
     - +allow-unsupported-compilers
     - '%gcc'
   cudnn:
-    prefer:
-    - spec: ^cuda@12.3.2
-      when: '@8.9.7.29-12'
     require: '%gcc'
   curl:
     require:
@@ -246,11 +243,27 @@ packages:
     - +treesitter
   esmf:
     variants:
-    - +external-parallelio
-    - +external-lapack
     - ~mpi
     - ~pnetcdf
     - ~xerces
+    require:
+    # Apparent prefer is not strong enough to convince Spack to use nvhpc for an
+    # external-lapack. Unbelievable!
+    - +external-lapack
+    - +external-parallelio
+    - spec: ^openblas
+      when: '%gcc ^lapack'
+    - spec: ^intel-oneapi-mkl
+      when: '%oneapi ^lapack'
+    - spec: ^nvhpc
+      when: '%nvhpc ^lapack'
+    - spec: ^cray-libsci
+      when: '%cce ^lapack'
+    prefer:
+    - spec: +pnetcdf
+      when: +mpi
+    - spec: ~pnetcdf
+      when: ~mpi
   expat:
     require: '%gcc'
   ferret:
@@ -406,7 +419,7 @@ packages:
     require:
     - '%gcc'
   h5z-zfp:
-    prefer:
+    require:
     - spec: ^hdf5~mpi
   harfbuzz:
     variants:
@@ -431,7 +444,7 @@ packages:
     - +hl
     - +szip
     - ~mpi
-    prefer:
+    require:
     - '@:1.12'
   hwloc:
     require:
@@ -468,7 +481,7 @@ packages:
     require:
     - '%gcc'
   intel-oneapi-mkl:
-    prefer:
+    require:
     - spec: '@2024'
       when: '%oneapi@2024'
     - spec: '@2025'
@@ -668,11 +681,18 @@ packages:
     variants:
     - +dap
     - ~mpi
+    require:
+    # I can't believe I have to specify this now...
+    - spec: ^netcdf-fortran %oneapi
+      when: '%oneapi'
   netcdf-c:
     variants:
     - +dap
     - +nczarr_zip
     - ~mpi
+    prefer:
+    # Otherwise concretizer will mix and match and create more installs
+    - build_system=cmake
   netcdf-cxx4:
     variants:
     - ~doc
@@ -683,7 +703,6 @@ packages:
   nvhpc:
     require:
     - '%gcc'
-    prefer:
     - ~mpi
   nvtop:
     variants:
@@ -735,9 +754,8 @@ packages:
     - +gpfs
     - +lustre
     - +internal-pmix
-    - any_of:
-      - ^cuda@12
-      when: '@4.1.6 +cuda'
+    - spec: cflags='-Wno-error=incompatible-function-pointer-types'
+      when: '@5.0.6 %oneapi'
     variants:
     - +cuda
   openpbs:
@@ -798,9 +816,11 @@ packages:
     - +qt
     - +visitbridge
     require:
-      # These requirements improve package reuse
+    # This requirement improves package reuse
     - spec: ^netcdf-c+mpi
       when: +mpi
+    # Paraview fails to find hdf5_hl when netcdf-c uses CMake
+    - spec: ^netcdf-c build_system=autotools
   patchelf:
     require:
     # Version 0.18 breaks when using gcc@7.5.0
@@ -836,16 +856,19 @@ packages:
   py-pip:
     require:
     - '%gcc'
+  py-pyyaml:
+    require:
+    - '%gcc'
   py-setuptools:
     require:
     - '%gcc'
-    prefer:
     # Simplifies stack to limit to 0.63, latest version used by numpy with Python < 3.12
     - '@:63'
   python:
     prefer:
     - '@3.11'
-    require: '%gcc'
+    require:
+    - '%gcc'
   qhull:
     require: '%gcc'
   qt:

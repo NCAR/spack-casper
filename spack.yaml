@@ -134,8 +134,8 @@ spack:
         when: ^pkgconfig
       - spec: ^zlib
         when: ^zlib-api
-      - spec: cuda_arch=60,70,80
-        when: +cuda
+      - spec: cuda_arch=60,70,80,89,90 ^cuda@12.3.2
+        when: ^cuda
       # Without these, these packages will use GCC versions
       # (not yet true for nvhpc/cce, but check when those runtimes are added)
       - spec: ^hdf5 %oneapi
@@ -216,9 +216,6 @@ spack:
       - +allow-unsupported-compilers
       - '%gcc'
     cudnn:
-      prefer:
-      - spec: ^cuda@12.3.2
-        when: '@8.9.7.29-12'
       require: '%gcc'
     curl:
       require:
@@ -273,11 +270,27 @@ spack:
       - +treesitter
     esmf:
       variants:
-      - +external-parallelio
-      - +external-lapack
       - ~mpi
       - ~pnetcdf
       - ~xerces
+      require:
+      # Apparent prefer is not strong enough to convince Spack to use nvhpc for an
+      # external-lapack. Unbelievable!
+      - +external-lapack
+      - +external-parallelio
+      - spec: ^openblas
+        when: '%gcc ^lapack'
+      - spec: ^intel-oneapi-mkl
+        when: '%oneapi ^lapack'
+      - spec: ^nvhpc
+        when: '%nvhpc ^lapack'
+      - spec: ^cray-libsci
+        when: '%cce ^lapack'
+      prefer:
+      - spec: +pnetcdf
+        when: +mpi
+      - spec: ~pnetcdf
+        when: ~mpi
     expat:
       require: '%gcc'
     ferret:
@@ -433,7 +446,7 @@ spack:
       require:
       - '%gcc'
     h5z-zfp:
-      prefer:
+      require:
       - spec: ^hdf5~mpi
     harfbuzz:
       variants:
@@ -458,7 +471,7 @@ spack:
       - +hl
       - +szip
       - ~mpi
-      prefer:
+      require:
       - '@:1.12'
     hwloc:
       require:
@@ -495,7 +508,7 @@ spack:
       require:
       - '%gcc'
     intel-oneapi-mkl:
-      prefer:
+      require:
       - spec: '@2024'
         when: '%oneapi@2024'
       - spec: '@2025'
@@ -695,11 +708,18 @@ spack:
       variants:
       - +dap
       - ~mpi
+      require:
+      # I can't believe I have to specify this now...
+      - spec: ^netcdf-fortran %oneapi
+        when: '%oneapi'
     netcdf-c:
       variants:
       - +dap
       - +nczarr_zip
       - ~mpi
+      prefer:
+      # Otherwise concretizer will mix and match and create more installs
+      - build_system=cmake
     netcdf-cxx4:
       variants:
       - ~doc
@@ -710,7 +730,6 @@ spack:
     nvhpc:
       require:
       - '%gcc'
-      prefer:
       - ~mpi
     nvtop:
       variants:
@@ -762,9 +781,8 @@ spack:
       - +gpfs
       - +lustre
       - +internal-pmix
-      - any_of:
-        - ^cuda@12
-        when: '@4.1.6 +cuda'
+      - spec: cflags='-Wno-error=incompatible-function-pointer-types'
+        when: '@5.0.6 %oneapi'
       variants:
       - +cuda
     openpbs:
@@ -825,9 +843,11 @@ spack:
       - +qt
       - +visitbridge
       require:
-        # These requirements improve package reuse
+      # This requirement improves package reuse
       - spec: ^netcdf-c+mpi
         when: +mpi
+      # Paraview fails to find hdf5_hl when netcdf-c uses CMake
+      - spec: ^netcdf-c build_system=autotools
     patchelf:
       require:
       # Version 0.18 breaks when using gcc@7.5.0
@@ -863,16 +883,19 @@ spack:
     py-pip:
       require:
       - '%gcc'
+    py-pyyaml:
+      require:
+      - '%gcc'
     py-setuptools:
       require:
       - '%gcc'
-      prefer:
       # Simplifies stack to limit to 0.63, latest version used by numpy with Python < 3.12
       - '@:63'
     python:
       prefer:
       - '@3.11'
-      require: '%gcc'
+      require:
+      - '%gcc'
     qhull:
       require: '%gcc'
     qt:
@@ -1121,6 +1144,19 @@ spack:
         set:
           NVCCFLAGS: -allow-unsupported-compiler
           NVCC_PREPEND_FLAGS: -allow-unsupported-compiler
+  - compiler:
+      spec: oneapi@2025.0.3
+      paths:
+        cc: /glade/u/apps/casper/24.12/spack/opt/spack//intel-oneapi-compilers/2025.0.3/gcc/12.4.0/y3xx/compiler/latest/bin/icx
+        cxx: /glade/u/apps/casper/24.12/spack/opt/spack//intel-oneapi-compilers/2025.0.3/gcc/12.4.0/y3xx/compiler/latest/bin/icpx
+        f77: /glade/u/apps/casper/24.12/spack/opt/spack//intel-oneapi-compilers/2025.0.3/gcc/12.4.0/y3xx/compiler/latest/bin/ifx
+        fc: /glade/u/apps/casper/24.12/spack/opt/spack//intel-oneapi-compilers/2025.0.3/gcc/12.4.0/y3xx/compiler/latest/bin/ifx
+      operating_system: opensuse15
+      modules: []
+      environment:
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
+          NVCC_PREPEND_FLAGS: -allow-unsupported-compiler
   modules:
     'default:':
       roots:
@@ -1172,6 +1208,18 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - nvtop
+        - gsl
+        - eigen
+        - julia
+        - darshan-util
+        - ecflow
+        - neovim
+        - doxygen
+        - linaro-forge
+        - grib-util
+        - wgrib2
+        - ncl
         - cudnn
         - cuda
         - charliecloud
@@ -1182,10 +1230,7 @@ spack:
         - pcre
         - cmake
         - go
-        - intel-oneapi-compilers
         - nvhpc
-        - visit
-        - paraview
         - r
         cuda:
           environment:
@@ -1227,7 +1272,6 @@ spack:
         esmf:
           autoload: none
         exclude:
-        - py-pandas@2.1.4
         - py-tabulate
         - lmod
         - npm
@@ -1656,7 +1700,6 @@ spack:
   - npm
   - lmod
   - py-tabulate
-  - py-pandas@2.1.4
   - cmake
   - miniconda3
   - apptainer
@@ -1667,27 +1710,124 @@ spack:
   - cuda@12.3.2
   - cudnn@8.9.7.29-12
   - ncl
-  - ucx
-  - ncvis
-  - grads
   - wgrib2
   - grib-util
   - linaro-forge@24.1
   - doxygen
-  - ferret
-  - madis
   - neovim
   - ecflow
   - darshan-util@3.4.6
-  - vapor@3.9.3
   - julia@1.11.2
   - eigen@3.4.0
+  - gsl@2.7.1
+  - intel-oneapi-mkl@2024.2.2%oneapi@2024.2.1
+  - nvtop
+  - openblas@0.3.28%gcc@12.4.0
+  - ncarcompilers@1.0.0%gcc@12.4.0
+  - ncarcompilers@1.0.0%nvhpc@24.11
+  - ncarcompilers@1.0.0%oneapi@2024.2.1
+  - fftw@3.3.10%gcc@12.4.0~mpi
+  - fftw@3.3.10%nvhpc@24.11~mpi
+  - fftw@3.3.10%oneapi@2024.2.1~mpi
+  - udunits@2.2.28%gcc@12.4.0
+  - udunits@2.2.28%nvhpc@24.11
+  - udunits@2.2.28%oneapi@2024.2.1
+  - hdf5@1.12.3%gcc@12.4.0~mpi
+  - hdf5@1.12.3%nvhpc@24.11~mpi
+  - hdf5@1.12.3%oneapi@2024.2.1~mpi
+  - proj@9.2.1%gcc@12.4.0
+  - proj@9.2.1%nvhpc@24.11
+  - proj@9.2.1%oneapi@2024.2.1
+  - geos@3.13.0%gcc@12.4.0
+  - geos@3.13.0%nvhpc@24.11
+  - geos@3.13.0%oneapi@2024.2.1
+  - hdf@4.2.15%gcc@12.4.0
+  - hdf@4.2.15%nvhpc@24.11
+  - hdf@4.2.15%oneapi@2024.2.1 cflags='-std=c90 -Wno-error=int-conversion'
+  - mpi-serial@2.5.0%gcc@12.4.0
+  - mpi-serial@2.5.0%nvhpc@24.11
+  - mpi-serial@2.5.0%oneapi@2024.2.1
+  - ncvis
+  - grads
+  - ferret
+  - madis
+  - vapor@3.9.3
   - ncview@2.1.9
   - nccmp@1.9.1.0
   - cdo@2.4.4
   - gmt@6.5.0
   - nco@5.2.4
-  - gsl@2.7.1
+  - netcdf@4.9.2%gcc@12.4.0~mpi
+  - netcdf@4.9.2%nvhpc@24.11~mpi
+  - netcdf@4.9.2%oneapi@2024.2.1~mpi
+  - eccodes@2.34.0%gcc@12.4.0
+  - eccodes@2.34.0%nvhpc@24.11
+  - eccodes@2.34.0%oneapi@2024.2.1
+  - parallelio@2.6.3%gcc@12.4.0~mpi~pnetcdf
+  - parallelio@2.6.3%nvhpc@24.11~mpi~pnetcdf
+  - parallelio@2.6.3%oneapi@2024.2.1~mpi~pnetcdf
+  - esmf@8.7.0%gcc@12.4.0~mpi
+  - esmf@8.7.0%oneapi@2024.2.1~mpi
+  - gdal@3.9.3%gcc@12.4.0
+  - gdal@3.9.3%oneapi@2024.2.1
+  - intel-oneapi-compilers@2025.0.3
+  - intel-oneapi-mkl@2025.0.1%oneapi@2025.0.3
+  - ncarcompilers@1.0.0%oneapi@2025.0.3
+  - fftw@3.3.10%oneapi@2025.0.3~mpi
+  - udunits@2.2.28%oneapi@2025.0.3
+  - hdf5@1.12.3%oneapi@2025.0.3~mpi
+  - netcdf@4.9.2%oneapi@2025.0.3~mpi
+  - proj@9.2.1%oneapi@2025.0.3
+  - geos@3.13.0%oneapi@2025.0.3
+  - hdf@4.2.15%oneapi@2025.0.3 cflags='-std=c90 -Wno-error=int-conversion'
+  - eccodes@2.34.0%oneapi@2025.0.3
+  - mpi-serial@2.5.0%oneapi@2025.0.3
+  - parallelio@2.6.3%oneapi@2025.0.3~mpi~pnetcdf
+  - esmf@8.7.0%oneapi@2025.0.3~mpi
+  - gdal@3.9.3%oneapi@2025.0.3
+  - py-pandas@2.1.4
+  - ucx
   - octave@9.1.0
-  - intel-oneapi-mkl@2024.2.2%oneapi@2024.2.1
-  - nvtop
+  - openmpi@5.0.6%gcc@12.4.0
+  - openmpi@5.0.6%nvhpc@24.11
+  - openmpi@5.0.6%oneapi@2024.2.1
+  - openmpi@5.0.6%oneapi@2025.0.3
+  - parallel-netcdf@1.14.0%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - parallel-netcdf@1.14.0%nvhpc@24.11 ^openmpi@5.0.6%nvhpc@24.11
+  - parallel-netcdf@1.14.0%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
+  - parallel-netcdf@1.14.0%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
+  - hdf5@1.12.3%gcc@12.4.0+mpi ^openmpi@5.0.6%gcc@12.4.0
+  - hdf5@1.12.3%nvhpc@24.11+mpi ^openmpi@5.0.6%nvhpc@24.11
+  - hdf5@1.12.3%oneapi@2024.2.1+mpi ^openmpi@5.0.6%oneapi@2024.2.1
+  - hdf5@1.12.3%oneapi@2025.0.3+mpi ^openmpi@5.0.6%oneapi@2025.0.3
+  - netcdf@4.9.2%nvhpc@24.11+mpi ^openmpi@5.0.6%nvhpc@24.11
+  - netcdf@4.9.2%oneapi@2024.2.1+mpi ^openmpi@5.0.6%oneapi@2024.2.1
+  - netcdf@4.9.2%oneapi@2025.0.3+mpi ^openmpi@5.0.6%oneapi@2025.0.3
+  - netcdf@4.9.2%gcc@12.4.0+mpi ^openmpi@5.0.6%gcc@12.4.0
+  - fftw@3.3.10%nvhpc@24.11+mpi ^openmpi@5.0.6%nvhpc@24.11
+  - fftw@3.3.10%gcc@12.4.0+mpi ^openmpi@5.0.6%gcc@12.4.0
+  - fftw@3.3.10%oneapi@2024.2.1+mpi ^openmpi@5.0.6%oneapi@2024.2.1
+  - fftw@3.3.10%oneapi@2025.0.3+mpi ^openmpi@5.0.6%oneapi@2025.0.3
+  - darshan-runtime@3.4.6%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - darshan-runtime@3.4.6%nvhpc@24.11 ^openmpi@5.0.6%nvhpc@24.11
+  - darshan-runtime@3.4.6%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
+  - darshan-runtime@3.4.6%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
+  - parallelio@2.6.3%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - parallelio@2.6.3%nvhpc@24.11 ^openmpi@5.0.6%nvhpc@24.11
+  - parallelio@2.6.3%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
+  - parallelio@2.6.3%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
+  - esmf@8.7.0%gcc@12.4.0+mpi+pnetcdf ^openmpi@5.0.6%gcc@12.4.0
+  - esmf@8.7.0%oneapi@2024.2.1+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2024.2.1
+  - esmf@8.7.0%oneapi@2025.0.3+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2025.0.3
+  - osu-micro-benchmarks%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - osu-micro-benchmarks%nvhpc@24.11+cuda ^openmpi@5.0.6%nvhpc@24.11
+  - osu-micro-benchmarks%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
+  - osu-micro-benchmarks%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
+  - adios2@2.10.2%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - adios2@2.10.2%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
+  - adios2@2.10.2%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
+  - mpifileutils@0.11.1%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - visit@3.4.1%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - esmf@8.7.0%nvhpc@24.11~mpi
+  - esmf@8.7.0%nvhpc@24.11+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@24.11
+  - paraview@5.13.1%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0

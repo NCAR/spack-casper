@@ -47,6 +47,18 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - nvtop
+      - gsl
+      - eigen
+      - julia
+      - darshan-util
+      - ecflow
+      - neovim
+      - doxygen
+      - linaro-forge
+      - grib-util
+      - wgrib2
+      - ncl
       - cudnn
       - cuda
       - charliecloud
@@ -57,10 +69,7 @@ modules:
       - pcre
       - cmake
       - go
-      - intel-oneapi-compilers
       - nvhpc
-      - visit
-      - paraview
       - r
       cuda:
         environment:
@@ -102,7 +111,6 @@ modules:
       esmf:
         autoload: none
       exclude:
-      - py-pandas@2.1.4
       - py-tabulate
       - lmod
       - npm
