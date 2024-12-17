@@ -1208,6 +1208,22 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - paraview
+        - visit
+        - octave
+        - ucx
+        - intel-oneapi-mkl
+        - intel-oneapi-compilers
+        - nco
+        - gmt
+        - cdo
+        - nccmp
+        - ncview
+        - vapor
+        - madis
+        - ferret
+        - grads
+        - ncvis
         - nvtop
         - gsl
         - eigen
@@ -1272,6 +1288,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - py-pandas@2.1.4
         - py-tabulate
         - lmod
         - npm
@@ -1831,3 +1848,4 @@ spack:
   - esmf@8.7.0%nvhpc@24.11~mpi
   - esmf@8.7.0%nvhpc@24.11+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@24.11
   - paraview@5.13.1%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - texlive
