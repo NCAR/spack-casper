@@ -1850,3 +1850,5 @@ spack:
   - esmf@8.7.0%nvhpc@24.11+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@24.11
   - paraview@5.13.1%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
   - texlive
+  - intel-oneapi-vtune@2025.0.1
+  - intel-oneapi-advisor@2025.0.0
