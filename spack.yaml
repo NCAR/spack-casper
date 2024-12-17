@@ -1208,6 +1208,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - texlive
         - paraview
         - visit
         - octave
