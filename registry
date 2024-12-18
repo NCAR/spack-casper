@@ -204,3 +204,4 @@ lq3lljv2ikw5u4mhr7tqw5qye3rt5oib | 2024-12-17T10:34:37 | 350a74ae92e368fb76acd96
 nm7ev2tewbnalwarncevrv7mr3o6t25b | 2024-12-17T14:17:45 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | texlive | texlive
 6pefixtnuisvmfgomhufjjgqbnrry6i6 | 2024-12-17T16:41:24 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | intel-oneapi-vtune@2025.0.1 | intel-oneapi-vtune@2025.0.1
 4oqeeo6o5342kpqqdyz26e352mnsadtc | 2024-12-17T16:41:54 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | intel-oneapi-advisor@2025.0.0 | intel-oneapi-advisor@2025.0.0
+rfcchw4y5xx7lrfpcvd4crjnimb5ckig | 2024-12-17T18:54:20 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | netcdf-cxx@4.2%gcc@12.4.0 | netcdf-cxx@4.2%gcc@12.4.0

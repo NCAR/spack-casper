@@ -1208,12 +1208,13 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - intel-oneapi-advisor
+        - intel-oneapi-vtune
         - texlive
         - paraview
         - visit
         - octave
         - ucx
-        - intel-oneapi-mkl
         - intel-oneapi-compilers
         - nco
         - gmt
@@ -1591,6 +1592,7 @@ spack:
           netcdf+mpi: netcdf-mpi/{version}
           hdf5+mpi: hdf5-mpi/{version}
           netcdf: netcdf/{version}
+          netcdf-cxx: netcdf-cxx-legacy/{version}
           intel-oneapi-advisor: intel-advisor/{version}
           intel-oneapi-compilers@2024: intel-oneapi/{version}
           intel-oneapi-compilers@2025: intel/{version}
@@ -1852,3 +1854,4 @@ spack:
   - texlive
   - intel-oneapi-vtune@2025.0.1
   - intel-oneapi-advisor@2025.0.0
+  - netcdf-cxx@4.2%gcc@12.4.0
