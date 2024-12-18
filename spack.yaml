@@ -1280,11 +1280,11 @@ spack:
               DARSHAN_SHARED_LIB: '{prefix}/lib/libdarshan.so'
         defaults:
         - netcdf@4.9.2
-        - openmpi@5.0.2
-        - cuda@11.8.0
-        - gcc@13.2.0
-        - intel-oneapi-compilers@2024.1.0
-        - nvhpc@24.3
+        - openmpi@5.0.6
+        - cuda@12.3.2
+        - gcc@12.4.0
+        - intel-oneapi-compilers@2024.2.1
+        - nvhpc@24.11
         - parallelio+mpi
         - esmf+mpi
         esmf:
