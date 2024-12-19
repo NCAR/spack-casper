@@ -1214,6 +1214,9 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - idl
+        - rstudio
+        - matlab
         - intel-oneapi-advisor
         - intel-oneapi-vtune
         - texlive
@@ -1751,7 +1754,6 @@ spack:
   - openblas@0.3.28%gcc@12.4.0
   - ncarcompilers@1.0.0%gcc@12.4.0
   - ncarcompilers@1.0.0%nvhpc@24.11
-  - ncarcompilers@1.0.0%oneapi@2024.2.1
   - fftw@3.3.10%gcc@12.4.0~mpi
   - fftw@3.3.10%nvhpc@24.11~mpi
   - fftw@3.3.10%oneapi@2024.2.1~mpi
@@ -1798,7 +1800,6 @@ spack:
   - gdal@3.9.3%oneapi@2024.2.1
   - intel-oneapi-compilers@2025.0.3
   - intel-oneapi-mkl@2025.0.1%oneapi@2025.0.3
-  - ncarcompilers@1.0.0%oneapi@2025.0.3
   - fftw@3.3.10%oneapi@2025.0.3~mpi
   - udunits@2.2.28%oneapi@2025.0.3
   - hdf5@1.12.3%oneapi@2025.0.3~mpi
@@ -1865,3 +1866,5 @@ spack:
   - rstudio@2024.12.0
   - h5z-zfp@1.1.1%gcc@12.4.0
   - idl@9.1.0
+  - ncarcompilers@1.0.0%oneapi@2024.2.1
+  - ncarcompilers@1.0.0%oneapi@2025.0.3
