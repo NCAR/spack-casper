@@ -26,8 +26,20 @@ spack:
     template_dirs:
     - /glade/u/apps/casper/24.12/envs/build/templates/modules
   packages:
-    pkgconfig:
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29.2
+        prefix: /usr
       buildable: false
+      require:
+      - '%gcc'
+    lustre:
+      externals:
+      - spec: lustre@2.15.4.2_cray_42_ga614b9c
+        prefix: /usr
+      buildable: false
+      require:
+      - '%gcc'
     openssl:
       externals:
       - spec: openssl@1.1.1l
@@ -41,23 +53,6 @@ spack:
       # itself suggests that the trusted thing to do is to use the system version
       - certs=system
       - '%gcc'
-    pkg-config:
-      externals:
-      - spec: pkg-config@0.29.2
-        prefix: /usr
-      buildable: false
-      require:
-      - '%gcc'
-    glibc:
-      require:
-      - '%gcc'
-    lustre:
-      externals:
-      - spec: lustre@2.15.4.2_cray_42_ga614b9c
-        prefix: /usr
-      buildable: false
-      require:
-      - '%gcc'
     gcc:
       externals:
       - spec: gcc@7.5.0 languages='c,c++,fortran'
@@ -70,6 +65,11 @@ spack:
       variants:
       - +piclibs
       - languages=c,c++,fortran,go
+      require:
+      - '%gcc'
+    pkgconfig:
+      buildable: false
+    glibc:
       require:
       - '%gcc'
     adios2:
@@ -493,6 +493,8 @@ spack:
       externals:
       - spec: idl@9.0.0
         prefix: /glade/u/apps/opt/idl/9.0.0
+      - spec: idl@9.1.0
+        prefix: /glade/u/apps/opt/idl/9.1.0
       buildable: false
     imagemagick:
       variants:
@@ -655,6 +657,8 @@ spack:
       externals:
       - spec: matlab@R2024a
         prefix: /glade/u/apps/opt/matlab/R2024a
+      - spec: matlab@R2024b
+        prefix: /glade/u/apps/opt/matlab/R2024b
       buildable: false
     maven:
       require:
@@ -918,6 +922,8 @@ spack:
       externals:
       - spec: rstudio@2023.09.0
         prefix: /glade/u/apps/opt/rstudio/2023.09.0
+      - spec: rstudio@2024.12.0
+        prefix: /glade/u/apps/opt/rstudio/2024.12.0
       buildable: false
     rsync:
       require:
@@ -1855,3 +1861,7 @@ spack:
   - intel-oneapi-vtune@2025.0.1
   - intel-oneapi-advisor@2025.0.0
   - netcdf-cxx@4.2%gcc@12.4.0
+  - matlab@R2024b
+  - rstudio@2024.12.0
+  - h5z-zfp@1.1.1%gcc@12.4.0
+  - idl@9.1.0

@@ -1,6 +1,18 @@
 packages:
-  pkgconfig:
+  pkg-config:
+    externals:
+    - spec: pkg-config@0.29.2
+      prefix: /usr
     buildable: false
+    require:
+    - '%gcc'
+  lustre:
+    externals:
+    - spec: lustre@2.15.4.2_cray_42_ga614b9c
+      prefix: /usr
+    buildable: false
+    require:
+    - '%gcc'
   openssl:
     externals:
     - spec: openssl@1.1.1l
@@ -14,23 +26,6 @@ packages:
     # itself suggests that the trusted thing to do is to use the system version
     - certs=system
     - '%gcc'
-  pkg-config:
-    externals:
-    - spec: pkg-config@0.29.2
-      prefix: /usr
-    buildable: false
-    require:
-    - '%gcc'
-  glibc:
-    require:
-    - '%gcc'
-  lustre:
-    externals:
-    - spec: lustre@2.15.4.2_cray_42_ga614b9c
-      prefix: /usr
-    buildable: false
-    require:
-    - '%gcc'
   gcc:
     externals:
     - spec: gcc@7.5.0 languages='c,c++,fortran'
@@ -43,6 +38,11 @@ packages:
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
+    require:
+    - '%gcc'
+  pkgconfig:
+    buildable: false
+  glibc:
     require:
     - '%gcc'
   adios2:
@@ -466,6 +466,8 @@ packages:
     externals:
     - spec: idl@9.0.0
       prefix: /glade/u/apps/opt/idl/9.0.0
+    - spec: idl@9.1.0
+      prefix: /glade/u/apps/opt/idl/9.1.0
     buildable: false
   imagemagick:
     variants:
@@ -628,6 +630,8 @@ packages:
     externals:
     - spec: matlab@R2024a
       prefix: /glade/u/apps/opt/matlab/R2024a
+    - spec: matlab@R2024b
+      prefix: /glade/u/apps/opt/matlab/R2024b
     buildable: false
   maven:
     require:
@@ -891,6 +895,8 @@ packages:
     externals:
     - spec: rstudio@2023.09.0
       prefix: /glade/u/apps/opt/rstudio/2023.09.0
+    - spec: rstudio@2024.12.0
+      prefix: /glade/u/apps/opt/rstudio/2024.12.0
     buildable: false
   rsync:
     require:

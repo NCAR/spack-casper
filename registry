@@ -205,3 +205,7 @@ nm7ev2tewbnalwarncevrv7mr3o6t25b | 2024-12-17T14:17:45 | 350a74ae92e368fb76acd96
 6pefixtnuisvmfgomhufjjgqbnrry6i6 | 2024-12-17T16:41:24 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | intel-oneapi-vtune@2025.0.1 | intel-oneapi-vtune@2025.0.1
 4oqeeo6o5342kpqqdyz26e352mnsadtc | 2024-12-17T16:41:54 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | intel-oneapi-advisor@2025.0.0 | intel-oneapi-advisor@2025.0.0
 rfcchw4y5xx7lrfpcvd4crjnimb5ckig | 2024-12-17T18:54:20 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | netcdf-cxx@4.2%gcc@12.4.0 | netcdf-cxx@4.2%gcc@12.4.0
+ljp275mqmytgtx2sv3w7hoypulnjkxo2 | 2024-12-19T12:33:21 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | matlab@R2024b | matlab@R2024b
+4zg5mki6sr6goxlt3tamwmkir5szhkvk | 2024-12-19T12:33:57 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | rstudio@2024.12.0 | rstudio@2024.12.0
+2k65urcl7ss33go2trvfasbinasvwh6d | 2024-12-19T12:34:33 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | h5z-zfp@1.1.1%gcc@12.4.0 | h5z-zfp@1.1.1%gcc@12.4.0
+huqd7wau7nwpjbiniazv7tnzf3o2wqc2 | 2024-12-19T12:35:07 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | idl@9.1.0 | idl@9.1.0
