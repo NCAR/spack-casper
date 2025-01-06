@@ -209,3 +209,4 @@ ljp275mqmytgtx2sv3w7hoypulnjkxo2 | 2024-12-19T12:33:21 | 350a74ae92e368fb76acd96
 huqd7wau7nwpjbiniazv7tnzf3o2wqc2 | 2024-12-19T12:35:07 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | idl@9.1.0 | idl@9.1.0
 6px63sptv6q3hn2fwo5gao73a2ocr5oc | 2024-12-19T14:58:32 | 3bd1cc310c0ab8015b17e1e41f9718a0d20917a9 |      | no     | yes     | yes      |           | ncarcompilers@1.0.0%oneapi@2024.2.1 | ncarcompilers@1.0.0%oneapi@2024.2.1
 c5tvrz4i6tbw2tzr4g3qcsd34ewvtxhq | 2024-12-19T14:59:01 | 3bd1cc310c0ab8015b17e1e41f9718a0d20917a9 |      | no     | yes     | yes      |           | ncarcompilers@1.0.0%oneapi@2025.0.3 | ncarcompilers@1.0.0%oneapi@2025.0.3
+n4ertb6myfzhwzntosizvklcfmbzyyg6 | 2025-01-06T12:10:10 | 3bd1cc310c0ab8015b17e1e41f9718a0d20917a9 |      | no     | yes     | yes      |           | intel-oneapi-mkl@2025.0.1%gcc@12.4.0 | intel-oneapi-mkl@2025.0.1%gcc@12.4.0

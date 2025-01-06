@@ -1868,3 +1868,4 @@ spack:
   - idl@9.1.0
   - ncarcompilers@1.0.0%oneapi@2024.2.1
   - ncarcompilers@1.0.0%oneapi@2025.0.3
+  - intel-oneapi-mkl@2025.0.1%gcc@12.4.0
