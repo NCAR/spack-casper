@@ -56,6 +56,7 @@ ncar_utils[diffuse]=precise-container
 if [[ $NCAR_SPACK_HOST == casper ]]; then
     ncar_utils[dask_resource_monitor]=negin513:ncar-dask-monitor
     ncar_utils[casper_resource_monitor]=negin513:ncar-dask-monitor
+    ncar_utils[qvscode]=neumanbrett:qvscode
 fi
 
 # These utilites don't actually come from github tracked repos, so let's not
