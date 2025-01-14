@@ -1869,3 +1869,11 @@ spack:
   - ncarcompilers@1.0.0%oneapi@2024.2.1
   - ncarcompilers@1.0.0%oneapi@2025.0.3
   - intel-oneapi-mkl@2025.0.1%gcc@12.4.0
+  - esmf@8.8.0%gcc@12.4.0~mpi
+  - esmf@8.8.0%nvhpc@24.11~mpi
+  - esmf@8.8.0%oneapi@2024.2.1~mpi
+  - esmf@8.8.0%oneapi@2025.0.3~mpi
+  - esmf@8.8.0%gcc@12.4.0+mpi+pnetcdf ^openmpi@5.0.6%gcc@12.4.0
+  - esmf@8.8.0%nvhpc@24.11+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@24.11
+  - esmf@8.8.0%oneapi@2024.2.1+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2024.2.1
+  - esmf@8.8.0%oneapi@2025.0.3+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2025.0.3
