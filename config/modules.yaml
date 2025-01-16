@@ -47,6 +47,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - nco
       - idl
       - rstudio
       - matlab
@@ -58,7 +59,6 @@ modules:
       - octave
       - ucx
       - intel-oneapi-compilers
-      - nco
       - gmt
       - cdo
       - nccmp
