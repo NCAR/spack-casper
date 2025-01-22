@@ -47,6 +47,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - cudnn
       - nco
       - idl
       - rstudio
@@ -80,7 +81,6 @@ modules:
       - grib-util
       - wgrib2
       - ncl
-      - cudnn
       - cuda
       - charliecloud
       - peak-memusage
@@ -124,6 +124,7 @@ modules:
       - netcdf@4.9.2
       - openmpi@5.0.6
       - cuda@12.3.2
+      - cudnn@8.9.7.29-12
       - gcc@12.4.0
       - intel-oneapi-compilers@2024.2.1
       - nvhpc@24.11

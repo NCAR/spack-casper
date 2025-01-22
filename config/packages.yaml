@@ -190,6 +190,8 @@ packages:
     - '%gcc'
   cudnn:
     require: '%gcc'
+    prefer:
+    - spec: ^cuda@12.3.2
   curl:
     require:
     - '%gcc'

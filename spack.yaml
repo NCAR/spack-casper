@@ -217,6 +217,8 @@ spack:
       - '%gcc'
     cudnn:
       require: '%gcc'
+      prefer:
+      - spec: ^cuda@12.3.2
     curl:
       require:
       - '%gcc'
@@ -1214,6 +1216,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - cudnn
         - nco
         - idl
         - rstudio
@@ -1247,7 +1250,6 @@ spack:
         - grib-util
         - wgrib2
         - ncl
-        - cudnn
         - cuda
         - charliecloud
         - peak-memusage
@@ -1291,6 +1293,7 @@ spack:
         - netcdf@4.9.2
         - openmpi@5.0.6
         - cuda@12.3.2
+        - cudnn@8.9.7.29-12
         - gcc@12.4.0
         - intel-oneapi-compilers@2024.2.1
         - nvhpc@24.11
@@ -1878,3 +1881,4 @@ spack:
   - esmf@8.8.0%oneapi@2024.2.1+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2024.2.1
   - esmf@8.8.0%oneapi@2025.0.3+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2025.0.3
   - nco@5.3.1
+  - cudnn@9.2.0.82-12
