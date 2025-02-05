@@ -1882,3 +1882,11 @@ spack:
   - esmf@8.8.0%oneapi@2025.0.3+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2025.0.3
   - nco@5.3.1
   - cudnn@9.2.0.82-12
+  - parallelio@2.6.4%gcc@12.4.0~mpi~pnetcdf
+  - parallelio@2.6.4%nvhpc@24.11~mpi~pnetcdf
+  - parallelio@2.6.4%oneapi@2024.2.1~mpi~pnetcdf
+  - parallelio@2.6.4%oneapi@2025.0.3~mpi~pnetcdf
+  - parallelio@2.6.4%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - parallelio@2.6.4%nvhpc@24.11 ^openmpi@5.0.6%nvhpc@24.11
+  - parallelio@2.6.4%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
+  - parallelio@2.6.4%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
