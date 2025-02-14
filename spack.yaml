@@ -1892,3 +1892,11 @@ spack:
   - parallelio@2.6.4%nvhpc@24.11 ^openmpi@5.0.6%nvhpc@24.11
   - parallelio@2.6.4%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
   - parallelio@2.6.4%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
+  - netcdf@4.9.3%gcc@12.4.0~mpi
+  - netcdf@4.9.3%nvhpc@24.11~mpi
+  - netcdf@4.9.3%oneapi@2024.2.1~mpi
+  - netcdf@4.9.3%oneapi@2025.0.3~mpi
+  - netcdf@4.9.3%gcc@12.4.0+mpi ^openmpi@5.0.6%gcc@12.4.0
+  - netcdf@4.9.3%nvhpc@24.11+mpi ^openmpi@5.0.6%nvhpc@24.11
+  - netcdf@4.9.3%oneapi@2024.2.1+mpi ^openmpi@5.0.6%oneapi@2024.2.1
+  - netcdf@4.9.3%oneapi@2025.0.3+mpi ^openmpi@5.0.6%oneapi@2025.0.3
