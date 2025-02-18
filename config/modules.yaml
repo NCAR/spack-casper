@@ -47,6 +47,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - cuda
       - cudnn
       - nco
       - idl
@@ -81,7 +82,6 @@ modules:
       - grib-util
       - wgrib2
       - ncl
-      - cuda
       - charliecloud
       - peak-memusage
       - podman

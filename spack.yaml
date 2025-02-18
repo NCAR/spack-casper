@@ -1216,6 +1216,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - cuda
         - cudnn
         - nco
         - idl
@@ -1250,7 +1251,6 @@ spack:
         - grib-util
         - wgrib2
         - ncl
-        - cuda
         - charliecloud
         - peak-memusage
         - podman
@@ -1900,3 +1900,4 @@ spack:
   - netcdf@4.9.3%nvhpc@24.11+mpi ^openmpi@5.0.6%nvhpc@24.11
   - netcdf@4.9.3%oneapi@2024.2.1+mpi ^openmpi@5.0.6%oneapi@2024.2.1
   - netcdf@4.9.3%oneapi@2025.0.3+mpi ^openmpi@5.0.6%oneapi@2025.0.3
+  - cuda@12.8.0
