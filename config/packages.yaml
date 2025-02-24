@@ -800,8 +800,7 @@ packages:
       - ~pnetcdf
       when: ~mpi
     # Concretizer will try to use older versions to avoid automake dependencies in 2.5.0
-    - one_of:
-      - ^mpi-serial@2.5.0
+    - spec: ^mpi-serial@2.5.0
       when: ~mpi
   parallelio1:
     variants:

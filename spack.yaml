@@ -827,8 +827,7 @@ spack:
         - ~pnetcdf
         when: ~mpi
       # Concretizer will try to use older versions to avoid automake dependencies in 2.5.0
-      - one_of:
-        - ^mpi-serial@2.5.0
+      - spec: ^mpi-serial@2.5.0
         when: ~mpi
     parallelio1:
       variants:
@@ -1901,3 +1900,11 @@ spack:
   - netcdf@4.9.3%oneapi@2024.2.1+mpi ^openmpi@5.0.6%oneapi@2024.2.1
   - netcdf@4.9.3%oneapi@2025.0.3+mpi ^openmpi@5.0.6%oneapi@2025.0.3
   - cuda@12.8.0
+  - parallelio@2.6.5%gcc@12.4.0~mpi~pnetcdf
+  - parallelio@2.6.5%nvhpc@24.11~mpi~pnetcdf
+  - parallelio@2.6.5%oneapi@2024.2.1~mpi~pnetcdf
+  - parallelio@2.6.5%oneapi@2025.0.3~mpi~pnetcdf
+  - parallelio@2.6.5%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - parallelio@2.6.5%nvhpc@24.11 ^openmpi@5.0.6%nvhpc@24.11
+  - parallelio@2.6.5%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
+  - parallelio@2.6.5%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
