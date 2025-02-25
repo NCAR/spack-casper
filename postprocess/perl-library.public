@@ -6,7 +6,7 @@
 #       a small Perl module library which is managed by this unit.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   12:52, 25 Feb 2025
+#   Last Revised:   13:20, 25 Feb 2025
 #
 
 #
@@ -19,6 +19,10 @@ perl_lib_root=$NCAR_SPACK_ROOT_BASE/perl
 #
 ##  INSTALL PERL MODULES
 #
+
+# This setting is needed for Pg to test properly
+# https://github.com/bucardo/dbdpg/issues/78
+export DBDPG_TEMPDIR=/tmp
 
 tsecho "Checking for Spack-installed Perl"
 perl_hash=$(sed -n '3,$ s/ | /|/gp' $SPACK_ENV/registry | awk -F\| '$NF == "perl" { print $1 }')
