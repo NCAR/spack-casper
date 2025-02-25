@@ -6,7 +6,7 @@
 #       a small Perl module library which is managed by this unit.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   09:41, 25 Feb 2025
+#   Last Revised:   09:47, 25 Feb 2025
 #
 
 #
@@ -22,7 +22,7 @@ perl_lib_root=$NCAR_SPACK_ROOT_BASE/perl
 
 tsecho "Checking for Spack-installed Perl"
 perl_hash=$(sed -n '3,$ s/ | /|/gp' $SPACK_ENV/registry | awk -F\| '$NF == "perl" { print $1 }')
-perl_deps="/$perl_hash"
+perl_deps="/$perl_hash postgresql mysql libxml2"
 
 if [[ -n $perl_hash ]]; then
     tsecho "Populating Perl library"

@@ -133,6 +133,7 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - mysql@8.0.29
       - py-pandas@2.1.4
       - py-tabulate
       - lmod

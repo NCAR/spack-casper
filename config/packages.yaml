@@ -670,8 +670,8 @@ packages:
     - ~cuda
   mysql:
     require:
-    - spec: cxxstd=14
-      when: '@8.0.19'
+    - spec: cxxstd=17
+      when: '@8.0.29'
   ncl:
     require:
     - '%gcc'

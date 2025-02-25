@@ -697,8 +697,8 @@ spack:
       - ~cuda
     mysql:
       require:
-      - spec: cxxstd=14
-        when: '@8.0.19'
+      - spec: cxxstd=17
+        when: '@8.0.29'
     ncl:
       require:
       - '%gcc'
@@ -1043,6 +1043,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/24.12/opt/view
       select:
+      - mysql@8.0.29
       - npm
       - node-js
       - openjpeg
@@ -1301,6 +1302,7 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - mysql@8.0.29
         - py-pandas@2.1.4
         - py-tabulate
         - lmod
@@ -1908,3 +1910,4 @@ spack:
   - parallelio@2.6.5%nvhpc@24.11 ^openmpi@5.0.6%nvhpc@24.11
   - parallelio@2.6.5%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
   - parallelio@2.6.5%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
+  - mysql@8.0.29
