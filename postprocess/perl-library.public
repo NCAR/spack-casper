@@ -6,14 +6,14 @@
 #       a small Perl module library which is managed by this unit.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   22:33, 21 Nov 2024
+#   Last Revised:   09:41, 25 Feb 2025
 #
 
 #
 ##  USER INPUT
 #
 
-perl_mod_list="Pod::Parser HTML::Entities XML::LibXML CPAN::Shell File::Slurp DateTime"
+perl_mod_list="Pod::Parser HTML::Entities XML::LibXML CPAN::Shell File::Slurp DateTime DBD::Pg DBD::mysql"
 perl_lib_root=$NCAR_SPACK_ROOT_BASE/perl
 
 #
