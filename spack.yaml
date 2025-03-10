@@ -698,7 +698,7 @@ spack:
     mysql:
       require:
       - spec: cxxstd=17
-        when: '@8.0.29'
+        when: '@8.0.29:'
     ncl:
       require:
       - '%gcc'
@@ -1216,6 +1216,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - lrose-core
         - cuda
         - cudnn
         - nco
@@ -1911,3 +1912,4 @@ spack:
   - parallelio@2.6.5%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
   - parallelio@2.6.5%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
   - mysql@8.0.29
+  - lrose-core@20250105
