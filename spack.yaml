@@ -1803,18 +1803,18 @@ spack:
   - ncarcompilers@1.0.0%gcc@12.2.0
   - ncarcompilers@1.0.0%nvhpc@23.7
   - ncarcompilers@1.0.0%oneapi@2023.2.1
-  - fftw@3.3.10%gcc@12.2.0~mpi
-  - fftw@3.3.10%nvhpc@23.7~mpi
-  - fftw@3.3.10%oneapi@2023.2.1~mpi
+  - fftw@3.3.10~mpi %gcc@12.2.0
+  - fftw@3.3.10~mpi %nvhpc@23.7
+  - fftw@3.3.10~mpi %oneapi@2023.2.1
   - udunits@2.2.28%gcc@12.2.0
   - udunits@2.2.28%nvhpc@23.7
   - udunits@2.2.28%oneapi@2023.2.1
-  - hdf5@1.12.2%gcc@12.2.0~mpi
-  - hdf5@1.12.2%nvhpc@23.7~mpi
-  - hdf5@1.12.2%oneapi@2023.2.1~mpi
-  - netcdf@4.9.2%gcc@12.2.0~mpi
-  - netcdf@4.9.2%nvhpc@23.7~mpi
-  - netcdf@4.9.2%oneapi@2023.2.1~mpi
+  - hdf5@1.12.2~mpi %gcc@12.2.0
+  - hdf5@1.12.2~mpi %nvhpc@23.7
+  - hdf5@1.12.2~mpi %oneapi@2023.2.1
+  - netcdf@4.9.2~mpi %gcc@12.2.0
+  - netcdf@4.9.2~mpi %nvhpc@23.7
+  - netcdf@4.9.2~mpi %oneapi@2023.2.1
   - proj@8.2.1%gcc@12.2.0
   - proj@8.2.1%nvhpc@23.7
   - proj@8.2.1%oneapi@2023.2.1
@@ -1823,43 +1823,43 @@ spack:
   - geos@3.9.1%oneapi@2023.2.1
   - hdf@4.2.15%gcc@12.2.0
   - hdf@4.2.15%nvhpc@23.7
-  - hdf@4.2.15%oneapi@2023.2.1 cflags="-std=c90 -Wno-error=int-conversion"
+  - hdf@4.2.15 cflags="-std=c90 -Wno-error=int-conversion" %oneapi@2023.2.1
   - eccodes@2.25.0%gcc@12.2.0
   - eccodes@2.25.0%nvhpc@23.7
   - eccodes@2.25.0%oneapi@2023.2.1
   - mpi-serial@2.3.0%gcc@12.2.0
   - mpi-serial@2.3.0%nvhpc@23.7
   - mpi-serial@2.3.0%oneapi@2023.2.1
-  - parallelio@2.6.2%gcc@12.2.0~mpi~pnetcdf
-  - parallelio@2.6.2%nvhpc@23.7~mpi~pnetcdf
-  - parallelio@2.6.2%oneapi@2023.2.1~mpi~pnetcdf
-  - esmf@8.5.0%gcc@12.2.0~mpi
-  - esmf@8.5.0%nvhpc@23.7~mpi ^nvhpc@23.7
-  - esmf@8.5.0%oneapi@2023.2.1~mpi
+  - parallelio@2.6.2~mpi~pnetcdf %gcc@12.2.0
+  - parallelio@2.6.2~mpi~pnetcdf %nvhpc@23.7
+  - parallelio@2.6.2~mpi~pnetcdf %oneapi@2023.2.1
+  - esmf@8.5.0~mpi %gcc@12.2.0
+  - esmf@8.5.0~mpi %nvhpc@23.7 ^nvhpc@23.7
+  - esmf@8.5.0~mpi %oneapi@2023.2.1
   - gdal@3.7.1%gcc@12.2.0
   - parallel-netcdf@1.12.3%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - parallel-netcdf@1.12.3%nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
   - parallel-netcdf@1.12.3%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
-  - hdf5@1.12.2%gcc@12.2.0+mpi ^openmpi@4.1.6%gcc@12.2.0
-  - hdf5@1.12.2%nvhpc@23.7+mpi ^openmpi@4.1.6%nvhpc@23.7
-  - hdf5@1.12.2%oneapi@2023.2.1+mpi ^openmpi@4.1.6%oneapi@2023.2.1
-  - netcdf@4.9.2%gcc@12.2.0+mpi ^openmpi@4.1.6%gcc@12.2.0
-  - netcdf@4.9.2%nvhpc@23.7+mpi ^openmpi@4.1.6%nvhpc@23.7
-  - netcdf@4.9.2%oneapi@2023.2.1+mpi ^openmpi@4.1.6%oneapi@2023.2.1
-  - fftw@3.3.10%gcc@12.2.0+mpi ^openmpi@4.1.6%gcc@12.2.0
-  - fftw@3.3.10%nvhpc@23.7+mpi ^openmpi@4.1.6%nvhpc@23.7
-  - fftw@3.3.10%oneapi@2023.2.1+mpi ^openmpi@4.1.6%oneapi@2023.2.1
+  - hdf5@1.12.2+mpi %gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - hdf5@1.12.2+mpi %nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
+  - hdf5@1.12.2+mpi %oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
+  - netcdf@4.9.2+mpi %gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - netcdf@4.9.2+mpi %nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
+  - netcdf@4.9.2+mpi %oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
+  - fftw@3.3.10+mpi %gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - fftw@3.3.10+mpi %nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
+  - fftw@3.3.10+mpi %oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
   - darshan-runtime@3.4.2%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - darshan-runtime@3.4.2%nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
   - darshan-runtime@3.4.2%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
   - parallelio@2.6.2%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - parallelio@2.6.2%nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
   - parallelio@2.6.2%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
-  - esmf@8.5.0%gcc@12.2.0+mpi+pnetcdf ^openmpi@4.1.6%gcc@12.2.0
-  - esmf@8.5.0%nvhpc@23.7+mpi+pnetcdf ^nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
-  - esmf@8.5.0%oneapi@2023.2.1+mpi+pnetcdf ^openmpi@4.1.6%oneapi@2023.2.1
+  - esmf@8.5.0+mpi+pnetcdf %gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
+  - esmf@8.5.0+mpi+pnetcdf %nvhpc@23.7 ^nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
+  - esmf@8.5.0+mpi+pnetcdf %oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
   - osu-micro-benchmarks%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
-  - osu-micro-benchmarks%nvhpc@23.7+cuda ^openmpi@4.1.6%nvhpc@23.7
+  - osu-micro-benchmarks+cuda %nvhpc@23.7 ^openmpi@4.1.6%nvhpc@23.7
   - osu-micro-benchmarks%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
   - adios2@2.9.1%gcc@12.2.0 ^openmpi@4.1.6%gcc@12.2.0
   - adios2@2.9.1%oneapi@2023.2.1 ^openmpi@4.1.6%oneapi@2023.2.1
@@ -1900,18 +1900,18 @@ spack:
   - ncarcompilers@1.0.0%gcc@13.2.0
   - ncarcompilers@1.0.0%nvhpc@24.1
   - ncarcompilers@1.0.0%oneapi@2024.0.2
-  - fftw@3.3.10%gcc@13.2.0~mpi
-  - fftw@3.3.10%nvhpc@24.1~mpi
-  - fftw@3.3.10%oneapi@2024.0.2~mpi
+  - fftw@3.3.10~mpi %gcc@13.2.0
+  - fftw@3.3.10~mpi %nvhpc@24.1
+  - fftw@3.3.10~mpi %oneapi@2024.0.2
   - udunits@2.2.28%gcc@13.2.0
   - udunits@2.2.28%nvhpc@24.1
   - udunits@2.2.28%oneapi@2024.0.2
-  - hdf5@1.14.3%gcc@13.2.0~mpi
-  - hdf5@1.14.3%nvhpc@24.1~mpi
-  - hdf5@1.14.3%oneapi@2024.0.2~mpi
-  - netcdf@4.9.2%gcc@13.2.0~mpi
-  - netcdf@4.9.2%nvhpc@24.1~mpi
-  - netcdf@4.9.2%oneapi@2024.0.2~mpi
+  - hdf5@1.14.3~mpi %gcc@13.2.0
+  - hdf5@1.14.3~mpi %nvhpc@24.1
+  - hdf5@1.14.3~mpi %oneapi@2024.0.2
+  - netcdf@4.9.2~mpi %gcc@13.2.0
+  - netcdf@4.9.2~mpi %nvhpc@24.1
+  - netcdf@4.9.2~mpi %oneapi@2024.0.2
   - proj@9.2.1%gcc@13.2.0
   - proj@9.2.1%nvhpc@24.1
   - proj@9.2.1%oneapi@2024.0.2
@@ -1920,42 +1920,42 @@ spack:
   - geos@3.12.1%oneapi@2024.0.2
   - hdf@4.2.15%gcc@13.2.0
   - hdf@4.2.15%nvhpc@24.1
-  - hdf@4.2.15%oneapi@2024.0.2 cflags='-std=c90 -Wno-error=int-conversion'
+  - hdf@4.2.15 cflags='-std=c90 -Wno-error=int-conversion' %oneapi@2024.0.2
   - eccodes@2.32.0%gcc@13.2.0
   - eccodes@2.32.0%nvhpc@24.1
   - eccodes@2.32.0%oneapi@2024.0.2
   - mpi-serial@2.5.0%gcc@13.2.0
   - mpi-serial@2.5.0%nvhpc@24.1
   - mpi-serial@2.5.0%oneapi@2024.0.2
-  - parallelio@2.6.2%gcc@13.2.0~mpi~pnetcdf
-  - parallelio@2.6.2%nvhpc@24.1~mpi~pnetcdf
-  - parallelio@2.6.2%oneapi@2024.0.2~mpi~pnetcdf
-  - esmf@8.6.0%gcc@13.2.0~mpi
-  - esmf@8.6.0%nvhpc@24.1~mpi ^nvhpc@24.1
-  - esmf@8.6.0%oneapi@2024.0.2~mpi
+  - parallelio@2.6.2~mpi~pnetcdf %gcc@13.2.0
+  - parallelio@2.6.2~mpi~pnetcdf %nvhpc@24.1
+  - parallelio@2.6.2~mpi~pnetcdf %oneapi@2024.0.2
+  - esmf@8.6.0~mpi %gcc@13.2.0
+  - esmf@8.6.0~mpi %nvhpc@24.1 ^nvhpc@24.1
+  - esmf@8.6.0~mpi %oneapi@2024.0.2
   - gdal@3.8.1%gcc@13.2.0
   - parallel-netcdf@1.12.3%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
   - parallel-netcdf@1.12.3%nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
   - parallel-netcdf@1.12.3%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
-  - hdf5@1.14.3%gcc@13.2.0+mpi ^openmpi@5.0.0%gcc@13.2.0
-  - hdf5@1.14.3%nvhpc@24.1+mpi ^openmpi@5.0.0%nvhpc@24.1
-  - hdf5@1.14.3%oneapi@2024.0.2+mpi ^openmpi@5.0.0%oneapi@2024.0.2
-  - netcdf@4.9.2%gcc@13.2.0+mpi ^openmpi@5.0.0%gcc@13.2.0
-  - netcdf@4.9.2%nvhpc@24.1+mpi ^openmpi@5.0.0%nvhpc@24.1
-  - netcdf@4.9.2%oneapi@2024.0.2+mpi ^openmpi@5.0.0%oneapi@2024.0.2
-  - fftw@3.3.10%gcc@13.2.0+mpi ^openmpi@5.0.0%gcc@13.2.0
-  - fftw@3.3.10%nvhpc@24.1+mpi ^openmpi@5.0.0%nvhpc@24.1
-  - fftw@3.3.10%oneapi@2024.0.2+mpi ^openmpi@5.0.0%oneapi@2024.0.2
+  - hdf5@1.14.3+mpi %gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - hdf5@1.14.3+mpi %nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
+  - hdf5@1.14.3+mpi %oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
+  - netcdf@4.9.2+mpi %gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - netcdf@4.9.2+mpi %nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
+  - netcdf@4.9.2+mpi %oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
+  - fftw@3.3.10+mpi %gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - fftw@3.3.10+mpi %nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
+  - fftw@3.3.10+mpi %oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
   - darshan-runtime@3.4.4%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
   - darshan-runtime@3.4.4%nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
   - darshan-runtime@3.4.4%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
   - parallelio@2.6.2%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
   - parallelio@2.6.2%nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
   - parallelio@2.6.2%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
-  - esmf@8.6.0%gcc@13.2.0+mpi+pnetcdf ^openmpi@5.0.0%gcc@13.2.0
-  - esmf@8.6.0%nvhpc@24.1+mpi+pnetcdf ^nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
-  - esmf@8.6.0%oneapi@2024.0.2+mpi+pnetcdf ^openmpi@5.0.0%oneapi@2024.0.2
-  - osu-micro-benchmarks%nvhpc@24.1+cuda ^openmpi@5.0.0%nvhpc@24.1
+  - esmf@8.6.0+mpi+pnetcdf %gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
+  - esmf@8.6.0+mpi+pnetcdf %nvhpc@24.1 ^nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
+  - esmf@8.6.0+mpi+pnetcdf %oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
+  - osu-micro-benchmarks+cuda %nvhpc@24.1 ^openmpi@5.0.0%nvhpc@24.1
   - osu-micro-benchmarks%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
   - adios2@2.9.2%gcc@13.2.0 ^openmpi@5.0.0%gcc@13.2.0
   - adios2@2.9.2%oneapi@2024.0.2 ^openmpi@5.0.0%oneapi@2024.0.2
@@ -1982,25 +1982,25 @@ spack:
   - nvhpc@24.7
   - openmpi@5.0.0%nvhpc@24.7
   - ncarcompilers@1.0.0%nvhpc@24.7
-  - fftw@3.3.10%nvhpc@24.7~mpi
+  - fftw@3.3.10~mpi %nvhpc@24.7
   - udunits@2.2.28%nvhpc@24.7
-  - hdf5@1.14.3%nvhpc@24.7~mpi
-  - netcdf@4.9.2%nvhpc@24.7~mpi
+  - hdf5@1.14.3~mpi %nvhpc@24.7
+  - netcdf@4.9.2~mpi %nvhpc@24.7
   - proj@9.2.1%nvhpc@24.7
   - geos@3.12.1%nvhpc@24.7
   - hdf@4.2.15%nvhpc@24.7
   - eccodes@2.36.0%nvhpc@24.7
   - mpi-serial@2.5.0%nvhpc@24.7
-  - parallelio@2.6.2%nvhpc@24.7~mpi~pnetcdf
-  - esmf@8.6.0%nvhpc@24.7~mpi ^nvhpc@24.7
+  - parallelio@2.6.2~mpi~pnetcdf %nvhpc@24.7
+  - esmf@8.6.0~mpi %nvhpc@24.7 ^nvhpc@24.7
   - parallel-netcdf@1.12.3%nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
-  - hdf5@1.14.3%nvhpc@24.7+mpi ^openmpi@5.0.0%nvhpc@24.7
-  - netcdf@4.9.2%nvhpc@24.7+mpi ^openmpi@5.0.0%nvhpc@24.7
-  - fftw@3.3.10%nvhpc@24.7+mpi ^openmpi@5.0.0%nvhpc@24.7
+  - hdf5@1.14.3+mpi %nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
+  - netcdf@4.9.2+mpi %nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
+  - fftw@3.3.10+mpi %nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
   - darshan-runtime@3.4.4%nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
   - parallelio@2.6.2%nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
-  - esmf@8.6.0%nvhpc@24.7+mpi+pnetcdf ^nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
-  - osu-micro-benchmarks%nvhpc@24.7+cuda ^openmpi@5.0.0%nvhpc@24.7
+  - esmf@8.6.0+mpi+pnetcdf %nvhpc@24.7 ^nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
+  - osu-micro-benchmarks+cuda %nvhpc@24.7 ^openmpi@5.0.0%nvhpc@24.7
   - ecflow@5.11.4
   - cudnn@9.2.0.82-12
   - intel-oneapi-mkl@2024.0.0%gcc@12.2.0
