@@ -1,14 +1,14 @@
 packages:
-  pkg-config:
+  lustre:
     externals:
-    - spec: pkg-config@0.29.2
+    - spec: lustre@2.15.4.2_cray_42_ga614b9c
       prefix: /usr
     buildable: false
     require:
     - '%gcc'
-  lustre:
+  pkg-config:
     externals:
-    - spec: lustre@2.15.4.2_cray_42_ga614b9c
+    - spec: pkg-config@0.29.2
       prefix: /usr
     buildable: false
     require:
@@ -954,6 +954,12 @@ packages:
   vapor:
     variants:
     - +ospray
+    externals:
+    - spec: vapor@3.9.3
+      prefix: /glade/u/apps/opt/vapor/3.9.3
+    buildable: false
+    require:
+    - '%gcc'
   vim:
     variants:
     - +cscope

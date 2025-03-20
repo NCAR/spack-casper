@@ -26,16 +26,16 @@ spack:
     template_dirs:
     - /glade/u/apps/casper/24.12/envs/build/templates/modules
   packages:
-    pkg-config:
+    lustre:
       externals:
-      - spec: pkg-config@0.29.2
+      - spec: lustre@2.15.4.2_cray_42_ga614b9c
         prefix: /usr
       buildable: false
       require:
       - '%gcc'
-    lustre:
+    pkg-config:
       externals:
-      - spec: lustre@2.15.4.2_cray_42_ga614b9c
+      - spec: pkg-config@0.29.2
         prefix: /usr
       buildable: false
       require:
@@ -981,6 +981,12 @@ spack:
     vapor:
       variants:
       - +ospray
+      externals:
+      - spec: vapor@3.9.3
+        prefix: /glade/u/apps/opt/vapor/3.9.3
+      buildable: false
+      require:
+      - '%gcc'
     vim:
       variants:
       - +cscope
@@ -1216,6 +1222,8 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - vapor
+        - cmake
         - lrose-core
         - cuda
         - cudnn
@@ -1235,7 +1243,6 @@ spack:
         - cdo
         - nccmp
         - ncview
-        - vapor
         - madis
         - ferret
         - grads
@@ -1258,7 +1265,6 @@ spack:
         - apptainer
         - miniconda3
         - pcre
-        - cmake
         - go
         - nvhpc
         - r
@@ -1786,7 +1792,6 @@ spack:
   - grads
   - ferret
   - madis
-  - vapor@3.9.3
   - ncview@2.1.9
   - nccmp@1.9.1.0
   - cdo@2.4.4
@@ -1913,3 +1918,5 @@ spack:
   - parallelio@2.6.5%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
   - mysql@8.0.29
   - lrose-core@20250105
+  - cmake@3.26.6
+  - vapor@3.9.3

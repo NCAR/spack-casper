@@ -120,7 +120,6 @@ lzbjzh3k2lli6zucfwfyntkhaf7eayjr | 2024-12-17T08:44:58 | 350a74ae92e368fb76acd96
 zurjhukp56wkwa74hsoqn4o4fyufuxaz | 2024-12-17T08:45:35 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | grads | grads
 ip5mqgivv3destrcqcbnh6m6mttu5cd5 | 2024-12-17T08:46:09 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | ferret | ferret
 m2h2q2mmw7yzfrgsvihpvqcupwpk4qzp | 2024-12-17T08:46:39 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | madis | madis
-uis5mfcme4mmxave4yui76hes2t54cmg | 2024-12-17T08:47:26 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | vapor@3.9.3 | vapor@3.9.3
 w3g5ja2qzn4iphey765umgco54nslmdy | 2024-12-17T08:47:57 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | ncview@2.1.9 | ncview@2.1.9
 rw4wssstq2bju6jmbelqshxr45ea2yuf | 2024-12-17T08:48:28 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | nccmp@1.9.1.0 | nccmp@1.9.1.0
 sqbgx2fpq7aasm3ofnrp37tz2tsegah6 | 2024-12-17T08:49:01 | 350a74ae92e368fb76acd9600ebda51709bb9927 |      | no     | yes     | yes      |           | cdo@2.4.4 | cdo@2.4.4
@@ -247,3 +246,5 @@ zwzjwujpjjxf7hz3y6377movono2q546 | 2025-02-24T09:07:59 | 9e20eabd38ea67e22e9121f
 byr3tjl735673hqfpnlhcc7vy44m7oek | 2025-02-24T09:10:13 | 9e20eabd38ea67e22e9121facf8a8abe727556d6 |      | no     | yes     | yes      |           | parallelio@2.6.5%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3 | parallelio@2.6.5%oneapi@2025.0.3 ^openmpi@5.0.6%oneapi@2025.0.3
 j7gstwpfqrmr5n3q76zsmz7poha7wghj | 2025-02-25T12:44:53 | 9e20eabd38ea67e22e9121facf8a8abe727556d6 |      | no     | yes     | yes      |           | mysql@8.0.29 | mysql@8.0.29
 d4a2b5ztvz5qeukqnvth2qjkofhgbzn3 | 2025-03-10T12:18:30 | ed006b8f1aafb7dda5a6101e0b82decc4f21e928 |      | no     | yes     | yes      |           | lrose-core@20250105 | lrose-core@20250105
+v6tjj6msepep23tpfnetakpqoxwukx7r | 2025-03-20T15:06:47 | ed006b8f1aafb7dda5a6101e0b82decc4f21e928 |      | no     | yes     | yes      |           | cmake@3.26.6 | cmake@3.26.6
+whwpx5gedkn7b5ugfp2xre5h2s5y3j35 | 2025-03-20T15:07:30 | ed006b8f1aafb7dda5a6101e0b82decc4f21e928 |      | no     | yes     | yes      |           | vapor@3.9.3 | vapor@3.9.3
