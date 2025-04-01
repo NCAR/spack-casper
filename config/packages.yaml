@@ -95,8 +95,10 @@ packages:
       when: '%gcc ^lapack'
     - spec: ^intel-oneapi-mkl
       when: '%oneapi ^lapack'
-    - spec: ^nvhpc
-      when: '%nvhpc ^lapack'
+    - spec: ^nvhpc@24.11
+      when: '%nvhpc@24.11 ^lapack'
+    - spec: ^nvhpc@25.1
+      when: '%nvhpc@25.1 ^lapack'
     - spec: ^openblas
       when: '%gcc ^blas'
     - spec: ^intel-oneapi-mkl
@@ -257,8 +259,10 @@ packages:
       when: '%gcc ^lapack'
     - spec: ^intel-oneapi-mkl
       when: '%oneapi ^lapack'
-    - spec: ^nvhpc
-      when: '%nvhpc ^lapack'
+    - spec: ^nvhpc@24.11
+      when: '%nvhpc@24.11 ^lapack'
+    - spec: ^nvhpc@25.1
+      when: '%nvhpc@25.1 ^lapack'
     - spec: ^cray-libsci
       when: '%cce ^lapack'
     prefer:

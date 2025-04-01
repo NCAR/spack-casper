@@ -47,6 +47,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - nvhpc
       - vapor
       - cmake
       - lrose-core
@@ -91,7 +92,6 @@ modules:
       - miniconda3
       - pcre
       - go
-      - nvhpc
       - r
       cuda:
         environment:
