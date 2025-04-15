@@ -1241,6 +1241,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - ucx
         - nvhpc
         - vapor
         - cmake
@@ -1257,7 +1258,6 @@ spack:
         - paraview
         - visit
         - octave
-        - ucx
         - intel-oneapi-compilers
         - gmt
         - cdo
@@ -1325,6 +1325,7 @@ spack:
         - nvhpc@24.11
         - parallelio+mpi
         - esmf+mpi
+        - ucx~debug
         esmf:
           autoload: none
         exclude:
@@ -1645,6 +1646,7 @@ spack:
           miniconda3: conda/latest
           parallelio1: parallelio/{version}
           llvm+clang: clang/{version}
+          ucx+debug: ucx/{version}-debug
         rstudio:
           filter:
             exclude_env_vars:
@@ -1961,3 +1963,4 @@ spack:
   - osu-micro-benchmarks%nvhpc@25.1+cuda ^openmpi@5.0.7%nvhpc@25.1
   - esmf@8.8.0%nvhpc@25.1~mpi
   - esmf@8.8.0%nvhpc@25.1+mpi+pnetcdf ^openmpi@5.0.7%nvhpc@25.1
+  - ucx@1.17.0+debug+logging
