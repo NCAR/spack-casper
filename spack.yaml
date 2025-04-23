@@ -519,8 +519,10 @@ spack:
       require:
       - spec: '@2024'
         when: '%oneapi@2024'
-      - spec: '@2025'
-        when: '%oneapi@2025'
+      - spec: '@2025.0'
+        when: '%oneapi@2025.0'
+      - spec: '@2025.1'
+        when: '%oneapi@2025.1'
       - spec: +gfortran threads=openmp
         when: '%gcc'
     intel-oneapi-mpi:
@@ -1190,6 +1192,19 @@ spack:
           NVCC_PREPEND_FLAGS: -allow-unsupported-compiler
         prepend_path:
           LD_LIBRARY_PATH: /glade/u/apps/casper/24.12/spack/opt/spack//nvhpc/25.1/gcc/12.4.0/4bkw/Linux_x86_64/25.1/compilers/lib
+  - compiler:
+      spec: oneapi@2025.1.0
+      paths:
+        cc: /glade/u/apps/casper/24.12/spack/opt/spack//intel-oneapi-compilers/2025.1.0/gcc/12.4.0/47hn/compiler/latest/bin/icx
+        cxx: /glade/u/apps/casper/24.12/spack/opt/spack//intel-oneapi-compilers/2025.1.0/gcc/12.4.0/47hn/compiler/latest/bin/icpx
+        f77: /glade/u/apps/casper/24.12/spack/opt/spack//intel-oneapi-compilers/2025.1.0/gcc/12.4.0/47hn/compiler/latest/bin/ifx
+        fc: /glade/u/apps/casper/24.12/spack/opt/spack//intel-oneapi-compilers/2025.1.0/gcc/12.4.0/47hn/compiler/latest/bin/ifx
+      operating_system: opensuse15
+      modules: []
+      environment:
+        set:
+          NVCCFLAGS: -allow-unsupported-compiler
+          NVCC_PREPEND_FLAGS: -allow-unsupported-compiler
   modules:
     'default:':
       roots:
@@ -1241,6 +1256,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - intel-oneapi-compilers
         - ucx
         - nvhpc
         - vapor
@@ -1258,7 +1274,6 @@ spack:
         - paraview
         - visit
         - octave
-        - intel-oneapi-compilers
         - gmt
         - cdo
         - nccmp
@@ -1964,3 +1979,28 @@ spack:
   - esmf@8.8.0%nvhpc@25.1~mpi
   - esmf@8.8.0%nvhpc@25.1+mpi+pnetcdf ^openmpi@5.0.7%nvhpc@25.1
   - ucx@1.17.0+debug+logging
+  - intel-oneapi-compilers@2025.1.0
+  - intel-oneapi-mkl@2025.1.0%oneapi@2025.1.0
+  - ncarcompilers@1.0.0%oneapi@2025.1.0
+  - fftw@3.3.10%oneapi@2025.1.0~mpi
+  - udunits@2.2.28%oneapi@2025.1.0
+  - hdf5@1.12.3%oneapi@2025.1.0~mpi
+  - netcdf@4.9.3%oneapi@2025.1.0~mpi
+  - proj@9.2.1%oneapi@2025.1.0
+  - geos@3.13.0%oneapi@2025.1.0
+  - hdf@4.2.15%oneapi@2025.1.0 cflags='-std=c90 -Wno-error=int-conversion'
+  - eccodes@2.34.0%oneapi@2025.1.0
+  - mpi-serial@2.5.0%oneapi@2025.1.0
+  - parallelio@2.6.5%oneapi@2025.1.0~mpi~pnetcdf
+  - esmf@8.8.0%oneapi@2025.1.0~mpi
+  - gdal@3.9.3%oneapi@2025.1.0
+  - openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - parallel-netcdf@1.14.0%oneapi@2025.1.0 ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - hdf5@1.12.3%oneapi@2025.1.0+mpi ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - netcdf@4.9.3%oneapi@2025.1.0+mpi ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - fftw@3.3.10%oneapi@2025.1.0+mpi ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - darshan-runtime@3.4.6%oneapi@2025.1.0 ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - parallelio@2.6.5%oneapi@2025.1.0 ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - esmf@8.8.0%oneapi@2025.1.0+mpi+pnetcdf ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - osu-micro-benchmarks%oneapi@2025.1.0 ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - adios2@2.10.2%oneapi@2025.1.0 ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'

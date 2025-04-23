@@ -47,6 +47,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - intel-oneapi-compilers
       - ucx
       - nvhpc
       - vapor
@@ -64,7 +65,6 @@ modules:
       - paraview
       - visit
       - octave
-      - intel-oneapi-compilers
       - gmt
       - cdo
       - nccmp

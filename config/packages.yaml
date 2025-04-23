@@ -492,8 +492,10 @@ packages:
     require:
     - spec: '@2024'
       when: '%oneapi@2024'
-    - spec: '@2025'
-      when: '%oneapi@2025'
+    - spec: '@2025.0'
+      when: '%oneapi@2025.0'
+    - spec: '@2025.1'
+      when: '%oneapi@2025.1'
     - spec: +gfortran threads=openmp
       when: '%gcc'
   intel-oneapi-mpi:
