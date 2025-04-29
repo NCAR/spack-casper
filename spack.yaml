@@ -2007,3 +2007,19 @@ spack:
   - osu-micro-benchmarks%oneapi@2025.1.0 ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
   - adios2@2.10.2%oneapi@2025.1.0 ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
   - vapor@3.10.0
+  - parallelio@2.6.6%gcc@12.4.0~mpi~pnetcdf
+  - parallelio@2.6.6%nvhpc@25.1~mpi~pnetcdf
+  - parallelio@2.6.6%oneapi@2024.2.1~mpi~pnetcdf
+  - parallelio@2.6.6%oneapi@2025.1.0~mpi~pnetcdf
+  - esmf@8.8.1%gcc@12.4.0~mpi
+  - esmf@8.8.1%nvhpc@25.1~mpi
+  - esmf@8.8.1%oneapi@2024.2.1~mpi
+  - esmf@8.8.1%oneapi@2025.1.0~mpi
+  - parallelio@2.6.6%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - parallelio@2.6.6%nvhpc@25.1 ^openmpi@5.0.7%nvhpc@25.1
+  - parallelio@2.6.6%oneapi@2024.2.1 ^openmpi@5.0.6%oneapi@2024.2.1
+  - parallelio@2.6.6%oneapi@2025.1.0 ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - esmf@8.8.1%gcc@12.4.0+mpi+pnetcdf ^openmpi@5.0.6%gcc@12.4.0
+  - esmf@8.8.1%nvhpc@25.1+mpi+pnetcdf ^openmpi@5.0.7%nvhpc@25.1
+  - esmf@8.8.1%oneapi@2024.2.1+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2024.2.1
+  - esmf@8.8.1%oneapi@2025.1.0+mpi+pnetcdf ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
