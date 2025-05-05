@@ -2023,3 +2023,4 @@ spack:
   - esmf@8.8.1%nvhpc@25.1+mpi+pnetcdf ^openmpi@5.0.7%nvhpc@25.1
   - esmf@8.8.1%oneapi@2024.2.1+mpi+pnetcdf ^openmpi@5.0.6%oneapi@2024.2.1
   - esmf@8.8.1%oneapi@2025.1.0+mpi+pnetcdf ^openmpi@5.0.7%oneapi@2025.1.0 cflags='-Wno-error=int-conversion'
+  - mpifileutils@0.12%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
