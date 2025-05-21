@@ -99,6 +99,8 @@ packages:
       when: '%nvhpc@24.11 ^lapack'
     - spec: ^nvhpc@25.1
       when: '%nvhpc@25.1 ^lapack'
+    - spec: ^nvhpc@25.5
+      when: '%nvhpc@25.5 ^lapack'
     - spec: ^openblas
       when: '%gcc ^blas'
     - spec: ^intel-oneapi-mkl
@@ -263,6 +265,8 @@ packages:
       when: '%nvhpc@24.11 ^lapack'
     - spec: ^nvhpc@25.1
       when: '%nvhpc@25.1 ^lapack'
+    - spec: ^nvhpc@25.5
+      when: '%nvhpc@25.5 ^lapack'
     - spec: ^cray-libsci
       when: '%cce ^lapack'
     prefer:

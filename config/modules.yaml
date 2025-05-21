@@ -47,10 +47,10 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - nvhpc
       - vapor
       - intel-oneapi-compilers
       - ucx
-      - nvhpc
       - cmake
       - lrose-core
       - cuda
