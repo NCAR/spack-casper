@@ -996,6 +996,8 @@ spack:
         prefix: /glade/u/apps/opt/vapor/3.9.3
       - spec: vapor@3.10.0
         prefix: /glade/u/apps/opt/vapor/3.10.0
+      - spec: vapor@3.10.1
+        prefix: /glade/u/apps/opt/vapor/3.10.1
       buildable: false
       require:
       - '%gcc'
@@ -1277,8 +1279,8 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
-        - nvhpc
         - vapor
+        - nvhpc
         - intel-oneapi-compilers
         - ucx
         - cmake
@@ -2065,3 +2067,4 @@ spack:
   - parallelio@2.6.6%nvhpc@25.5 ^openmpi@5.0.6%nvhpc@25.5
   - esmf@8.8.1%nvhpc@25.5+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@25.5
   - osu-micro-benchmarks%nvhpc@25.5+cuda ^openmpi@5.0.6%nvhpc@25.5
+  - vapor@3.10.1

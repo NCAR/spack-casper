@@ -969,6 +969,8 @@ packages:
       prefix: /glade/u/apps/opt/vapor/3.9.3
     - spec: vapor@3.10.0
       prefix: /glade/u/apps/opt/vapor/3.10.0
+    - spec: vapor@3.10.1
+      prefix: /glade/u/apps/opt/vapor/3.10.1
     buildable: false
     require:
     - '%gcc'

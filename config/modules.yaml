@@ -47,8 +47,8 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
-      - nvhpc
       - vapor
+      - nvhpc
       - intel-oneapi-compilers
       - ucx
       - cmake
