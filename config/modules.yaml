@@ -47,6 +47,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - linaro-forge
       - vapor
       - nvhpc
       - intel-oneapi-compilers
@@ -81,7 +82,6 @@ modules:
       - ecflow
       - neovim
       - doxygen
-      - linaro-forge
       - grib-util
       - wgrib2
       - ncl

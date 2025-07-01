@@ -1279,6 +1279,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - linaro-forge
         - vapor
         - nvhpc
         - intel-oneapi-compilers
@@ -1313,7 +1314,6 @@ spack:
         - ecflow
         - neovim
         - doxygen
-        - linaro-forge
         - grib-util
         - wgrib2
         - ncl
@@ -2068,3 +2068,4 @@ spack:
   - esmf@8.8.1%nvhpc@25.5+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@25.5
   - osu-micro-benchmarks%nvhpc@25.5+cuda ^openmpi@5.0.6%nvhpc@25.5
   - vapor@3.10.1
+  - linaro-forge@25.0
