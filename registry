@@ -338,3 +338,4 @@ ma4pk3hvf566hudry2kn5u3xte7mannh | 2025-05-21T09:20:42 | b3ac8ad1c568cd7cb269e6e
 m3r4w2csdiubch4s36giau6czlyond7w | 2025-05-21T09:21:27 | b3ac8ad1c568cd7cb269e6e181b612ef5c1ea499 |      | no     | yes     | yes      |           | osu-micro-benchmarks%nvhpc@25.5+cuda ^openmpi@5.0.6%nvhpc@25.5 | osu-micro-benchmarks%nvhpc@25.5+cuda ^openmpi@5.0.6%nvhpc@25.5
 swwkospobusrhdym2bppp5xduqxfeve3 | 2025-05-27T17:55:03 | b3ac8ad1c568cd7cb269e6e181b612ef5c1ea499 |      | no     | yes     | yes      |           | vapor@3.10.1 | vapor@3.10.1
 rhxnjlrjmygz2agvbl6tnbg7zirywr5m | 2025-07-01T08:37:23 | f57e68c5c75c0539e12b0b4df23426f2fb44ba91 |      | no     | yes     | yes      |           | linaro-forge@25.0 | linaro-forge@25.0
+njjnvqz3cwnzk2tanh7l6ywz5sutvpd5 | 2025-07-24T16:06:22 | 59aceb18c818ba11e321df0d0972f09fa61ca9f7 |      | no     | yes     | yes      | yes       | nvhpc@25.7 | nvhpc@25.7
