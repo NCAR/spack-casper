@@ -2085,3 +2085,24 @@ spack:
   - vapor@3.10.1
   - linaro-forge@25.0
   - nvhpc@25.7
+  - ncarcompilers@1.0.0%nvhpc@25.7
+  - fftw@3.3.10%nvhpc@25.7~mpi
+  - udunits@2.2.28%nvhpc@25.7
+  - hdf5@1.12.3%nvhpc@25.7~mpi
+  - netcdf@4.9.3%nvhpc@25.7~mpi
+  - proj@9.2.1%nvhpc@25.7
+  - geos@3.13.0%nvhpc@25.7
+  - hdf@4.2.15%nvhpc@25.7
+  - eccodes@2.34.0%nvhpc@25.7
+  - mpi-serial@2.5.0%nvhpc@25.7
+  - parallelio@2.6.6%nvhpc@25.7~mpi~pnetcdf
+  - esmf@8.8.1%nvhpc@25.7~mpi
+  - openmpi@5.0.6%nvhpc@25.7
+  - parallel-netcdf@1.14.0%nvhpc@25.7 ^openmpi@5.0.6%nvhpc@25.7
+  - hdf5@1.12.3%nvhpc@25.7+mpi ^openmpi@5.0.6%nvhpc@25.7
+  - netcdf@4.9.3%nvhpc@25.7+mpi ^openmpi@5.0.6%nvhpc@25.7
+  - fftw@3.3.10%nvhpc@25.7+mpi ^openmpi@5.0.6%nvhpc@25.7
+  - darshan-runtime@3.4.6%nvhpc@25.7 ^openmpi@5.0.6%nvhpc@25.7
+  - parallelio@2.6.6%nvhpc@25.7 ^openmpi@5.0.6%nvhpc@25.7
+  - esmf@8.8.1%nvhpc@25.7+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@25.7
+  - osu-micro-benchmarks%nvhpc@25.7+cuda ^openmpi@5.0.6%nvhpc@25.7
