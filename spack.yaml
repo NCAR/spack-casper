@@ -1294,6 +1294,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - visit
         - nvhpc
         - linaro-forge
         - vapor
@@ -1311,7 +1312,6 @@ spack:
         - intel-oneapi-vtune
         - texlive
         - paraview
-        - visit
         - octave
         - gmt
         - cdo
@@ -1700,6 +1700,7 @@ spack:
           parallelio1: parallelio/{version}
           llvm+clang: clang/{version}
           ucx+debug: ucx/{version}-debug
+          visit~python: visit/{version}-old
         rstudio:
           filter:
             exclude_env_vars:
@@ -2106,3 +2107,4 @@ spack:
   - parallelio@2.6.6%nvhpc@25.7 ^openmpi@5.0.6%nvhpc@25.7
   - esmf@8.8.1%nvhpc@25.7+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@25.7
   - osu-micro-benchmarks%nvhpc@25.7+cuda ^openmpi@5.0.6%nvhpc@25.7
+  - visit@3.4.1+python ^netcdf-c@4.9.2%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0

@@ -5,7 +5,7 @@
 #       Hides all modules from a specified list. Wildcards are supported.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   15:45, 15 Apr 2025
+#   Last Revised:   16:21, 31 Jul 2025
 #
 
 #
@@ -18,7 +18,7 @@
 ##  USER INPUT
 #
 
-hide_list=" */*/mvapich/* */*/vasp/* */*/intel-mpi/* */*/mpich/* */cuda/12.8* */ucx/*-debug*"
+hide_list=" */*/mvapich/* */*/vasp/* */*/intel-mpi/* */*/mpich/* */cuda/12.8* */ucx/*-debug* */*/visit/*-old* "
 
 #
 ##  BEGIN HIDDEN MODULE FILE GENERATION

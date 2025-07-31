@@ -47,6 +47,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - visit
       - nvhpc
       - linaro-forge
       - vapor
@@ -64,7 +65,6 @@ modules:
       - intel-oneapi-vtune
       - texlive
       - paraview
-      - visit
       - octave
       - gmt
       - cdo
@@ -453,6 +453,7 @@ modules:
         parallelio1: parallelio/{version}
         llvm+clang: clang/{version}
         ucx+debug: ucx/{version}-debug
+        visit~python: visit/{version}-old
       rstudio:
         filter:
           exclude_env_vars:
