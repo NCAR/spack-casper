@@ -3,3 +3,4 @@ hide-modulefile /glade/u/apps/casper/modules/environment/ncarenv-basic/23.10.lua
 hide-modulefile /glade/u/apps/casper/modules/environment/ncarenv-basic/24.12.lua
 hide-modulefile /glade/u/apps/casper/modules/24.12/Core/cuda/12.8.0.lua
 hide-modulefile /glade/u/apps/casper/modules/24.12/Core/ucx/1.17.0-debug.lua
+hide-modulefile /glade/u/apps/casper/modules/24.12/Core/visit/3.4.1-old.lua
