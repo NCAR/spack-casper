@@ -636,6 +636,12 @@ packages:
   perl:
     prefer:
     - '%gcc@12.5.0'
+  postgresql:
+    require:
+    - +icu
+    - +xml
+    prefer:
+    - '%gcc@12.5.0'
   py-beautifulsoup4:
     prefer:
     - '@4.12:'

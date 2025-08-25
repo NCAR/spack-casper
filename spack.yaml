@@ -667,6 +667,12 @@ spack:
     perl:
       prefer:
       - '%gcc@12.5.0'
+    postgresql:
+      require:
+      - +icu
+      - +xml
+      prefer:
+      - '%gcc@12.5.0'
     py-beautifulsoup4:
       prefer:
       - '@4.12:'
@@ -1104,6 +1110,9 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/25.08-rocm/opt/view
       select:
+      - patchelf
+      - mysql@8.0.29
+      - postgresql
       - nvtop
       - rocminfo@6.4.2
       - amdsmi@6.4.2
@@ -1306,6 +1315,9 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - patchelf
+        - mysql@8.0.29
+        - postgresql
         - lmod
         - nvtop
         - rocminfo@6.4.2
@@ -1776,3 +1788,6 @@ spack:
   - superlu-dist@9.1.0 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^metis %aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0 ^parmetis %aocc@5.0.0
   - mpifileutils@0.12 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
   - parallelio@2.6.6~shared ^hdf5 %aocc@5.0.0 ^openmpi@5.0.8 %c,cxx,fortran=aocc@5.0.0
+  - postgresql
+  - mysql@8.0.29
+  - patchelf

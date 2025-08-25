@@ -136,6 +136,9 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - patchelf
+      - mysql@8.0.29
+      - postgresql
       - lmod
       - nvtop
       - rocminfo@6.4.2
