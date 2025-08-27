@@ -54,6 +54,7 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - rocm-examples
       - hipify-clang
       - rocfft
       - roctracer-dev
@@ -71,6 +72,24 @@ modules:
       - hsa-rocr-dev
       - rocm-core
       - ucx
+      - cmor
+      - nco
+      - cdo
+      - gmt
+      - nccmp
+      - ncview
+      - madis
+      - eigen
+      - rstudio
+      - idl
+      - matlab
+      - ncl
+      - heaptrack
+      - lcov
+      - neovim
+      - grib-util
+      - wgrib2
+      - ecflow
       - texlive
       - darshan-util
       - linaro-forge
@@ -91,31 +110,13 @@ modules:
       - cce
       - intel-oneapi-mkl
       - nvhpc
-      - heaptrack
       - libfabric
-      - cmor
-      - nco
-      - cdo
-      - nccmp
-      - ncview
-      - lcov
-      - neovim
-      - madis
-      - eigen
-      - grib-util
-      - wgrib2
-      - ecflow
       - intel-oneapi-advisor
       - intel-oneapi-vtune
-      - rstudio
-      - idl
-      - matlab
-      - gmt
       - cray-libsci
       - libtorch
       - grads
       - julia
-      - ncl
       - r
       - miniconda
       darshan-runtime:
@@ -136,13 +137,13 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - rocminfo@6.3.3
+      - amdsmi@6.3.3
       - patchelf
       - mysql@8.0.29
       - postgresql
       - lmod
       - nvtop
-      - rocminfo@6.4.2
-      - amdsmi@6.4.2
       - json-c
       - openjpeg
       - rclone

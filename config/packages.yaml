@@ -1,11 +1,7 @@
 packages:
-  pkgconfig:
-    buildable: false
-    prefer:
-    - pkg-config
-  pkg-config:
+  lustre:
     externals:
-    - spec: pkg-config@0.29.2
+    - spec: lustre@2.15.4.2_cray_42_ga614b9c
       prefix: /usr
     buildable: false
   openssl:
@@ -15,9 +11,9 @@ packages:
     buildable: false
     require:
     - certs=system
-  lustre:
+  pkg-config:
     externals:
-    - spec: lustre@2.15.4.2_cray_42_ga614b9c
+    - spec: pkg-config@0.29.2
       prefix: /usr
     buildable: false
   gcc:
@@ -37,6 +33,10 @@ packages:
       when: '@:12'
     - spec: '%gcc@12.5.0'
       when: '@13:'
+  pkgconfig:
+    buildable: false
+    prefer:
+    - pkg-config
   adios2:
     variants:
     - +hdf5
@@ -107,9 +107,13 @@ packages:
     # Spack uses older version to avoid pixman :(
     - '@1.18:'
   cdo:
-    variants:
-    - +curl
     prefer:
+    - +curl
+    - +netcdf
+    - +hdf5
+    - +fftw3
+    - +libxml2
+    - +udunits2
     - '%gcc@12.5.0'
   cmake:
     variants:
@@ -117,8 +121,6 @@ packages:
     prefer:
     - '%gcc@12.5.0'
   cmor:
-    variants:
-    - +python
     prefer:
     - ^udunits %gcc@12.5.0
     - '%gcc@12.5.0'
@@ -351,6 +353,9 @@ packages:
     - +map
     - +szip
     - ~mpi
+    require:
+    - spec: ldflags=-lpthread
+      when: +threadsafe @1.14
   hip:
     require:
     - +rocm
@@ -504,6 +509,10 @@ packages:
     - +hdf-eos2
     - +hdf-eos5
     - +hdf4
+    externals:
+    - spec: ncl@6.6.2
+      prefix: /glade/u/apps/opt/ncl/6.6.2
+    buildable: false
   nco:
     prefer:
     - ^udunits %gcc@12.5.0
@@ -737,7 +746,7 @@ packages:
     - ~knem
     require:
     - +rocm
-    - ^hsa-rocr-dev@6.4.2
+    - ^hsa-rocr-dev@6.3.3
   uuid:
     prefer:
     - util-linux-uuid
@@ -1075,3 +1084,24 @@ packages:
   xz:
     prefer:
     - '%gcc@12.5.0'
+  matlab:
+    externals:
+    - spec: matlab@R2024a
+      prefix: /glade/u/apps/opt/matlab/R2024a
+    - spec: matlab@R2024b
+      prefix: /glade/u/apps/opt/matlab/R2024b
+    buildable: false
+  idl:
+    externals:
+    - spec: idl@9.0.0
+      prefix: /glade/u/apps/opt/idl/9.0.0
+    - spec: idl@9.1.0
+      prefix: /glade/u/apps/opt/idl/9.1.0
+    buildable: false
+  rstudio:
+    externals:
+    - spec: rstudio@2023.09.0
+      prefix: /glade/u/apps/opt/rstudio/2023.09.0
+    - spec: rstudio@2024.12.0
+      prefix: /glade/u/apps/opt/rstudio/2024.12.0
+    buildable: false

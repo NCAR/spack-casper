@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+#   Unit: entry-templates.helper
+#   Description:
+#       Entry scripts allow us to branch to different init scripts depending
+#       on some cluster-specific conditional.
+#
+#   Author:         Brian Vanderwende
+#   Last Revised:   21:59, 25 Aug 2025
+#
+
+function generate_bourne_entry {
+cat > $1 << EOF
+if /sbin/lspci -k |& grep -q "Kernel driver in use: amdgpu"; then
+    . $util_path/localinit.sh
+else
+    . /glade/u/apps/casper/24.12/envs/public/util/localinit.sh
+fi
+EOF
+}
+
+function generate_csh_entry {
+cat > $1 << EOF
+/sbin/lspci -k |& grep "Kernel driver in use: amdgpu" >& /dev/null
+
+if ( \$status == 0 ) then
+    source $util_path/localinit.csh
+else
+    source /glade/u/apps/casper/24.12/envs/public/util/localinit.csh
+endif
+EOF
+}

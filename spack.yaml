@@ -30,13 +30,9 @@ spack:
     template_dirs:
     - /glade/u/apps/casper/25.08-rocm/envs/build/templates/modules
   packages:
-    pkgconfig:
-      buildable: false
-      prefer:
-      - pkg-config
-    pkg-config:
+    lustre:
       externals:
-      - spec: pkg-config@0.29.2
+      - spec: lustre@2.15.4.2_cray_42_ga614b9c
         prefix: /usr
       buildable: false
     openssl:
@@ -46,9 +42,9 @@ spack:
       buildable: false
       require:
       - certs=system
-    lustre:
+    pkg-config:
       externals:
-      - spec: lustre@2.15.4.2_cray_42_ga614b9c
+      - spec: pkg-config@0.29.2
         prefix: /usr
       buildable: false
     gcc:
@@ -68,6 +64,10 @@ spack:
         when: '@:12'
       - spec: '%gcc@12.5.0'
         when: '@13:'
+    pkgconfig:
+      buildable: false
+      prefer:
+      - pkg-config
     adios2:
       variants:
       - +hdf5
@@ -138,9 +138,13 @@ spack:
       # Spack uses older version to avoid pixman :(
       - '@1.18:'
     cdo:
-      variants:
-      - +curl
       prefer:
+      - +curl
+      - +netcdf
+      - +hdf5
+      - +fftw3
+      - +libxml2
+      - +udunits2
       - '%gcc@12.5.0'
     cmake:
       variants:
@@ -148,8 +152,6 @@ spack:
       prefer:
       - '%gcc@12.5.0'
     cmor:
-      variants:
-      - +python
       prefer:
       - ^udunits %gcc@12.5.0
       - '%gcc@12.5.0'
@@ -382,6 +384,9 @@ spack:
       - +map
       - +szip
       - ~mpi
+      require:
+      - spec: ldflags=-lpthread
+        when: +threadsafe @1.14
     hip:
       require:
       - +rocm
@@ -535,6 +540,10 @@ spack:
       - +hdf-eos2
       - +hdf-eos5
       - +hdf4
+      externals:
+      - spec: ncl@6.6.2
+        prefix: /glade/u/apps/opt/ncl/6.6.2
+      buildable: false
     nco:
       prefer:
       - ^udunits %gcc@12.5.0
@@ -768,7 +777,7 @@ spack:
       - ~knem
       require:
       - +rocm
-      - ^hsa-rocr-dev@6.4.2
+      - ^hsa-rocr-dev@6.3.3
     uuid:
       prefer:
       - util-linux-uuid
@@ -1106,16 +1115,37 @@ spack:
     xz:
       prefer:
       - '%gcc@12.5.0'
+    matlab:
+      externals:
+      - spec: matlab@R2024a
+        prefix: /glade/u/apps/opt/matlab/R2024a
+      - spec: matlab@R2024b
+        prefix: /glade/u/apps/opt/matlab/R2024b
+      buildable: false
+    idl:
+      externals:
+      - spec: idl@9.0.0
+        prefix: /glade/u/apps/opt/idl/9.0.0
+      - spec: idl@9.1.0
+        prefix: /glade/u/apps/opt/idl/9.1.0
+      buildable: false
+    rstudio:
+      externals:
+      - spec: rstudio@2023.09.0
+        prefix: /glade/u/apps/opt/rstudio/2023.09.0
+      - spec: rstudio@2024.12.0
+        prefix: /glade/u/apps/opt/rstudio/2024.12.0
+      buildable: false
   view:
     baseenv:
       root: /glade/u/apps/casper/25.08-rocm/opt/view
       select:
+      - rocminfo@6.3.3
+      - amdsmi@6.3.3
       - patchelf
       - mysql@8.0.29
       - postgresql
       - nvtop
-      - rocminfo@6.4.2
-      - amdsmi@6.4.2
       - json-c
       - openjpeg
       - rclone
@@ -1233,6 +1263,7 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - rocm-examples
         - hipify-clang
         - rocfft
         - roctracer-dev
@@ -1250,6 +1281,24 @@ spack:
         - hsa-rocr-dev
         - rocm-core
         - ucx
+        - cmor
+        - nco
+        - cdo
+        - gmt
+        - nccmp
+        - ncview
+        - madis
+        - eigen
+        - rstudio
+        - idl
+        - matlab
+        - ncl
+        - heaptrack
+        - lcov
+        - neovim
+        - grib-util
+        - wgrib2
+        - ecflow
         - texlive
         - darshan-util
         - linaro-forge
@@ -1270,31 +1319,13 @@ spack:
         - cce
         - intel-oneapi-mkl
         - nvhpc
-        - heaptrack
         - libfabric
-        - cmor
-        - nco
-        - cdo
-        - nccmp
-        - ncview
-        - lcov
-        - neovim
-        - madis
-        - eigen
-        - grib-util
-        - wgrib2
-        - ecflow
         - intel-oneapi-advisor
         - intel-oneapi-vtune
-        - rstudio
-        - idl
-        - matlab
-        - gmt
         - cray-libsci
         - libtorch
         - grads
         - julia
-        - ncl
         - r
         - miniconda
         darshan-runtime:
@@ -1315,13 +1346,13 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - rocminfo@6.3.3
+        - amdsmi@6.3.3
         - patchelf
         - mysql@8.0.29
         - postgresql
         - lmod
         - nvtop
-        - rocminfo@6.4.2
-        - amdsmi@6.4.2
         - json-c
         - openjpeg
         - rclone
@@ -1663,6 +1694,18 @@ spack:
   mirrors:
     ncar_mirror_global: s3://spack-cache-casper
     ncar_mirror_local: /glade/u/apps/casper/mirror
+  toolchains:
+    aocc-500:
+    - spec: '%c=aocc@5.0.0'
+      when: '%c'
+    - spec: '%cxx=aocc@5.0.0'
+      when: '%cxx'
+    - spec: '%fortran=aocc@5.0.0'
+      when: '%fortran'
+    - spec: '%blas=amdblis@5.1'
+      when: '%blas'
+    - spec: '%lapack=amdlibflame@5.1'
+      when: '%lapack'
   specs:
   - openssl
   - gcc@12.5.0
@@ -1726,8 +1769,6 @@ spack:
   - rclone
   - openjpeg
   - json-c
-  - amdsmi@6.4.2
-  - rocminfo@6.4.2
   - nvtop
   - lmod
   - miniconda3
@@ -1740,23 +1781,6 @@ spack:
   - linaro-forge@25.0.2
   - darshan-util@3.4.7
   - texlive
-  - ucx
-  - rocm-core@6.4.2
-  - hsa-rocr-dev@6.4.2
-  - rccl@6.4.2
-  - rocblas@6.4.2
-  - rocrand@6.4.2
-  - rocprim@6.4.2
-  - rocm-gdb@6.4.2
-  - rocprofiler-compute@6.4.2
-  - hip@6.4.2
-  - hipfort@6.4.2
-  - hipblas@6.4.2
-  - hiprand@6.4.2
-  - hipcub@6.4.2
-  - roctracer-dev@6.4.2
-  - rocfft@6.4.2
-  - hipify-clang@6.4.2
   - amdblis@5.1 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
   - amdlibflame@5.1 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
   - ncarcompilers@1.1.0 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
@@ -1774,6 +1798,48 @@ spack:
   - parallelio@2.6.6~mpi %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^mpi-serial %aocc@5.0.0
   - esmf@8.9.0~mpi %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^mpi-serial %aocc@5.0.0
   - spherepack@3.2 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
+  - postgresql
+  - mysql@8.0.29
+  - patchelf
+  - ecflow
+  - wgrib2
+  - grib-util
+  - neovim
+  - lcov
+  - heaptrack
+  - ncl
+  - matlab@R2024b
+  - idl@9.1.0
+  - rstudio@2024.12.0
+  - eigen
+  - madis
+  - ncview@2.1.9
+  - nccmp@1.9.1.0
+  - gmt@6.5.0
+  - cdo@2.5.2
+  - nco@5.3.4
+  - cmor@3.8.0
+  - amdsmi@6.3.3
+  - rocminfo@6.3.3
+  - ucx
+  - rocm-core@6.3.3
+  - hsa-rocr-dev@6.3.3
+  - rccl@6.3.3
+  - rocblas@6.3.3
+  - rocrand@6.3.3
+  - rocprim@6.3.3
+  - rocm-gdb@6.3.3
+  - rocprofiler-compute@6.3.3
+  - hip@6.3.3
+  - hipfort@6.3.3
+  - hipblas@6.3.3
+  - hiprand@6.3.3
+  - hipcub@6.3.3
+  - roctracer-dev@6.3.3
+  - rocfft@6.3.3
+  - hipify-clang@6.3.3
+  - rocm-examples@6.3.3
+  - esmf@8.8.1~mpi %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^mpi-serial %aocc@5.0.0
   - openmpi@5.0.8 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
   - parallel-netcdf@1.14.1 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
   - hdf5@1.14.6+mpi %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
@@ -1782,12 +1848,10 @@ spack:
   - parallelio1@1.10.1 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
   - darshan-runtime@3.4.7 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
   - parallelio@2.6.6 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
+  - esmf@8.8.1+mpi %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
   - esmf@8.9.0+mpi %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
+  - parallelio@2.6.6~shared ^hdf5 %aocc@5.0.0 ^openmpi@5.0.8 %c,cxx,fortran=aocc@5.0.0
   - osu-micro-benchmarks %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
   - gptl@8.1.1 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
   - superlu-dist@9.1.0 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^metis %aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0 ^parmetis %aocc@5.0.0
   - mpifileutils@0.12 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
-  - parallelio@2.6.6~shared ^hdf5 %aocc@5.0.0 ^openmpi@5.0.8 %c,cxx,fortran=aocc@5.0.0
-  - postgresql
-  - mysql@8.0.29
-  - patchelf
