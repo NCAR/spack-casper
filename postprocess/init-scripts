@@ -8,7 +8,7 @@
 #       /etc/profile.d scripts.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   22:08, 25 Aug 2025
+#   Last Revised:   13:25, 27 Aug 2025
 #
 
 #
@@ -65,7 +65,7 @@ else
     if [[ $NCAR_SPACK_ENV_TYPE == public ]]; then
         entry_path=$NCAR_SPACK_ROOT_DEPLOYMENT/util
 
-        if [[ ${create_entries:-false} == true ]]; then
+        if [[ ${create_entries:-true} == true ]]; then
             tsecho "Generating shell entry scripts"
 
             if [[ -L $entry_path ]]; then

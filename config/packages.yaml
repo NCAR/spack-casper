@@ -1,9 +1,4 @@
 packages:
-  lustre:
-    externals:
-    - spec: lustre@2.15.4.2_cray_42_ga614b9c
-      prefix: /usr
-    buildable: false
   openssl:
     externals:
     - spec: openssl@1.1.1l
@@ -14,6 +9,11 @@ packages:
   pkg-config:
     externals:
     - spec: pkg-config@0.29.2
+      prefix: /usr
+    buildable: false
+  lustre:
+    externals:
+    - spec: lustre@2.15.4.2_cray_42_ga614b9c
       prefix: /usr
     buildable: false
   gcc:
@@ -60,6 +60,8 @@ packages:
       when: '%gcc@12.5.0 ^udunits'
     - spec: ^openblas %gcc@12.5.0
       when: '%gcc@12.5.0 ^openblas'
+    - spec: ^openblas %gcc@13.4.0
+      when: '%gcc@13.4.0 ^openblas'
     - spec: ^openblas %gcc@15.1.0
       when: '%gcc@15.1.0 ^openblas'
   amdblis:
@@ -225,6 +227,9 @@ packages:
     prefer:
     - '@2.6.4'
     - '%gcc@12.5.0'
+  fmt:
+    prefer:
+    - '%gcc@12.5.0'
   gawk:
     prefer:
     - '%gcc@12.5.0'
@@ -359,6 +364,8 @@ packages:
   hip:
     require:
     - +rocm
+    prefer:
+    - '%gcc@12.5.0'
   hipcc:
     prefer:
     - '%gcc@12.5.0'
@@ -709,14 +716,17 @@ packages:
     require:
     # Required for arrow, which is needed for parquet support in GDAL
     - ~shared
+  superlu:
+    require:
+    - +fortran
   superlu-dist:
     variants:
     - +openmp
     prefer:
     - spec: cflags='-std=gnu17 -Wno-error=implicit-function-declaration -Wno-error=int-conversion'
       when: '%gcc@15:'
-    - spec: ^openblas %gcc@15.1.0
-      when: '%gcc@15.1.0 ^openblas'
+    - spec: ^openblas %gcc@13.4.0
+      when: '%gcc@13.4.0 ^openblas'
   szip:
     prefer:
     - libszip
@@ -747,6 +757,8 @@ packages:
     require:
     - +rocm
     - ^hsa-rocr-dev@6.3.3
+    prefer:
+    - '%gcc@12.5.0'
   uuid:
     prefer:
     - util-linux-uuid
@@ -1105,3 +1117,24 @@ packages:
     - spec: rstudio@2024.12.0
       prefix: /glade/u/apps/opt/rstudio/2024.12.0
     buildable: false
+  elfutils:
+    prefer:
+    - '%gcc@12.5.0'
+  hipify-clang:
+    prefer:
+    - '%gcc@12.5.0'
+  hsa-rocr-dev:
+    prefer:
+    - '%gcc@12.5.0'
+  rocm-smi-lib:
+    prefer:
+    - '%gcc@12.5.0'
+  rocminfo:
+    prefer:
+    - '%gcc@12.5.0'
+  rocprofiler-register:
+    prefer:
+    - '%gcc@12.5.0'
+  xxd-standalone:
+    prefer:
+    - '%gcc@12.5.0'

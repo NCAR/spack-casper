@@ -1,3 +1,5 @@
 mirrors:
-  ncar_mirror_global: https://stratus.ucar.edu/spack-cache-casper
+  ncar_mirror_global:
+    url: https://stratus.ucar.edu/spack-cache-casper
+    profile: boreas
   ncar_mirror_local: /glade/u/apps/casper/mirror

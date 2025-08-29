@@ -30,11 +30,6 @@ spack:
     template_dirs:
     - /glade/u/apps/casper/25.08-rocm/envs/build/templates/modules
   packages:
-    lustre:
-      externals:
-      - spec: lustre@2.15.4.2_cray_42_ga614b9c
-        prefix: /usr
-      buildable: false
     openssl:
       externals:
       - spec: openssl@1.1.1l
@@ -45,6 +40,11 @@ spack:
     pkg-config:
       externals:
       - spec: pkg-config@0.29.2
+        prefix: /usr
+      buildable: false
+    lustre:
+      externals:
+      - spec: lustre@2.15.4.2_cray_42_ga614b9c
         prefix: /usr
       buildable: false
     gcc:
@@ -91,6 +91,8 @@ spack:
         when: '%gcc@12.5.0 ^udunits'
       - spec: ^openblas %gcc@12.5.0
         when: '%gcc@12.5.0 ^openblas'
+      - spec: ^openblas %gcc@13.4.0
+        when: '%gcc@13.4.0 ^openblas'
       - spec: ^openblas %gcc@15.1.0
         when: '%gcc@15.1.0 ^openblas'
     amdblis:
@@ -256,6 +258,9 @@ spack:
       prefer:
       - '@2.6.4'
       - '%gcc@12.5.0'
+    fmt:
+      prefer:
+      - '%gcc@12.5.0'
     gawk:
       prefer:
       - '%gcc@12.5.0'
@@ -390,6 +395,8 @@ spack:
     hip:
       require:
       - +rocm
+      prefer:
+      - '%gcc@12.5.0'
     hipcc:
       prefer:
       - '%gcc@12.5.0'
@@ -740,14 +747,17 @@ spack:
       require:
       # Required for arrow, which is needed for parquet support in GDAL
       - ~shared
+    superlu:
+      require:
+      - +fortran
     superlu-dist:
       variants:
       - +openmp
       prefer:
       - spec: cflags='-std=gnu17 -Wno-error=implicit-function-declaration -Wno-error=int-conversion'
         when: '%gcc@15:'
-      - spec: ^openblas %gcc@15.1.0
-        when: '%gcc@15.1.0 ^openblas'
+      - spec: ^openblas %gcc@13.4.0
+        when: '%gcc@13.4.0 ^openblas'
     szip:
       prefer:
       - libszip
@@ -778,6 +788,8 @@ spack:
       require:
       - +rocm
       - ^hsa-rocr-dev@6.3.3
+      prefer:
+      - '%gcc@12.5.0'
     uuid:
       prefer:
       - util-linux-uuid
@@ -1136,6 +1148,27 @@ spack:
       - spec: rstudio@2024.12.0
         prefix: /glade/u/apps/opt/rstudio/2024.12.0
       buildable: false
+    elfutils:
+      prefer:
+      - '%gcc@12.5.0'
+    hipify-clang:
+      prefer:
+      - '%gcc@12.5.0'
+    hsa-rocr-dev:
+      prefer:
+      - '%gcc@12.5.0'
+    rocm-smi-lib:
+      prefer:
+      - '%gcc@12.5.0'
+    rocminfo:
+      prefer:
+      - '%gcc@12.5.0'
+    rocprofiler-register:
+      prefer:
+      - '%gcc@12.5.0'
+    xxd-standalone:
+      prefer:
+      - '%gcc@12.5.0'
   view:
     baseenv:
       root: /glade/u/apps/casper/25.08-rocm/opt/view
@@ -1263,6 +1296,7 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - gcc
         - rocm-examples
         - hipify-clang
         - rocfft
@@ -1313,7 +1347,6 @@ spack:
         - meson
         - cmake
         - aocc
-        - gcc
         - rocprofiler-systems
         - intel-oneapi-compilers
         - cce
@@ -1692,7 +1725,9 @@ spack:
       github-actions-v0.5: true
       spack-install: true
   mirrors:
-    ncar_mirror_global: s3://spack-cache-casper
+    ncar_mirror_global:
+      url: s3://spack-cache-casper
+      profile: boreas
     ncar_mirror_local: /glade/u/apps/casper/mirror
   toolchains:
     aocc-500:
@@ -1705,6 +1740,17 @@ spack:
     - spec: '%blas=amdblis@5.1'
       when: '%blas'
     - spec: '%lapack=amdlibflame@5.1'
+      when: '%lapack'
+    gcc-134:
+    - spec: '%c=gcc@13.4.0'
+      when: '%c'
+    - spec: '%cxx=gcc@13.4.0'
+      when: '%cxx'
+    - spec: '%fortran=gcc@13.4.0'
+      when: '%fortran'
+    - spec: '%blas=openblas@0.3.30'
+      when: '%blas'
+    - spec: '%lapack=openblas@0.3.30'
       when: '%lapack'
   specs:
   - openssl
@@ -1797,7 +1843,6 @@ spack:
   - mpi-serial@2.5.3 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
   - parallelio@2.6.6~mpi %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^mpi-serial %aocc@5.0.0
   - esmf@8.9.0~mpi %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^hdf5 %aocc@5.0.0 ^mpi-serial %aocc@5.0.0
-  - spherepack@3.2 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
   - postgresql
   - mysql@8.0.29
   - patchelf
@@ -1855,3 +1900,35 @@ spack:
   - gptl@8.1.1 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
   - superlu-dist@9.1.0 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^metis %aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0 ^parmetis %aocc@5.0.0
   - mpifileutils@0.12 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0 ^openmpi@5.0.8 %aocc@5.0.0
+  - gcc@13.4.0
+  - ncarcompilers@1.1.0 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - openblas@0.3.30 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - fftw@3.3.10~mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - udunits@2.2.28 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - hdf5@1.14.6~mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - hdf@4.2.15 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - proj@9.4.1 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - geos@3.13.1 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - superlu@7.0.0 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^metis %gcc@13.4.0
+  - eccodes@2.41.0 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0
+  - mpi-serial@2.5.3 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - parallelio@2.6.6~mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0 ^mpi-serial %gcc@13.4.0
+  - esmf@8.8.1~mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0 ^mpi-serial %gcc@13.4.0
+  - esmf@8.9.0~mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0 ^mpi-serial %gcc@13.4.0
+  - openmpi@5.0.8 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - parallel-netcdf@1.14.1 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@13.4.0
+  - hdf5@1.14.6+mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@13.4.0
+  - netcdf@4.9.3~mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0
+  - netcdf@4.9.3+mpi ^hdf5 %gcc@13.4.0 ^openmpi@5.0.8 %gcc@13.4.0
+  - fftw@3.3.10+mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@13.4.0
+  - parallelio1@1.10.1 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0 ^openmpi@5.0.8 %gcc@13.4.0
+  - darshan-runtime@3.4.7 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@13.4.0
+  - parallelio@2.6.6 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0 ^openmpi@5.0.8 %gcc@13.4.0
+  - esmf@8.8.1+mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0 ^openmpi@5.0.8 %gcc@13.4.0
+  - esmf@8.9.0+mpi %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@13.4.0 ^openmpi@5.0.8 %gcc@13.4.0
+  - parallelio@2.6.6~shared ^hdf5 %gcc@13.4.0 ^openmpi@5.0.8 %c,cxx,fortran=gcc@13.4.0
+  - osu-micro-benchmarks %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@13.4.0
+  - gptl@8.1.1 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@13.4.0
+  - mpifileutils@0.12 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@13.4.0
+  - opencoarrays@2.10.2 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@13.4.0
+  - superlu-dist@9.1.0 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^metis %gcc@13.4.0 ^openmpi@5.0.8 %gcc@13.4.0 ^parmetis %gcc@13.4.0
