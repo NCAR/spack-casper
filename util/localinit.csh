@@ -3,8 +3,8 @@ setenv INSTALLPATH_ROOT /glade/u/apps/casper/default/spack/opt/spack
 setenv MODULEPATH_ROOT /glade/u/apps/casper/modules
 
 # Lmod configuration
-setenv LMOD_SYSTEM_NAME casper
-setenv LMOD_SYSTEM_DEFAULT_MODULES "ncarenv/25.08-rocm:aocc/5.0.0:ncarcompilers/1.1.0:openmpi/5.0.8:netcdf/4.9.3"
+setenv LMOD_SYSTEM_NAME casper-rocm
+setenv LMOD_SYSTEM_DEFAULT_MODULES "ncarenv/25.08-rocm:gcc@13.4.0:ncarcompilers/1.1.0:openmpi/5.0.8:netcdf/4.9.3"
 
 if ( ! $?MODULEPATH ) then
     setenv MODULEPATH $MODULEPATH_ROOT/environment

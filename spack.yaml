@@ -1296,6 +1296,7 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - comgr
         - rocthrust
         - gcc
         - rocm-examples
@@ -1687,6 +1688,12 @@ spack:
           parallelio~shared: parallelio/{version}-static
           py-torch: libtorch/{version}
           libfabric cflags=-g: libfabric/{version}-debug
+        rocm-core:
+          environment:
+            append_path:
+              PATH: '{^llvm-amdgpu.prefix.bin}'
+              LD_LIBRARY_PATH: '{^llvm-amdgpu.prefix.lib}'
+              CMAKE_PREFIX_PATH: '{^llvm-amdgpu.prefix}'
         rstudio:
           filter:
             exclude_env_vars:
@@ -1936,3 +1943,4 @@ spack:
   - spherepack@3.2 %[when='%c'] c=gcc@13.4.0 %[when='%cxx'] cxx=gcc@13.4.0 %[when='%fortran'] fortran=gcc@13.4.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
   - spherepack@3.2 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
   - rocthrust@6.3.3
+  - comgr@6.3.3

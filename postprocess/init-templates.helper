@@ -6,7 +6,7 @@
 #       and important system settings.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   21:55, 25 Aug 2025
+#   Last Revised:   15:32, 04 Sep 2025
 #
 
 function generate_bourne_init {
@@ -16,7 +16,7 @@ export INSTALLPATH_ROOT=$pkg_root
 export MODULEPATH_ROOT=$module_root
 
 # Lmod configuration
-export LMOD_SYSTEM_NAME=$NCAR_SPACK_HOST
+export LMOD_SYSTEM_NAME=${NCAR_SPACK_LMOD_SYSTEM:-$NCAR_SPACK_HOST}
 export LMOD_SYSTEM_DEFAULT_MODULES="$NCAR_SPACK_DEFMODS_NCAR"
 
 case "\$MODULEPATH" in
@@ -83,7 +83,7 @@ setenv INSTALLPATH_ROOT $pkg_root
 setenv MODULEPATH_ROOT $module_root
 
 # Lmod configuration
-setenv LMOD_SYSTEM_NAME $NCAR_SPACK_HOST
+setenv LMOD_SYSTEM_NAME ${NCAR_SPACK_LMOD_SYSTEM:-$NCAR_SPACK_HOST}
 setenv LMOD_SYSTEM_DEFAULT_MODULES "$NCAR_SPACK_DEFMODS_NCAR"
 
 if ( ! \$?MODULEPATH ) then
