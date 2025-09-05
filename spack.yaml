@@ -1688,7 +1688,7 @@ spack:
           parallelio~shared: parallelio/{version}-static
           py-torch: libtorch/{version}
           libfabric cflags=-g: libfabric/{version}-debug
-        rocm-core:
+        hsa-rocr-dev:
           environment:
             append_path:
               PATH: '{^llvm-amdgpu.prefix.bin}'
