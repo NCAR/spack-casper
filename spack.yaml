@@ -1296,6 +1296,7 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - rocm-openmp-extras
         - comgr
         - rocthrust
         - gcc
@@ -1944,3 +1945,4 @@ spack:
   - spherepack@3.2 %[when='%blas'] blas=amdblis@5.1 %[when='%lapack'] lapack=amdlibflame@5.1 %[when='%c'] c=aocc@5.0.0 %[when='%cxx'] cxx=aocc@5.0.0 %[when='%fortran'] fortran=aocc@5.0.0
   - rocthrust@6.3.3
   - comgr@6.3.3
+  - rocm-openmp-extras@6.3.3
