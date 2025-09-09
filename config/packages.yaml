@@ -6,14 +6,14 @@ packages:
     buildable: false
     require:
     - certs=system
-  pkg-config:
-    externals:
-    - spec: pkg-config@0.29.2
-      prefix: /usr
-    buildable: false
   lustre:
     externals:
     - spec: lustre@2.15.4.2_cray_42_ga614b9c
+      prefix: /usr
+    buildable: false
+  pkg-config:
+    externals:
+    - spec: pkg-config@0.29.2
       prefix: /usr
     buildable: false
   gcc:
@@ -372,8 +372,6 @@ packages:
   hwloc:
     require:
     - +rocm
-    - amdgpu_target=gfx942
-    prefer:
     - '%gcc@12.5.0'
   imagemagick:
     variants:
@@ -603,10 +601,12 @@ packages:
     - +gpfs
     - +lustre
     - +internal-pmix
+    - ~internal-hwloc
     - +romio
     - romio-filesystem=nfs,gpfs,lustre,ufs
     - +fortran
     - +rocm
+    - +rsh
     - amdgpu_target=gfx942
     - spec: ldflags=-ldl
       when: '%aocc'
@@ -691,15 +691,19 @@ packages:
     - '%gcc@12.5.0'
   rccl:
     require:
-    - amdgpu_target=gfx942
+    - '%gcc@12.5.0'
   readline:
     prefer:
     - '%gcc@12.5.0'
   rocblas:
+    require:
+    - '%gcc@12.5.0'
     prefer:
     - +tensile
     - amdgpu_target=gfx942
   rocfft:
+    require:
+    - '%gcc@12.5.0'
     prefer:
     - amdgpu_target=gfx942
     - amdgpu_target_sram_ecc=gfx942
@@ -709,13 +713,15 @@ packages:
     - +rocm
     - +perfetto_tools
     - +python
+    prefer:
+    - '%gcc@12.5.0'
+  snappy:
+    prefer:
+    # Reduce concretizer duplication (arrow wants ~shared; needed for GDAL parquet support)
+    - ~shared
   singularityce:
     variants:
     - ~suid
-  snappy:
-    require:
-    # Required for arrow, which is needed for parquet support in GDAL
-    - ~shared
   superlu:
     require:
     - +fortran
@@ -757,7 +763,6 @@ packages:
     require:
     - +rocm
     - ^hsa-rocr-dev@6.3.3
-    prefer:
     - '%gcc@12.5.0'
   uuid:
     prefer:
@@ -839,9 +844,6 @@ packages:
     prefer:
     - '%gcc@12.5.0'
   bison:
-    prefer:
-    - '%gcc@12.5.0'
-  c-blosc:
     prefer:
     - '%gcc@12.5.0'
   charliecloud:
@@ -1137,4 +1139,43 @@ packages:
     - '%gcc@12.5.0'
   xxd-standalone:
     prefer:
+    - '%gcc@12.5.0'
+  hipblas:
+    require:
+    - '%gcc@12.5.0'
+  hipcub:
+    require:
+    - '%gcc@12.5.0'
+  hipfort:
+    prefer:
+    - '%gcc@12.5.0'
+  hiprand:
+    require:
+    - '%gcc@12.5.0'
+  rocm-core:
+    prefer:
+    - '%gcc@12.5.0'
+  rocm-examples:
+    prefer:
+    - '%gcc@12.5.0'
+  rocm-gdb:
+    prefer:
+    - '%gcc@12.5.0'
+  rocm-openmp-extras:
+    prefer:
+    - '%gcc@12.5.0'
+  rocprim:
+    require:
+    - '%gcc@12.5.0'
+  rocprofiler-compute:
+    prefer:
+    - '%gcc@12.5.0'
+  rocrand:
+    require:
+    - '%gcc@12.5.0'
+  rocthrust:
+    require:
+    - '%gcc@12.5.0'
+  roctracer-dev:
+    require:
     - '%gcc@12.5.0'

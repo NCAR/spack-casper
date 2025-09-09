@@ -52,12 +52,16 @@ modules:
           prepend_path:
             PATH: /glade/u/apps/casper/25.08-rocm/opt/wrappers/{name}/{version}/{hash:4}/bin
       core_compilers:
-      - gcc@12.5.0
+      - gcc@7.5.0
       core_specs:
-      - rocm-openmp-extras
-      - comgr
-      - rocthrust
-      - gcc
+      - cmor
+      - nco
+      - gmt
+      - cdo
+      - nccmp
+      - ncview
+      - madis
+      - ncvis
       - rocm-examples
       - hipify-clang
       - rocfft
@@ -65,24 +69,20 @@ modules:
       - hipcub
       - hiprand
       - hipblas
-      - hipfort
       - hip
-      - rocprofiler-compute
+      - comgr
+      - rocm-openmp-extras
       - rocm-gdb
+      - rocthrust
       - rocprim
       - rocrand
       - rocblas
       - rccl
       - hsa-rocr-dev
-      - rocm-core
       - ucx
-      - cmor
-      - nco
-      - cdo
-      - gmt
-      - nccmp
-      - ncview
-      - madis
+      - gcc
+      - rocprofiler-compute
+      - rocm-core
       - eigen
       - rstudio
       - idl
@@ -97,7 +97,6 @@ modules:
       - texlive
       - darshan-util
       - linaro-forge
-      - ncvis
       - charliecloud
       - peak-memusage
       - podman
@@ -139,7 +138,6 @@ modules:
       esmf:
         autoload: none
       exclude:
-      - gcc@12.5.0
       - rocminfo@6.3.3
       - amdsmi@6.3.3
       - patchelf
