@@ -54,6 +54,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - rocm-openmp-extras
       - cmor
       - nco
       - gmt
@@ -71,7 +72,6 @@ modules:
       - hipblas
       - hip
       - comgr
-      - rocm-openmp-extras
       - rocm-gdb
       - rocthrust
       - rocprim
