@@ -63,7 +63,6 @@ xlq7dfzjmqgwlayi4ehjflblh3wirsn4 | 2025-08-25T13:19:48 | 8b77bae936594204a391b69
 x7elihqfqdevog5xsygpsxccxfcdlnne | 2025-08-25T13:22:30 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | openjpeg | openjpeg
 dg34pfeidi2nyz4qtdabzqncziuyiv7o | 2025-08-25T13:24:39 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | json-c | json-c
 wfd4lggfzoagvelvbzmyczz5bbrbfh3h | 2025-08-25T13:34:07 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | lmod | lmod
-wxosqecu4nyjxuc6pgtyknwzt3wdngru | 2025-08-25T13:35:58 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | miniconda3 | miniconda3
 4jdj3i6hymsrdhf6unct5winuimrxk25 | 2025-08-25T13:38:07 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | apptainer@1.4.1 | apptainer@1.4.1
 eguv6c244yoojhrqsevjjkiedbxuq6rb | 2025-08-25T13:39:53 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | pcre | pcre
 mcwcxxxy6lw2lqdn3hk3letg3kc6pkbc | 2025-08-25T13:41:33 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | podman | podman
@@ -183,3 +182,4 @@ ennsmmhlbhcxm7d6pnvamhdcy6yhxdwm | 2025-09-09T10:56:07 | 8b77bae936594204a391b69
 4za3vua6e4xeypbutt2qonoxcaatdgjg | 2025-09-09T11:02:09 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | opencoarrays@2.10.2 %[when='%c'] c=gcc@12.5.0 %[when='%cxx'] cxx=gcc@12.5.0 %[when='%fortran'] fortran=gcc@12.5.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@12.5.0 | opencoarrays@2.10.2 %[when='%c'] c=gcc@12.5.0 %[when='%cxx'] cxx=gcc@12.5.0 %[when='%fortran'] fortran=gcc@12.5.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@12.5.0
 u656lwaaf6jx53o33243zwrhgz4jd55k | 2025-09-10T11:51:23 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | deps    | yes      |           | rocm-openmp-extras@6.3.3 | rocm-openmp-extras@6.3.3
 4uoeqpiw7zukwxf72ikreiajivivqoa3 | N/A                 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | rocsparse@6.3.3 | rocsparse@6.3.3
+y3thedhj2efc2qh227zxybpatg35qrf7 | 2025-09-12T13:12:24 | 8b77bae936594204a391b69042ae9541bb5a3276 |      | no     | yes     | yes      |           | miniconda3 | miniconda3

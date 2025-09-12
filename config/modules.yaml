@@ -54,6 +54,7 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - miniconda3
       - rocsparse
       - rocm-openmp-extras
       - cmor
@@ -103,7 +104,6 @@ modules:
       - podman
       - pcre
       - apptainer
-      - miniconda3
       - go
       - meson
       - cmake
