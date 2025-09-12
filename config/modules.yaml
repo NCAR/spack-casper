@@ -139,13 +139,13 @@ modules:
       esmf:
         autoload: none
       exclude:
+      - nvtop
       - rocminfo@6.3.3
       - amdsmi@6.3.3
       - patchelf
       - mysql@8.0.29
       - postgresql
       - lmod
-      - nvtop
       - json-c
       - openjpeg
       - rclone

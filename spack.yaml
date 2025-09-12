@@ -1214,12 +1214,12 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/25.08-rocm/opt/view
       select:
+      - nvtop
       - rocminfo@6.3.3
       - amdsmi@6.3.3
       - patchelf
       - mysql@8.0.29
       - postgresql
-      - nvtop
       - json-c
       - openjpeg
       - rclone
@@ -1422,13 +1422,13 @@ spack:
         esmf:
           autoload: none
         exclude:
+        - nvtop
         - rocminfo@6.3.3
         - amdsmi@6.3.3
         - patchelf
         - mysql@8.0.29
         - postgresql
         - lmod
-        - nvtop
         - json-c
         - openjpeg
         - rclone
@@ -1864,7 +1864,6 @@ spack:
   - rclone
   - openjpeg
   - json-c
-  - nvtop
   - lmod
   - miniconda3
   - apptainer@1.4.1
