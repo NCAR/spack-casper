@@ -720,6 +720,10 @@ spack:
       - spec: ncl@6.6.2
         prefix: /glade/u/apps/opt/ncl/6.6.2
       buildable: false
+    nco:
+      require:
+      - spec: ^netcdf-c@:4.8 build_system=autotools
+        when: '@4.8.1'
     netcdf:
       variants:
       - +dap
@@ -1294,6 +1298,7 @@ spack:
         core_compilers:
         - gcc@7.5.0
         core_specs:
+        - nco
         - visit
         - nvhpc
         - linaro-forge
@@ -1304,7 +1309,6 @@ spack:
         - lrose-core
         - cuda
         - cudnn
-        - nco
         - idl
         - rstudio
         - matlab
@@ -2108,3 +2112,4 @@ spack:
   - esmf@8.8.1%nvhpc@25.7+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@25.7
   - osu-micro-benchmarks%nvhpc@25.7+cuda ^openmpi@5.0.6%nvhpc@25.7
   - visit@3.4.1+python ^netcdf-c@4.9.2%gcc@12.4.0 ^openmpi@5.0.6%gcc@12.4.0
+  - nco@4.8.1

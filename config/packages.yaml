@@ -693,6 +693,10 @@ packages:
     - spec: ncl@6.6.2
       prefix: /glade/u/apps/opt/ncl/6.6.2
     buildable: false
+  nco:
+    require:
+    - spec: ^netcdf-c@:4.8 build_system=autotools
+      when: '@4.8.1'
   netcdf:
     variants:
     - +dap
