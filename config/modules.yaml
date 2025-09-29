@@ -47,9 +47,9 @@ modules:
       core_compilers:
       - gcc@7.5.0
       core_specs:
+      - nvhpc
       - nco
       - visit
-      - nvhpc
       - linaro-forge
       - vapor
       - intel-oneapi-compilers
