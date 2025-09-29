@@ -2140,3 +2140,13 @@ spack:
   - eccodes@2.34.0%nvhpc@25.9
   - mpi-serial@2.5.0%nvhpc@25.9
   - parallelio@2.6.6%nvhpc@25.9~mpi~pnetcdf
+  - esmf@8.8.1%nvhpc@25.9~mpi
+  - openmpi@5.0.6%nvhpc@25.9
+  - parallel-netcdf@1.14.0%nvhpc@25.9 ^openmpi@5.0.6%nvhpc@25.9
+  - hdf5@1.12.3%nvhpc@25.9+mpi ^openmpi@5.0.6%nvhpc@25.9
+  - netcdf@4.9.3%nvhpc@25.9+mpi ^openmpi@5.0.6%nvhpc@25.9
+  - fftw@3.3.10%nvhpc@25.9+mpi ^openmpi@5.0.6%nvhpc@25.9
+  - darshan-runtime@3.4.6%nvhpc@25.9 ^openmpi@5.0.6%nvhpc@25.9
+  - parallelio@2.6.6%nvhpc@25.9 ^openmpi@5.0.6%nvhpc@25.9
+  - esmf@8.8.1%nvhpc@25.9+mpi+pnetcdf ^openmpi@5.0.6%nvhpc@25.9
+  - osu-micro-benchmarks%nvhpc@25.9+cuda ^openmpi@5.0.6%nvhpc@25.9
