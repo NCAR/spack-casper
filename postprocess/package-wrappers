@@ -7,7 +7,7 @@
 #       modify the environment at runtime for script invocation.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   12:25, 15 Nov 2024
+#   Last Revised:   07:28, 14 Oct 2025
 #
 
 #
@@ -125,7 +125,7 @@ for my_script in ${!wrapped_scripts[@]}; do
         wrapper_root=$BASE_ROOT/wrappers/bin
         mkdir -p $wrapper_root
         write_script_wrapper $my_script "$(find_libpath "$my_deps")"
-        mv $TMP_FILE $wrapper_root/$script
-        chmod +x $wrapper_root/$script
+        mv $TMP_FILE $wrapper_root/$my_script
+        chmod +x $wrapper_root/$my_script
     fi
 done
