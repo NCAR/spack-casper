@@ -13,6 +13,11 @@ packages:
     - spec: pkg-config@0.29.2
       prefix: /usr
     buildable: false
+  lustre:
+    externals:
+    - spec: lustre@2.15.6.1_cray_100_g2c66dd0
+      prefix: /usr
+    buildable: false
   gcc:
     externals:
     - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
@@ -45,11 +50,6 @@ packages:
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
-  lustre:
-    externals:
-    - spec: lustre@2.15.6.1_cray_100_g2c66dd0
-      prefix: /usr
-    buildable: false
   fortran:
     buildable: true
   go-or-gccgo-bootstrap:
@@ -694,6 +694,10 @@ packages:
   libyaml:
     prefer:
     - '%gcc@12.5.0'
+  libzip:
+    prefer:
+    - +gnutls
+    - '%gcc@12.5.0'
   linaro-forge:
     require:
     - +accept-eula
@@ -821,6 +825,7 @@ packages:
     prefer:
     # Would do require, but ncvis barfs
     - build_system=cmake
+    require:
     - +nczarr_zip
   nghttp2:
     prefer:

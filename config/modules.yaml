@@ -129,6 +129,7 @@ modules:
         conflict:
         - esmf-mpi
       exclude:
+      - mysql
       - py-pandas@2.1.4
       - py-tabulate
       - lmod

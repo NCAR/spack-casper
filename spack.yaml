@@ -47,6 +47,11 @@ spack:
       - spec: pkg-config@0.29.2
         prefix: /usr
       buildable: false
+    lustre:
+      externals:
+      - spec: lustre@2.15.6.1_cray_100_g2c66dd0
+        prefix: /usr
+      buildable: false
     gcc:
       externals:
       - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
@@ -79,11 +84,6 @@ spack:
       variants:
       - +piclibs
       - languages=c,c++,fortran,go
-    lustre:
-      externals:
-      - spec: lustre@2.15.6.1_cray_100_g2c66dd0
-        prefix: /usr
-      buildable: false
     fortran:
       buildable: true
     go-or-gccgo-bootstrap:
@@ -728,6 +728,10 @@ spack:
     libyaml:
       prefer:
       - '%gcc@12.5.0'
+    libzip:
+      prefer:
+      - +gnutls
+      - '%gcc@12.5.0'
     linaro-forge:
       require:
       - +accept-eula
@@ -855,6 +859,7 @@ spack:
       prefer:
       # Would do require, but ncvis barfs
       - build_system=cmake
+      require:
       - +nczarr_zip
     nghttp2:
       prefer:
@@ -1396,6 +1401,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/25.10/opt/view
       select:
+      - mysql
       - npm
       - node-js
       - openjpeg
@@ -1594,6 +1600,7 @@ spack:
           conflict:
           - esmf-mpi
         exclude:
+        - mysql
         - py-pandas@2.1.4
         - py-tabulate
         - lmod
@@ -2126,6 +2133,7 @@ spack:
   - parallel-netcdf@1.14.1 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
   - parallel-netcdf@1.14.1 %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
   - parallel-netcdf@1.14.1 %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^openmpi@5.0.8 %oneapi@2025.2.1
+  - mysql
   - wgrib2
   - ferret
   - madis
