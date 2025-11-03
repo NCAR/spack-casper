@@ -47,7 +47,7 @@ packages:
       when: '@:12'
     - spec: '%gcc@12.5.0'
       when: '@13:'
-    require:
+    #require:
     - spec: '%gcc-runtime@12.5.0'
       when: '@12.5.0'
     variants:
@@ -84,10 +84,21 @@ packages:
     prefer:
     - pkg-config
   adios2:
-    variants:
+    prefer:
     - +cuda
     - +hdf5
+    - +libcatalyst
+    - +sz
+    - +zfp
+    - +png
+    - +bzip2
+    - ~libpressio
+    require:
+    - +blosc2
+    - +mgard
     - +python
+    - spec: cuda_arch=60,70,80,89,90
+      when: +cuda
   all:
     permissions:
       read: world
@@ -1003,8 +1014,9 @@ packages:
     variants:
     - ~mpi
   py-numpy:
-    require:
-    - '%blas=openblas'
+    prefer:
+    - '%gcc@12.5.0'
+    - '%blas,lapack=openblas'
   python:
     prefer:
     - spec: '@3.11'
@@ -1268,9 +1280,6 @@ packages:
   libblastrampoline:
     prefer:
     - '%gcc@12.5.0'
-  libcatalyst:
-    prefer:
-    - '%gcc@12.5.0'
   libgit2:
     prefer:
     - '%gcc@12.5.0'
@@ -1304,9 +1313,6 @@ packages:
   mesa-glu:
     prefer:
     - '%gcc@12.5.0'
-  mgard:
-    prefer:
-    - '%gcc@12.5.0'
   numactl:
     require:
     - '%gcc@12.5.0'
@@ -1338,9 +1344,6 @@ packages:
     prefer:
     - '%gcc@12.5.0'
   rsync:
-    prefer:
-    - '%gcc@12.5.0'
-  sz:
     prefer:
     - '%gcc@12.5.0'
   tar:
