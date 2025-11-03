@@ -81,6 +81,9 @@ spack:
         when: '@:12'
       - spec: '%gcc@12.5.0'
         when: '@13:'
+      require:
+      - spec: '%gcc-runtime@12.5.0'
+        when: '@12.5.0'
       variants:
       - +piclibs
       - languages=c,c++,fortran,go
@@ -366,6 +369,7 @@ spack:
       - +sqlite3
       - +webp
       - +zstd
+      prefer:
       - ~hdf4
     gdb:
       variants:
@@ -401,7 +405,6 @@ spack:
       require:
       # This may help ioapi build
       - '@:4.2'
-      #prefer:
       - '%gcc@12.5.0'
     gmp:
       prefer:
@@ -798,6 +801,9 @@ spack:
       - +gpfs
       - +lustre
       - +xattr
+      require:
+      - spec: cflags=-Wno-error=implicit-function-declaration
+        when: '%gcc@14:'
     muparser:
       prefer:
       - '%gcc@12.5.0'
@@ -858,6 +864,7 @@ spack:
       - ~mpi
       prefer:
       # Would do require, but ncvis barfs
+      - ~hdf4
       - build_system=cmake
       require:
       - +nczarr_zip
@@ -1988,6 +1995,51 @@ spack:
       url: s3://spack-cache-casper
       profile: boreas
     ncar_mirror_local: /glade/u/apps/casper/mirror
+  toolchains:
+    gcc-125:
+    - spec: '%c=gcc@12.5.0'
+      when: '%c'
+    - spec: '%cxx=gcc@12.5.0'
+      when: '%cxx'
+    - spec: '%fortran=gcc@12.5.0'
+      when: '%fortran'
+    - spec: '%blas=openblas@0.3.30'
+      when: '%blas'
+    - spec: '%lapack=openblas@0.3.30'
+      when: '%lapack'
+    gcc-143:
+    - spec: '%c=gcc@14.3.0'
+      when: '%c'
+    - spec: '%cxx=gcc@14.3.0'
+      when: '%cxx'
+    - spec: '%fortran=gcc@14.3.0'
+      when: '%fortran'
+    - spec: '%blas=openblas@0.3.30'
+      when: '%blas'
+    - spec: '%lapack=openblas@0.3.30'
+      when: '%lapack'
+    nvhpc-259:
+    - spec: '%c=nvhpc@25.9'
+      when: '%c'
+    - spec: '%cxx=nvhpc@25.9'
+      when: '%cxx'
+    - spec: '%fortran=nvhpc@25.9'
+      when: '%fortran'
+    - spec: '%blas=nvhpc@25.9'
+      when: '%blas'
+    - spec: '%lapack=nvhpc@25.9'
+      when: '%lapack'
+    intel-2521:
+    - spec: '%c=intel-oneapi-compilers@2025.2.1'
+      when: '%c'
+    - spec: '%cxx=intel-oneapi-compilers@2025.2.1'
+      when: '%cxx'
+    - spec: '%fortran=intel-oneapi-compilers@2025.2.1'
+      when: '%fortran'
+    - spec: '%blas=intel-oneapi-mkl@2025'
+      when: '%blas'
+    - spec: '%lapack=intel-oneapi-mkl@2025'
+      when: '%lapack'
   specs:
   - gcc@12.5.0
   - gcc@14.3.0
@@ -2142,3 +2194,27 @@ spack:
   - cdo@2.5.2
   - gmt@6.5.0
   - nco@5.3.4
+  - hdf5@1.14.6+mpi %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - hdf5@1.14.6+mpi %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
+  - hdf5@1.14.6+mpi %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^openmpi@5.0.8 %oneapi@2025.2.1
+  - netcdf@4.9.3+mpi %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - netcdf@4.9.3+mpi %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
+  - netcdf@4.9.3+mpi %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^openmpi@5.0.8 %oneapi@2025.2.1
+  - fftw@3.3.10+mpi %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - fftw@3.3.10+mpi %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
+  - fftw@3.3.10+mpi %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^openmpi@5.0.8 %oneapi@2025.2.1
+  - darshan-runtime@3.4.7 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - darshan-runtime@3.4.7 %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
+  - darshan-runtime@3.4.7 %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^openmpi@5.0.8 %oneapi@2025.2.1
+  - parallelio@2.6.6 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - parallelio@2.6.6 %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
+  - parallelio@2.6.6+mpi %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^openmpi@5.0.8 %oneapi@2025.2.1
+  - esmf@8.9.0+mpi %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^hdf5 %gcc@14.3.0 ^openmpi@5.0.8 %gcc@14.3.0
+  - esmf@8.9.0+mpi %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^hdf5 %nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
+  - esmf@8.9.0+mpi %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^hdf5 %oneapi@2025.2.1 ^openmpi@5.0.8 %oneapi@2025.2.1
+  - osu-micro-benchmarks %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - osu-micro-benchmarks %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
+  - osu-micro-benchmarks %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^openmpi@5.0.8 %oneapi@2025.2.1
+  - mpifileutils@0.12 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - gdal@3.11.4 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^geos %gcc@14.3.0 ^hdf5 %c,cxx,fortran=gcc@14.3.0 ^netcdf-c %gcc@14.3.0 ^proj %gcc@14.3.0
+  - gdal@3.11.4 %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^geos %oneapi@2025.2.1 ^hdf5 %c,cxx,fortran=oneapi@2025.2.1 ^libgeotiff %oneapi@2025.2.1 ^netcdf-c %oneapi@2025.2.1 ^proj %oneapi@2025.2.1

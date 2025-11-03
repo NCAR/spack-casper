@@ -47,6 +47,9 @@ packages:
       when: '@:12'
     - spec: '%gcc@12.5.0'
       when: '@13:'
+    require:
+    - spec: '%gcc-runtime@12.5.0'
+      when: '@12.5.0'
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
@@ -332,6 +335,7 @@ packages:
     - +sqlite3
     - +webp
     - +zstd
+    prefer:
     - ~hdf4
   gdb:
     variants:
@@ -367,7 +371,6 @@ packages:
     require:
     # This may help ioapi build
     - '@:4.2'
-    #prefer:
     - '%gcc@12.5.0'
   gmp:
     prefer:
@@ -764,6 +767,9 @@ packages:
     - +gpfs
     - +lustre
     - +xattr
+    require:
+    - spec: cflags=-Wno-error=implicit-function-declaration
+      when: '%gcc@14:'
   muparser:
     prefer:
     - '%gcc@12.5.0'
@@ -824,6 +830,7 @@ packages:
     - ~mpi
     prefer:
     # Would do require, but ncvis barfs
+    - ~hdf4
     - build_system=cmake
     require:
     - +nczarr_zip
