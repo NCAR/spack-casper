@@ -1,13 +1,4 @@
 packages:
-  openssl:
-    externals:
-    - spec: openssl@1.1.1w-fips
-      prefix: /usr
-    - spec: openssl@3.1.4
-      prefix: /usr
-    buildable: false
-    require:
-    - certs=system
   pkg-config:
     externals:
     - spec: pkg-config@0.29.2
@@ -47,12 +38,21 @@ packages:
       when: '@:12'
     - spec: '%gcc@12.5.0'
       when: '@13:'
-    #require:
+    require:
     - spec: '%gcc-runtime@12.5.0'
       when: '@12.5.0'
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
+  openssl:
+    externals:
+    - spec: openssl@1.1.1w-fips
+      prefix: /usr
+    - spec: openssl@3.1.4
+      prefix: /usr
+    buildable: false
+    require:
+    - certs=system
   fortran:
     buildable: true
   go-or-gccgo-bootstrap:
@@ -963,8 +963,7 @@ packages:
     variants:
     - +pnetcdf
   paraview:
-    variants:
-    - +adios2
+    prefer:
     - +examples
     - +eyedomelighting
     - +fortran
@@ -972,17 +971,19 @@ packages:
     - +libcatalyst
     - +opengl2
     - +openpmd
-    - +osmesa
     - +pagosa
     - +python
-    - +qt
     - +visitbridge
     require:
     # This requirement improves package reuse
     - spec: ^netcdf-c+mpi
       when: +mpi
     # Paraview fails to find hdf5_hl when netcdf-c uses CMake
-    - spec: ^netcdf-c build_system=autotools
+    - ^netcdf-c build_system=autotools
+    - +qt
+    - +adios2
+    # Needs CUDA 11, so no
+    #- +cuda cuda_arch=60,89
   pbs:
     require:
     - openpbs
@@ -1136,10 +1137,13 @@ packages:
     - +hdf5
     - +mpi
     - +netcdf
+    - +python
     - ~conduit
     - ~mfem
-    - ~python
     - ~vtkm
+    prefer:
+    - +adios2
+    - +silo
   vim:
     variants:
     - +cscope
@@ -1371,5 +1375,20 @@ packages:
     prefer:
     - '%gcc@12.5.0'
   npm:
+    prefer:
+    - '%gcc@12.5.0'
+  py-meson-python:
+    prefer:
+    - '%gcc@12.5.0'
+  py-numexpr:
+    prefer:
+    - '%gcc@12.5.0'
+  py-pandas:
+    prefer:
+    - '%gcc@12.5.0'
+  mgard:
+    prefer:
+    - '%gcc@12.5.0'
+  sz:
     prefer:
     - '%gcc@12.5.0'

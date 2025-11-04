@@ -33,15 +33,6 @@ spack:
       NVCCFLAGS: -allow-unsupported-compiler
       NVCC_PREPEND_FLAGS: -allow-unsupported-compiler
   packages:
-    openssl:
-      externals:
-      - spec: openssl@1.1.1w-fips
-        prefix: /usr
-      - spec: openssl@3.1.4
-        prefix: /usr
-      buildable: false
-      require:
-      - certs=system
     pkg-config:
       externals:
       - spec: pkg-config@0.29.2
@@ -81,12 +72,21 @@ spack:
         when: '@:12'
       - spec: '%gcc@12.5.0'
         when: '@13:'
-      #require:
+      require:
       - spec: '%gcc-runtime@12.5.0'
         when: '@12.5.0'
       variants:
       - +piclibs
       - languages=c,c++,fortran,go
+    openssl:
+      externals:
+      - spec: openssl@1.1.1w-fips
+        prefix: /usr
+      - spec: openssl@3.1.4
+        prefix: /usr
+      buildable: false
+      require:
+      - certs=system
     fortran:
       buildable: true
     go-or-gccgo-bootstrap:
@@ -997,8 +997,7 @@ spack:
       variants:
       - +pnetcdf
     paraview:
-      variants:
-      - +adios2
+      prefer:
       - +examples
       - +eyedomelighting
       - +fortran
@@ -1006,17 +1005,19 @@ spack:
       - +libcatalyst
       - +opengl2
       - +openpmd
-      - +osmesa
       - +pagosa
       - +python
-      - +qt
       - +visitbridge
       require:
       # This requirement improves package reuse
       - spec: ^netcdf-c+mpi
         when: +mpi
       # Paraview fails to find hdf5_hl when netcdf-c uses CMake
-      - spec: ^netcdf-c build_system=autotools
+      - ^netcdf-c build_system=autotools
+      - +qt
+      - +adios2
+      # Needs CUDA 11, so no
+      #- +cuda cuda_arch=60,89
     pbs:
       require:
       - openpbs
@@ -1170,10 +1171,13 @@ spack:
       - +hdf5
       - +mpi
       - +netcdf
+      - +python
       - ~conduit
       - ~mfem
-      - ~python
       - ~vtkm
+      prefer:
+      - +adios2
+      - +silo
     vim:
       variants:
       - +cscope
@@ -1407,6 +1411,21 @@ spack:
     npm:
       prefer:
       - '%gcc@12.5.0'
+    py-meson-python:
+      prefer:
+      - '%gcc@12.5.0'
+    py-numexpr:
+      prefer:
+      - '%gcc@12.5.0'
+    py-pandas:
+      prefer:
+      - '%gcc@12.5.0'
+    mgard:
+      prefer:
+      - '%gcc@12.5.0'
+    sz:
+      prefer:
+      - '%gcc@12.5.0'
   view:
     baseenv:
       root: /glade/u/apps/casper/25.10/opt/view
@@ -1526,6 +1545,8 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - visit
+        - paraview
         - nco
         - gmt
         - cdo
@@ -2223,3 +2244,5 @@ spack:
   - gdal@3.11.4 %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^geos %oneapi@2025.2.1 ^hdf5 %c,cxx,fortran=oneapi@2025.2.1 ^libgeotiff %oneapi@2025.2.1 ^netcdf-c %oneapi@2025.2.1 ^proj %oneapi@2025.2.1
   - adios2@2.10.2+mpi %c,cxx,fortran=oneapi@2025.2.1 ^libcatalyst %oneapi@2025.2.1 ^openblas %gcc@12.5.0 ^openmpi@5.0.8 %oneapi@2025.2.1 ^py-mpi4py %oneapi@2025.2.1
   - adios2@2.10.2+mpi %c,cxx,fortran=gcc@14.3.0 ^libcatalyst %gcc@14.3.0 ^openblas %gcc@12.5.0 ^openmpi@5.0.8 %gcc@14.3.0 ^py-mpi4py %gcc@14.3.0
+  - paraview@5.13.3 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - visit@3.4.1+python %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
