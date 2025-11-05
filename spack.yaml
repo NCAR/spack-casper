@@ -72,7 +72,6 @@ spack:
         when: '@:12'
       - spec: '%gcc@12.5.0'
         when: '@13:'
-      require:
       - spec: '%gcc-runtime@12.5.0'
         when: '@12.5.0'
       variants:
@@ -571,8 +570,8 @@ spack:
       - +external-libfabric
       - +generic-names
     intel-oneapi-runtime:
-      prefer:
-      - ^gcc-runtime@12.5.0
+      conflict:
+      - ^gcc-runtime@14.3.0
     intel-oneapi-vtune:
       prefer:
       - '%gcc@12.5.0'
@@ -1998,6 +1997,12 @@ spack:
       - sles15
       sles15:
       - opensuse15
+    duplicates:
+      max_dupes:
+        # Virtuals
+        fortran: 2
+        fortran-rt: 2
+        libifcore: 2
   bootstrap:
     enable: true
     root: /glade/u/apps/casper/25.10/bootstrap
@@ -2164,9 +2169,6 @@ spack:
   - nvtop
   - intel-oneapi-mkl@2025.2.0 %oneapi@2025.2.1
   - intel-oneapi-mkl@2025.2.0 %gcc@14.3.0
-  - ncarcompilers@1.0.0 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
-  - ncarcompilers@1.0.0 %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9
-  - ncarcompilers@1.0.0 %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025
   - openblas@0.3.30 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
   - fftw@3.3.10~mpi %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
   - fftw@3.3.10~mpi %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9
@@ -2246,3 +2248,6 @@ spack:
   - adios2@2.10.2+mpi %c,cxx,fortran=gcc@14.3.0 ^libcatalyst %gcc@14.3.0 ^openblas %gcc@12.5.0 ^openmpi@5.0.8 %gcc@14.3.0 ^py-mpi4py %gcc@14.3.0
   - paraview@5.13.3 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
   - visit@3.4.1+python %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - ncarcompilers@1.1.0 %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9
+  - ncarcompilers@1.1.0 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
+  - ncarcompilers@1.1.0 %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025

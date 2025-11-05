@@ -38,7 +38,6 @@ packages:
       when: '@:12'
     - spec: '%gcc@12.5.0'
       when: '@13:'
-    require:
     - spec: '%gcc-runtime@12.5.0'
       when: '@12.5.0'
     variants:
@@ -537,8 +536,8 @@ packages:
     - +external-libfabric
     - +generic-names
   intel-oneapi-runtime:
-    prefer:
-    - ^gcc-runtime@12.5.0
+    conflict:
+    - ^gcc-runtime@14.3.0
   intel-oneapi-vtune:
     prefer:
     - '%gcc@12.5.0'
