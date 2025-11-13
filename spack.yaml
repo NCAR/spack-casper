@@ -2143,7 +2143,6 @@ spack:
   - lmod
   - py-tabulate
   - py-pandas@2.1.4
-  - miniconda3
   - apptainer
   - pcre
   - podman
