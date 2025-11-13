@@ -45,6 +45,8 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - pixi
+      - uv
       - miniconda3
       - visit
       - paraview
@@ -471,6 +473,8 @@ modules:
         intel-oneapi-mkl: mkl/{version}
         intel-oneapi-vtune: intel-vtune/{version}
         miniconda3: conda/latest
+        pixi: pixi/latest
+        uv: uv/latest
         parallelio1: parallelio/{version}
         parallelio~shared: parallelio/{version}-static
         py-torch: libtorch/{version}

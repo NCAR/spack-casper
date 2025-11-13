@@ -33,6 +33,16 @@ spack:
       NVCCFLAGS: -allow-unsupported-compiler
       NVCC_PREPEND_FLAGS: -allow-unsupported-compiler
   packages:
+    pixi:
+      externals:
+      - spec: pixi@1.0.0
+        prefix: /glade/u/apps/opt/pixi
+      buildable: false
+    uv:
+      externals:
+      - spec: uv@1.0.0
+        prefix: /glade/u/apps/opt/uv
+      buildable: false
     miniconda3:
       externals:
       - spec: miniconda3@25.5.1
@@ -1549,6 +1559,8 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - pixi
+        - uv
         - miniconda3
         - visit
         - paraview
@@ -1975,6 +1987,8 @@ spack:
           intel-oneapi-mkl: mkl/{version}
           intel-oneapi-vtune: intel-vtune/{version}
           miniconda3: conda/latest
+          pixi: pixi/latest
+          uv: uv/latest
           parallelio1: parallelio/{version}
           parallelio~shared: parallelio/{version}-static
           py-torch: libtorch/{version}
@@ -2256,3 +2270,5 @@ spack:
   - ncarcompilers@1.1.0 %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30
   - ncarcompilers@1.1.0 %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025
   - miniconda3
+  - uv
+  - pixi
