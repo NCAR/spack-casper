@@ -1878,6 +1878,17 @@ spack:
             set:
               NCAR_ROOT_CONDA: '{prefix}'
           template: conda.lua
+          conflict:
+          - uv
+          - pixi
+        uv:
+          conflict:
+          - conda
+          - pixi
+        pixi:
+          conflict:
+          - conda
+          - uv
         mpi:
           template: ncar_wrapper_mpi.lua
           environment:
