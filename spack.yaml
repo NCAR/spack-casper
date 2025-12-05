@@ -33,21 +33,6 @@ spack:
       NVCCFLAGS: -allow-unsupported-compiler
       NVCC_PREPEND_FLAGS: -allow-unsupported-compiler
   packages:
-    pixi:
-      externals:
-      - spec: pixi@1.0.0
-        prefix: /glade/u/apps/opt/pixi
-      buildable: false
-    uv:
-      externals:
-      - spec: uv@1.0.0
-        prefix: /glade/u/apps/opt/uv
-      buildable: false
-    miniconda3:
-      externals:
-      - spec: miniconda3@25.5.1
-        prefix: /glade/u/apps/opt/conda
-      buildable: false
     pkg-config:
       externals:
       - spec: pkg-config@0.29.2
@@ -58,6 +43,15 @@ spack:
       - spec: lustre@2.15.6.1_cray_100_g2c66dd0
         prefix: /usr
       buildable: false
+    openssl:
+      externals:
+      - spec: openssl@1.1.1w-fips
+        prefix: /usr
+      - spec: openssl@3.1.4
+        prefix: /usr
+      buildable: false
+      require:
+      - certs=system
     gcc:
       externals:
       - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
@@ -92,15 +86,21 @@ spack:
       variants:
       - +piclibs
       - languages=c,c++,fortran,go
-    openssl:
+    pixi:
       externals:
-      - spec: openssl@1.1.1w-fips
-        prefix: /usr
-      - spec: openssl@3.1.4
-        prefix: /usr
+      - spec: pixi@1.0.0
+        prefix: /glade/u/apps/opt/pixi
       buildable: false
-      require:
-      - certs=system
+    uv:
+      externals:
+      - spec: uv@1.0.0
+        prefix: /glade/u/apps/opt/uv
+      buildable: false
+    miniconda3:
+      externals:
+      - spec: miniconda3@25.5.1
+        prefix: /glade/u/apps/opt/conda
+      buildable: false
     fortran:
       buildable: true
     go-or-gccgo-bootstrap:
@@ -480,6 +480,8 @@ spack:
       require:
       - +dap
       - +hdf4
+      prefer:
+      - '%gcc@12.5.0'
     graphicsmagick:
       require:
       # graphicsmagick can't built using libjpeg>2
@@ -1030,8 +1032,6 @@ spack:
       - ^netcdf-c build_system=autotools
       - +qt
       - +adios2
-      # Needs CUDA 11, so no
-      #- +cuda cuda_arch=60,89
     pbs:
       require:
       - openpbs
@@ -1559,6 +1559,7 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - grads
         - pixi
         - uv
         - miniconda3
@@ -2289,3 +2290,4 @@ spack:
   - parallelio@2.6.8+mpi %[when='%c'] c=nvhpc@25.9 %[when='%cxx'] cxx=nvhpc@25.9 %[when='%fortran'] fortran=nvhpc@25.9 %[when='%blas'] blas=nvhpc@25.9 %[when='%lapack'] lapack=nvhpc@25.9 ^openmpi@5.0.8 %nvhpc@25.9
   - parallelio@2.6.8+mpi %[when='%c'] c=oneapi@2025.2.1 %[when='%cxx'] cxx=oneapi@2025.2.1 %[when='%fortran'] fortran=oneapi@2025.2.1 %[when='%blas'] blas=intel-oneapi-mkl@2025 %[when='%lapack'] lapack=intel-oneapi-mkl@2025 ^openmpi@5.0.8 %oneapi@2025.2.1
   - parallelio@2.6.8+mpi %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
+  - grads

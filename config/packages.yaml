@@ -1,19 +1,4 @@
 packages:
-  pixi:
-    externals:
-    - spec: pixi@1.0.0
-      prefix: /glade/u/apps/opt/pixi
-    buildable: false
-  uv:
-    externals:
-    - spec: uv@1.0.0
-      prefix: /glade/u/apps/opt/uv
-    buildable: false
-  miniconda3:
-    externals:
-    - spec: miniconda3@25.5.1
-      prefix: /glade/u/apps/opt/conda
-    buildable: false
   pkg-config:
     externals:
     - spec: pkg-config@0.29.2
@@ -24,6 +9,15 @@ packages:
     - spec: lustre@2.15.6.1_cray_100_g2c66dd0
       prefix: /usr
     buildable: false
+  openssl:
+    externals:
+    - spec: openssl@1.1.1w-fips
+      prefix: /usr
+    - spec: openssl@3.1.4
+      prefix: /usr
+    buildable: false
+    require:
+    - certs=system
   gcc:
     externals:
     - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
@@ -58,15 +52,21 @@ packages:
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
-  openssl:
+  pixi:
     externals:
-    - spec: openssl@1.1.1w-fips
-      prefix: /usr
-    - spec: openssl@3.1.4
-      prefix: /usr
+    - spec: pixi@1.0.0
+      prefix: /glade/u/apps/opt/pixi
     buildable: false
-    require:
-    - certs=system
+  uv:
+    externals:
+    - spec: uv@1.0.0
+      prefix: /glade/u/apps/opt/uv
+    buildable: false
+  miniconda3:
+    externals:
+    - spec: miniconda3@25.5.1
+      prefix: /glade/u/apps/opt/conda
+    buildable: false
   fortran:
     buildable: true
   go-or-gccgo-bootstrap:
@@ -446,6 +446,8 @@ packages:
     require:
     - +dap
     - +hdf4
+    prefer:
+    - '%gcc@12.5.0'
   graphicsmagick:
     require:
     # graphicsmagick can't built using libjpeg>2
@@ -996,8 +998,6 @@ packages:
     - ^netcdf-c build_system=autotools
     - +qt
     - +adios2
-    # Needs CUDA 11, so no
-    #- +cuda cuda_arch=60,89
   pbs:
     require:
     - openpbs
