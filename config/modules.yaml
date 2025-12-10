@@ -130,9 +130,12 @@ modules:
       esmf+mpi:
         conflict:
         - esmf
+        - mpi-serial
       esmf~mpi:
         conflict:
         - esmf-mpi
+        - openmpi
+        - cray-mpich
       exclude:
       - mysql
       - py-pandas@2.1.4
@@ -443,9 +446,11 @@ modules:
       parallelio+mpi:
         conflict:
         - parallelio-serial
+        - mpi-serial
       parallelio~mpi:
         conflict:
         - parallelio
+        - openmpi
       parallelio1:
         filter:
           exclude_env_vars:
