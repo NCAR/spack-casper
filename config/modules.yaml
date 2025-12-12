@@ -375,6 +375,9 @@ modules:
         conflict:
         - conda
         - pixi
+        environment:
+          set:
+            UV_CACHE_DIR: /glade/work/" .. os.getenv("USER") .. "/.uv
       pixi:
         conflict:
         - conda
