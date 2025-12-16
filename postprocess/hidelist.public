@@ -18,7 +18,7 @@
 ##  USER INPUT
 #
 
-hide_list=" */*/mvapich/* */*/vasp/* */*/intel-mpi/* */*/mpich/* Core/libfabric/*-debug Core/aocc/* Core/uv/* Core/pixi/* "
+hide_list=" */*/mvapich/* */*/vasp/* */*/intel-mpi/* */*/mpich/* Core/libfabric/*-debug Core/aocc/* "
 
 #
 ##  BEGIN HIDDEN MODULE FILE GENERATION

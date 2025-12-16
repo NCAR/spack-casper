@@ -377,11 +377,16 @@ modules:
         - pixi
         environment:
           set:
-            UV_CACHE_DIR: /glade/work/" .. os.getenv("USER") .. "/.uv
+            UV_CACHE_DIR: /glade/derecho/scratch/" .. os.getenv("USER") .. "/.cache/uv
+            #XDG_CACHE_HOME: '/glade/derecho/scratch/" .. os.getenv("USER") .. "/.cache'
       pixi:
         conflict:
         - conda
         - uv
+        environment:
+          set:
+            PIXI_CACHE_DIR: /glade/derecho/scratch/" .. os.getenv("USER") .. "/.cache/pixi
+            RATTLER_CACHE_DIR: /glade/derecho/scratch/" .. os.getenv("USER") .. "/.cache/pixi/rattler
       mpi:
         template: ncar_wrapper_mpi.lua
         environment:
