@@ -1,23 +1,9 @@
 packages:
-  pkg-config:
-    externals:
-    - spec: pkg-config@0.29.2
-      prefix: /usr
-    buildable: false
   lustre:
     externals:
     - spec: lustre@2.15.6.1_cray_100_g2c66dd0
       prefix: /usr
     buildable: false
-  openssl:
-    externals:
-    - spec: openssl@1.1.1w-fips
-      prefix: /usr
-    - spec: openssl@3.1.4
-      prefix: /usr
-    buildable: false
-    require:
-    - certs=system
   gcc:
     externals:
     - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
@@ -52,6 +38,20 @@ packages:
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
+  pkg-config:
+    externals:
+    - spec: pkg-config@0.29.2
+      prefix: /usr
+    buildable: false
+  openssl:
+    externals:
+    - spec: openssl@1.1.1w-fips
+      prefix: /usr
+    - spec: openssl@3.1.4
+      prefix: /usr
+    buildable: false
+    require:
+    - certs=system
   pixi:
     externals:
     - spec: pixi@1.0.0
@@ -734,6 +734,8 @@ packages:
     externals:
     - spec: linaro-forge@25.0.4
       prefix: /glade/u/apps/common/25.10/spack/opt/spack/linaro-forge/25.0.4/i6z5
+    - spec: linaro-forge@25.1
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/linaro-forge/25.1/xg4z
     buildable: false
   llvm:
     prefer:

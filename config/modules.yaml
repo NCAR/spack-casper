@@ -45,6 +45,7 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - linaro-forge
       - grads
       - pixi
       - uv
@@ -70,7 +71,6 @@ modules:
       - neovim
       - doxygen
       - texlive
-      - linaro-forge
       - grib-util
       - ncvis
       - ucx
