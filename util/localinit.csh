@@ -1,5 +1,5 @@
 # Location variables
-setenv INSTALLPATH_ROOT /glade/u/apps/casper/default/spack/opt/spack
+setenv INSTALLPATH_ROOT /glade/u/apps/casper/25.10/spack/opt/spack
 setenv MODULEPATH_ROOT /glade/u/apps/casper/modules
 
 # Lmod configuration

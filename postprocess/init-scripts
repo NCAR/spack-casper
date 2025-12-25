@@ -8,7 +8,7 @@
 #       /etc/profile.d scripts.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   13:25, 27 Aug 2025
+#   Last Revised:   14:01, 24 Dec 2025
 #
 
 #
@@ -31,7 +31,7 @@ if [[ $NCAR_SPACK_ENV_TYPE == build ]]; then
     pkg_root=$SPACK_ENV/opt
     module_root=$SPACK_ENV/modules
 else
-    pkg_root=$NCAR_SPACK_ROOT_PUBLIC/default/spack/opt/spack
+    pkg_root=$NCAR_SPACK_ROOT_PUBLIC/$NCAR_SPACK_HOST_VERSION/spack/opt/spack
     module_root=$NCAR_SPACK_ROOT_PUBLIC/modules
 fi
 
