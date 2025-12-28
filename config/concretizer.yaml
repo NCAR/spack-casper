@@ -1,0 +1,14 @@
+concretizer:
+  unify: false
+  reuse: true
+  os_compatible:
+    opensuse15:
+    - sles15
+    sles15:
+    - opensuse15
+  duplicates:
+    max_dupes:
+      # Virtuals
+      fortran: 2
+      fortran-rt: 2
+      libifcore: 2

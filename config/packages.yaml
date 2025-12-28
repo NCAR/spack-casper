@@ -1,0 +1,718 @@
+packages:
+  pkg-config:
+    externals:
+    - spec: pkg-config@0.29.2
+      prefix: /usr
+    buildable: false
+  gcc:
+    externals:
+    - spec: gcc@7.5.0 languages:='c,c++,fortran'
+      prefix: /usr
+      extra_attributes:
+        compilers:
+          c: /usr/bin/gcc
+          cxx: /usr/bin/g++
+          fortran: /usr/bin/gfortran
+    - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m
+      extra_attributes:
+        compilers:
+          c: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/gcc
+          cxx: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/g++
+          fortran: /glade/u/apps/common/25.10/spack/opt/spack/gcc/14.3.0/nw2m/bin/gfortran
+    - spec: gcc@12.5.0 languages:='c,c++,fortran,go'
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg
+      extra_attributes:
+        compilers:
+          c: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/bin/gcc
+          cxx: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/bin/g++
+          fortran: /glade/u/apps/common/25.10/spack/opt/spack/gcc/12.5.0/hsbg/bin/gfortran
+    buildable: false
+    prefer:
+    - spec: '%gcc@7.5.0'
+      when: '@:12'
+    - spec: '%gcc@12.5.0'
+      when: '@13:'
+    - spec: '%gcc-runtime@12.5.0'
+      when: '@12.5.0'
+    variants:
+    - +piclibs
+    - languages=c,c++,fortran,go
+  lustre:
+    externals:
+    - spec: lustre@2.15.6.1_cray_100_g2c66dd0
+      prefix: /usr
+    buildable: false
+  openssl:
+    externals:
+    - spec: openssl@1.1.1w-fips
+      prefix: /usr
+    - spec: openssl@3.1.4
+      prefix: /usr
+    buildable: false
+  aocc:
+    externals:
+    - spec: aocc@5.0.0
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/aocc/5.0.0/oah3
+      extra_attributes:
+        compilers:
+          c: /glade/u/apps/common/25.10/spack/opt/spack/aocc/5.0.0/oah3/bin/clang
+          cxx: /glade/u/apps/common/25.10/spack/opt/spack/aocc/5.0.0/oah3/bin/clang++
+          fortran: /glade/u/apps/common/25.10/spack/opt/spack/aocc/5.0.0/oah3/bin/flang
+    buildable: false
+    require:
+    - +license-agreed
+  pkgconfig:
+    buildable: false
+    prefer:
+    - pkg-config
+  go-or-gccgo-bootstrap:
+    prefer:
+    - go-bootstrap
+  adios2:
+    prefer:
+    - +hdf5
+    - +libcatalyst
+    - +sz
+    - +zfp
+    - +png
+    - +bzip2
+    - ~libpressio
+    require:
+    - +blosc2
+    - +mgard
+    - +python
+  all:
+    permissions:
+      read: world
+      write: user
+    target:
+    # This target is lowest-common denominator between Intel and Milans
+    - x86_64_v3
+    prefer:
+    - +pic
+    - spec: ^hdf5 %gcc@12.5.0
+      when: '%gcc@12.5.0 ^hdf5'
+    - spec: ^udunits %gcc@12.5.0
+      when: '%gcc@12.5.0 ^udunits'
+    - spec: ^openblas %gcc@12.5.0
+      when: '%gcc@12.5.0 ^openblas'
+    - spec: ^hdf5 %gcc@14.3.0
+      when: '%gcc@14.3.0 ^hdf5'
+    - spec: ^udunits %gcc@14.3.0
+      when: '%gcc@12.5.0 ^udunits'
+    - spec: ^openblas %gcc@14.3.0
+      when: '%gcc@14.3.0 ^openblas'
+  arpack-ng:
+    variants:
+    - ~mpi
+  binutils:
+    variants:
+    - +gas
+    - +gold
+    - +ld
+    - +libiberty
+  cairo:
+    variants:
+    - +X
+    - +fc
+    - +ft
+    - +gobject
+    - +pdf
+    - +png
+    - +svg
+    - +zlib
+  cdo:
+    variants:
+    - +curl
+    prefer:
+    - ^udunits %gcc@12.5.0
+  charliecloud:
+    variants:
+    - +squashfuse
+  cmake:
+    variants:
+    - +ownlibs
+  cmor:
+    prefer:
+    - ^udunits %gcc@12.5.0
+  cp2k:
+    variants:
+    - +elpa
+    - +libvori
+    - +plumed
+    - +spglib
+  curl:
+    variants:
+    - +libidn2
+    - +libssh
+    - +libssh2
+    - +nghttp2
+    prefer:
+    - tls=openssl
+  darshan-runtime:
+    variants:
+    - +parallel-netcdf
+    - scheduler=pbs
+    require:
+    - spec: ^hdf5+mpi
+      when: +hdf5
+    prefer:
+    - spec: cflags='-std=gnu17 -Wno-error=implicit-function-declaration -Wno-error=int-conversion'
+      when: '%gcc@15'
+  darshan-util:
+    variants:
+    - +bzip2
+  doxygen:
+    variants:
+    - +graphviz
+  eccodes:
+    variants:
+    - +fortran
+    - +png
+    - +tools
+    - jp2k=jasper
+    require:
+    - +netcdf
+  ecflow:
+    require:
+    - +pic
+    - +ui
+  emacs:
+    variants:
+    - +X
+    - +json
+    - +treesitter
+    prefer:
+    - gui=x11
+  esmf:
+    variants:
+    - ~mpi
+    - ~xerces
+    require:
+    - +external-lapack
+    - +external-parallelio
+    - +netcdf
+    - one_of:
+      - +pnetcdf +mpi
+      - ~pnetcdf ~mpi
+  ferret:
+    variants:
+    - +datasets
+  ffmpeg:
+    variants:
+    - +X
+    - +drawtext
+    - +libaom
+    - +libmp3lame
+    - +libopenjpeg
+    - +libopus
+    - +libsnappy
+    - +libspeex
+    - +libssh
+    - +libvorbis
+    - +libvpx
+    - +libwebp
+    - +libx264
+    - +libxml2
+    - +libzma
+    - +libzmq
+    - +sdl2
+  fftw:
+    variants:
+    - ~mpi
+  gdal:
+    require:
+    - spec: ^hdf5~mpi
+      when: +hdf5
+    variants:
+    - +blosc
+    - +curl
+    - +deflate
+    - +expat
+    - +geos
+    - +gif
+    - +grib
+    - +hdf5
+    - +iconv
+    - +jpeg
+    - +libaec
+    - +libcsf
+    - +liblzma
+    - +libxml2
+    - +lz4
+    - +netcdf
+    - +openjpeg
+    - +parquet
+    - +pcidsk
+    - +pdfium
+    - +png
+    - +qhull
+    - +sqlite3
+    - +webp
+    - +zstd
+    prefer:
+    - ~hdf4
+  gdb:
+    variants:
+    - +gold
+    - +ld
+    - +lto
+    - +source-highlight
+    - +tui
+    - ~debuginfod
+    - ~python
+  gettext:
+    prefer:
+    - spec: +libxml2
+      when: '%gcc@8:'
+  gimp:
+    variants:
+    - ~doc
+  git:
+    variants:
+    - +svn
+    - +tcltk
+  gmake:
+    variants:
+    - ~guile
+    require:
+    # This may help ioapi build
+    - '@:4.2'
+  gmt:
+    variants:
+    - +ffmpeg
+    - +fftw
+    - +geos
+    - +ghostscript
+    - +glib
+    - +pcre
+    require:
+    - +blas
+    - +lapack
+    - spec: '^ffmpeg@7:'
+      when: +ffmpeg
+  gnuplot:
+    require:
+    - +wx
+    variants:
+    - +X
+    prefer:
+    - +qt
+  googletest:
+    variants:
+    - cxxstd=17
+  gptl:
+    variants:
+    - +nestedomp
+    - +papi
+    - +pmpi
+    prefer:
+    - spec: cflags='-std=gnu17 -Wno-error=implicit-function-declaration -Wno-error=int-conversion'
+      when: '%gcc@15'
+  grads:
+    require:
+    - +dap
+    - +hdf4
+  graphicsmagick:
+    require:
+    # graphicsmagick can't built using libjpeg>2
+    # https://github.com/ImageMagick/ImageMagick/issues/6514
+    - ^libjpeg-turbo@:2
+  gtkplus:
+    variants:
+    - +cups
+  h5z-ftp:
+    require:
+    - ^hdf5~mpi
+  harfbuzz:
+    variants:
+    - +graphite2
+  hdf:
+    variants:
+    - +fortran
+    - +szip
+    require:
+    - +external-xdr
+    prefer:
+    - spec: cflags='-std=c90 -Wno-error=int-conversion'
+      when: '%gcc@15'
+    - spec: cflags='-std=c90 -Wno-error=int-conversion'
+      when: '%cce'
+    - spec: cflags='-std=c90 -Wno-error=int-conversion'
+      when: '%intel-oneapi-compilers'
+  hdf5:
+    variants:
+    - +cxx
+    - +fortran
+    - +hl
+    - +map
+    - +szip
+    - ~mpi
+  imagemagick:
+    variants:
+    - +ghostscript
+  intel-oneapi-mkl:
+    require:
+    - spec: +gfortran threads=openmp
+      when: '%gcc'
+  intel-oneapi-mpi:
+    variants:
+    - +external-libfabric
+    - +generic-names
+  intel-oneapi-runtime:
+    conflict:
+    - ^gcc-runtime@14.3.0
+  ioapi:
+    require:
+    - cflags=-Wno-error=implicit-function-declaration
+  ip:
+    prefer:
+    - '%lapack=openblas'
+  ispc:
+    require:
+    - '%clang'
+  jasper:
+    prefer:
+    - '@:2'
+  kokkos:
+    variants:
+    - +examples
+    - ~openmp
+  libarchive:
+    require:
+    - compression=bz2lib,lz4,lzma,lzo2,zlib,zstd xar=expat
+  libemos:
+    require:
+    - spec: fflags=-fallow-argument-mismatch
+      when: '%gcc@10:'
+  libfabric:
+    variants:
+    - +uring
+    prefer:
+    - spec: '%gcc@12.5.0'
+      when: '@2:'
+    - spec: '%gcc@7.5.0'
+      when: '@1'
+  libgeotiff:
+    require:
+    # Doesn't build without proj as a dependency for me
+    - +proj
+  libunwind:
+    variants:
+    - +cxx_exceptions
+    - +debug_frame
+    - +xz
+    - +zlib
+    - components=setjmp,ptrace,coredump
+  libzip:
+    prefer:
+    - +gnutls
+  linaro-forge:
+    require:
+    - +accept-eula
+    externals:
+    - spec: linaro-forge@25.0.4
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/linaro-forge/25.0.4/i6z5
+    - spec: linaro-forge@25.1
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/linaro-forge/25.1/xg4z
+    buildable: false
+  llvm:
+    prefer:
+    - spec: +flang
+      when: '@19:'
+  mesa:
+    require:
+    - +llvm
+    - '@25:'
+    prefer:
+    - ^llvm ~clang
+  met:
+    variants:
+    - +graphics
+    - +grib2
+    - +lidar2nc
+    - +modis
+    - +python
+  metplus:
+    variants:
+    - +cycloneplotter
+    - +makeplots
+    - +plotdataplane
+    - +series_analysis
+  miniconda3:
+    externals:
+    - spec: miniconda3@25.5.1
+      prefix: /glade/u/apps/opt/conda
+    buildable: false
+  pixi:
+    externals:
+    - spec: pixi@1.0.0
+      prefix: /glade/u/apps/opt/pixi
+    buildable: false
+  uv:
+    externals:
+    - spec: uv@1.0.0
+      prefix: /glade/u/apps/opt/uv
+    buildable: false
+  mpich:
+    require:
+    - device=ch4
+    - pmi=pmi2
+    - +vci
+  mpifileutils:
+    variants:
+    - +gpfs
+    - +lustre
+    - +xattr
+    require:
+    - spec: cflags=-Wno-error=implicit-function-declaration
+      when: '%gcc@14:'
+  musica:
+    variants:
+    - ~tuvx
+  mvapich:
+    variants:
+    - file_systems=lustre,gpfs,nfs,ufs
+    - process_managers=auto
+  mysql:
+    require:
+    - spec: cxxstd=17
+      when: '@8.0.29:'
+  ncl:
+    variants:
+    - +eemd
+    - +gdal
+    - +grib
+    - +hdf-eos2
+    - +hdf-eos5
+    - +hdf4
+    externals:
+    - spec: ncl@6.6.2
+      prefix: /glade/u/apps/opt/ncl/6.6.2
+    buildable: false
+  nco:
+    prefer:
+    - ^udunits %gcc@12.5.0
+  ncview:
+    prefer:
+    - ^udunits %gcc@12.5.0
+  ncvis:
+    require:
+    - ^netcdf-c build_system=autotools
+  netcdf:
+    variants:
+    - +dap
+    - ~mpi
+  netcdf-c:
+    variants:
+    - +dap
+    - ~mpi
+    prefer:
+    # Would do require, but ncvis barfs
+    - ~hdf4
+    - build_system=cmake
+    require:
+    - +nczarr_zip
+  nvhpc:
+    require:
+    - +blas
+    - +lapack
+    - ~mpi
+  ocl-icd:
+    variants:
+    - +headers
+  octave:
+    variants:
+    - +arpack
+    - +curl
+    - +fftw
+    - +fltk
+    - +fontconfig
+    - +freetype
+    - +gl2ps
+    - +glpk
+    - +gnuplot
+    - +hdf5
+    - +llvm
+    - +magick
+    - +opengl
+    - +qhull
+    - +qrupdate
+    - +qscintilla
+    - +qt
+    - +suitesparse
+    - +zlib
+  openblas:
+    variants:
+    - +fortran
+    - threads=openmp
+  openmpi:
+    require:
+    - schedulers=tm
+    - +gpfs
+    - +lustre
+    - +internal-pmix
+    - +romio
+    - romio-filesystem=nfs,gpfs,lustre,ufs
+  openpbs:
+    externals:
+    - spec: openpbs@2021.1.3
+      prefix: /opt/pbs
+    buildable: false
+  pandoc:
+    require:
+    - +texlive
+  pango:
+    variants:
+    - +X
+  parallel-netcdf:
+    variants:
+    - +examples
+    prefer:
+    - spec: cflags='-std=c17 -Wno-error=incompatible-pointer-types -Wno-error=implicit-function-declaration -Wno-error=int-conversion'
+      when: '%gcc@15'
+  parallelio:
+    variants:
+    - +ncint
+    - +pnetcdf
+    - ~logging
+    require:
+    - +fortran
+    - spec: ~pnetcdf
+      when: ~mpi
+  parallelio1:
+    variants:
+    - +pnetcdf
+  paraview:
+    prefer:
+    - +examples
+    - +eyedomelighting
+    - +fortran
+    - +hdf5
+    - +libcatalyst
+    - +opengl2
+    - +openpmd
+    - +pagosa
+    - +python
+    - +visitbridge
+    require:
+    # This requirement improves package reuse
+    - spec: ^netcdf-c+mpi
+      when: +mpi
+    # Paraview fails to find hdf5_hl when netcdf-c uses CMake
+    - ^netcdf-c build_system=autotools
+    - +qt
+    - +adios2
+  pbs:
+    require:
+    - openpbs
+  pocl:
+    variants:
+    - +icd
+  postgresql:
+    variants:
+    - +xml
+  py-netcdf4:
+    variants:
+    - ~mpi
+  py-numpy:
+    prefer:
+    - '%blas,lapack=openblas'
+  py-pandas:
+    prefer:
+    - +performance
+  python:
+    prefer:
+    - spec: '@3.11'
+    - +ssl
+  qt:
+    variants:
+    - +dbus
+    - +examples
+    - +opengl
+    - +webkit
+    require:
+    - +gtk
+    - +ssl
+    - '@5.14.2'
+  silo:
+    variants:
+    - ~python
+  singularityce:
+    variants:
+    - ~suid
+  snappy:
+    require:
+    # Required for arrow, which is needed for parquet support in GDAL
+    - ~shared
+  superlu-dist:
+    variants:
+    - +openmp
+    prefer:
+    - spec: cflags='-std=gnu17 -Wno-error=implicit-function-declaration -Wno-error=int-conversion'
+      when: '%gcc@15'
+  szip:
+    prefer:
+    - libszip
+  tbb:
+    prefer:
+    - intel-oneapi-tbb
+  vim:
+    variants:
+    - +cscope
+    - +lua
+    - +perl
+    - +python
+    - +ruby
+    - +x
+    - features=huge
+    require:
+    - +gui
+    - +gtk
+  visit:
+    variants:
+    - +hdf5
+    - +mpi
+    - +netcdf
+    - +python
+    - ~conduit
+    - ~mfem
+    - ~vtkm
+    prefer:
+    - +adios2
+    - +silo
+  wgrib2:
+    variants:
+    - +ipolates
+    - +netcdf
+    - +proj4
+    - +udf
+    - ~netcdf3
+  wxwidgets:
+    variants:
+    - +opengl
+  xkbdata-api:
+    prefer:
+    - xkbdata
+  xnedit:
+    require:
+    # Wont build without this, actually!
+    - +motif
+  zfp:
+    variants:
+    - +tight-error
+    - round=first
+  zlib-api:
+    prefer:
+    - zlib-ng
+  zlib-ng:
+    require:
+    - +compat
+    - +new_strategies
+    - +shared
+  zstd:
+    variants:
+    - +programs
+    prefer:
+    - compression=lz4,lzma,zlib

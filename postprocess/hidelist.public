@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+#   Unit: hidelist
+#   Description:
+#       Hides all modules from a specified list. Wildcards are supported.
+#
+#   Author:         Brian Vanderwende
+#   Last Revised:   23:07, 12 Nov 2025
+#
+
+#
+##  UNIT DEPENDENCIES
+#
+
+. $POSTPROCESS_UNIT_DIR/hide-module.helper
+
+#
+##  USER INPUT
+#
+
+hide_list=" */*/mvapich/* */*/vasp/* */*/intel-mpi/* */*/mpich/* Core/libfabric/*-debug Core/aocc/* Core/uv/* Core/pixi/* "
+
+#
+##  BEGIN HIDDEN MODULE FILE GENERATION
+#
+
+for hl in $hide_list; do
+    hide_mods="$(ls -1 --color=never $MOD_DEPLOYMENT/$hl 2> /dev/null || true)"
+
+    for hm in $hide_mods; do
+        hide_module $hm
+    done
+done
