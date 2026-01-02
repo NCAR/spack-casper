@@ -1,0 +1,209 @@
+packages:
+  adios2:
+    variants:
+    - +rocm
+  all:
+    prefer:
+    - +rocm
+    - amdgpu_target=gfx942
+  hip:
+    require:
+    - +rocm
+    externals:
+    - spec: hip@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  hwloc:
+    prefer:
+    - +rocm
+    require:
+    # This is a GLIBCXX symbol versioning requirement for ROCm 6.4.3
+    - spec: '%gcc@14:'
+      when: '+rocm %gcc'
+  intel-oneapi-compilers:
+    variants:
+    - +amd
+  kokkos:
+    require:
+    - spec: +rocm +wrapper ~alloc_async
+      when: '%gcc'
+    - spec: +rocm +apu +wrapper ~alloc_async
+      when: '%aocc'
+    - spec: ^cmake@3.27
+      when: '@:4.2.01 +rocm'
+  llvm:
+    require:
+    # This is necessary because otherwise ROCm bits get included into the
+    # llvm header and lib paths and may break the installation
+    - ^hwloc~rocm
+  ncarcompilers:
+    variants:
+    - +hip
+  nvtop:
+    require:
+    - support:=amd
+  openmpi:
+    require:
+    - +rocm
+    - amdgpu_target=gfx942
+    - spec: '%gcc@14:'
+      when: '+rocm %gcc'
+  osu-micro-benchmarks:
+    variants:
+    - +rocm
+  rocblas:
+    prefer:
+    - +tensile
+    - amdgpu_target=gfx942
+    externals:
+    - spec: rocblas@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocfft:
+    prefer:
+    - amdgpu_target=gfx942
+    - amdgpu_target_sram_ecc=gfx942
+    externals:
+    - spec: rocfft@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocprofiler-systems:
+    require:
+    - ~internal-dyninst
+    - +rocm
+    - +perfetto_tools
+    - +python
+    externals:
+    - spec: rocprofiler-systems@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  ucx:
+    require:
+    - +rocm
+    - spec: '%gcc@14:'
+      when: '+rocm %gcc'
+  amdsmi:
+    externals:
+    - spec: amdsmi@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  comgr:
+    externals:
+    - spec: comgr@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  hipblas:
+    externals:
+    - spec: hipblas@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  hipcc:
+    externals:
+    - spec: hipcc@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  hipcub:
+    externals:
+    - spec: hipcub@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  hipfort:
+    externals:
+    - spec: hipfort@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  hiprand:
+    externals:
+    - spec: hiprand@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  hipify-clang:
+    externals:
+    - spec: hipify-clang@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  hsa-rocr-dev:
+    externals:
+    - spec: hsa-rocr-dev@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rccl:
+    externals:
+    - spec: rccl@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocm-core:
+    externals:
+    - spec: rocm-core@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocm-examples:
+    externals:
+    - spec: rocm-examples@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocm-gdb:
+    externals:
+    - spec: rocm-gdb@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocm-smi-lib:
+    externals:
+    - spec: rocm-smi-lib@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocminfo:
+    externals:
+    - spec: rocminfo@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocprim:
+    externals:
+    - spec: rocprim@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocprofiler-compute:
+    externals:
+    - spec: rocprofiler-compute@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocprofiler-register:
+    externals:
+    - spec: rocprofiler-register@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocrand:
+    externals:
+    - spec: rocrand@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocsparse:
+    externals:
+    - spec: rocsparse@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  rocthrust:
+    externals:
+    - spec: rocthrust@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+  roctracer-dev:
+    externals:
+    - spec: roctracer-dev@6.4.3
+      prefix: /glade/u/apps/opt/rocm/rocm-6.4.3
+    buildable: false
+modules:
+  default:
+    lmod:
+      projections:
+        rocm-core: rocm/{version}
+      rocm-core:
+        template: ncar_wrapper_hip.lua
+        environment:
+          set:
+            HSA_XNACK: '1'
+            NCAR_INC_HIPRAND2: '{prefix.include}/hiprand'
+          append_path:
+            CMAKE_PREFIX_PATH: '{prefix}/llvm'
+            LD_LIBRARY_PATH: '{prefix}/llvm/lib'
+            PATH: '{prefix}/llvm/bin'

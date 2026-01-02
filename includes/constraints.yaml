@@ -1,0 +1,649 @@
+packages:
+  antlr:
+    prefer:
+    - '%gcc@12.5.0'
+  apptainer:
+    prefer:
+    - '%gcc@12.5.0'
+  arrow:
+    prefer:
+    - '%gcc@12.5.0'
+  assimp:
+    prefer:
+    - '%gcc@12.5.0'
+  attr:
+    prefer:
+    - '%gcc@12.5.0'
+  automake:
+    prefer:
+    - '%gcc@12.5.0'
+  bash:
+    prefer:
+    - '%gcc@12.5.0'
+  berkeley-db:
+    prefer:
+    - '%gcc@12.5.0'
+  bison:
+    prefer:
+    - '%gcc@12.5.0'
+  bzip2:
+    prefer:
+    - '%gcc@12.5.0'
+  c-blosc2:
+    prefer:
+    - '%gcc@12.5.0'
+  cairo:
+    prefer:
+    - '%gcc@12.5.0'
+  cdo:
+    prefer:
+    - '%gcc@12.5.0'
+  charliecloud:
+    prefer:
+    - '%gcc@12.5.0'
+  cmake:
+    prefer:
+    - '%gcc@12.5.0'
+  cmor:
+    prefer:
+    - '%gcc@12.5.0'
+  cpio:
+    prefer:
+    - '%gcc@12.5.0'
+  curl:
+    prefer:
+    - '%gcc@12.5.0'
+  darshan-util:
+    prefer:
+    - '%gcc@12.5.0'
+  dbus:
+    prefer:
+    - '%gcc@12.5.0'
+  diffutils:
+    prefer:
+    - '%gcc@12.5.0'
+  doxygen:
+    prefer:
+    - '%gcc@12.5.0'
+  dsfmt:
+    prefer:
+    - '%gcc@12.5.0'
+  ecbuild:
+    prefer:
+    - '%gcc@12.5.0'
+  ecflow:
+    prefer:
+    - '%gcc@12.5.0'
+  eigen:
+    prefer:
+    - '%gcc@12.5.0'
+  elfutils:
+    prefer:
+    - '%gcc@12.5.0'
+  emacs:
+    prefer:
+    - '%gcc@12.5.0'
+  expat:
+    prefer:
+    - '%gcc@12.5.0'
+  ferret:
+    prefer:
+    - '%gcc@12.5.0'
+  findutils:
+    prefer:
+    - '%gcc@12.5.0'
+  flatbuffers:
+    prefer:
+    - '%gcc@12.5.0'
+  flex:
+    prefer:
+    - '%gcc@12.5.0'
+  fltk:
+    prefer:
+    - '%gcc@12.5.0'
+  fmt:
+    prefer:
+    - '%gcc@12.5.0'
+  fontconfig:
+    prefer:
+    - '%gcc@12.5.0'
+  freetype:
+    prefer:
+    - '%gcc@12.5.0'
+  gawk:
+    prefer:
+    - '%gcc@12.5.0'
+  gdb:
+    prefer:
+    - '%gcc@12.5.0'
+  gdbm:
+    prefer:
+    - '%gcc@12.5.0'
+  gettext:
+    prefer:
+    - '%gcc@12.5.0'
+  ghostscript:
+    prefer:
+    - '%gcc@12.5.0'
+  giflib:
+    prefer:
+    - '%gcc@12.5.0'
+  git:
+    prefer:
+    - '%gcc@12.5.0'
+  gl2ps:
+    prefer:
+    - '%gcc@12.5.0'
+  glew:
+    prefer:
+    - '%gcc@12.5.0'
+  glpk:
+    prefer:
+    - '%gcc@12.5.0'
+  gmp:
+    prefer:
+    - '%gcc@12.5.0'
+  gmt:
+    prefer:
+    - '%gcc@12.5.0'
+  gnuplot:
+    prefer:
+    - '%gcc@12.5.0'
+  gnutls:
+    prefer:
+    - '%gcc@12.5.0'
+  go:
+    prefer:
+    - '%gcc@12.5.0'
+  googletest:
+    prefer:
+    - '%gcc@12.5.0'
+  grads:
+    prefer:
+    - '%gcc@12.5.0'
+  graphicsmagick:
+    prefer:
+    - '%gcc@12.5.0'
+  graphite2:
+    prefer:
+    - '%gcc@12.5.0'
+  grep:
+    prefer:
+    - '%gcc@12.5.0'
+  grib-util:
+    prefer:
+    - '%gcc@12.5.0'
+  groff:
+    prefer:
+    - '%gcc@12.5.0'
+  gtkplus:
+    prefer:
+    - '%gcc@12.5.0'
+  gzip:
+    prefer:
+    - '%gcc@12.5.0'
+  harfbuzz:
+    prefer:
+    - '%gcc@12.5.0'
+  heaptrack:
+    prefer:
+    - '%gcc@12.5.0'
+  help2man:
+    prefer:
+    - '%gcc@12.5.0'
+  icu4c:
+    prefer:
+    - '%gcc@12.5.0'
+  intel-oneapi-advisor:
+    prefer:
+    - '%gcc@12.5.0'
+  intel-oneapi-compilers:
+    prefer:
+    - '%gcc@12.5.0'
+  intel-oneapi-vtune:
+    prefer:
+    - '%gcc@12.5.0'
+  jasper:
+    prefer:
+    - '%gcc@12.5.0'
+  jq:
+    prefer:
+    - '%gcc@12.5.0'
+  json-c:
+    prefer:
+    - '%gcc@12.5.0'
+  jsoncpp:
+    prefer:
+    - '%gcc@12.5.0'
+  krb5:
+    prefer:
+    - '%gcc@12.5.0'
+  lcov:
+    prefer:
+    - '%gcc@12.5.0'
+  lerc:
+    prefer:
+    - '%gcc@12.5.0'
+  libaec:
+    prefer:
+    - '%gcc@12.5.0'
+  libarchive:
+    prefer:
+    - '%gcc@12.5.0'
+  libblastrampoline:
+    prefer:
+    - '%gcc@12.5.0'
+  libcap:
+    prefer:
+    - '%gcc@12.5.0'
+  libcerf:
+    prefer:
+    - '%gcc@12.5.0'
+  libdeflate:
+    prefer:
+    - '%gcc@12.5.0'
+  libepoxy:
+    prefer:
+    - '%gcc@12.5.0'
+  libevent:
+    prefer:
+    - '%gcc@12.5.0'
+  libffi:
+    prefer:
+    - '%gcc@12.5.0'
+  libfuse:
+    prefer:
+    - '%gcc@12.5.0'
+  libgd:
+    prefer:
+    - '%gcc@12.5.0'
+  libgeotiff:
+    prefer:
+    - '%gcc@12.5.0'
+  libgit2:
+    prefer:
+    - '%gcc@12.5.0'
+  libibn2:
+    prefer:
+    - '%gcc@12.5.0'
+  libiconv:
+    prefer:
+    - '%gcc@12.5.0'
+  libjpeg:
+    prefer:
+    - '%gcc@12.5.0'
+  libjpeg-turbo:
+    prefer:
+    - '%gcc@12.5.0'
+  libogg:
+    prefer:
+    - '%gcc@12.5.0'
+  libpaper:
+    prefer:
+    - '%gcc@12.5.0'
+  libpciaccess:
+    prefer:
+    - '%gcc@12.5.0'
+  libpng:
+    prefer:
+    - '%gcc@12.5.0'
+  librsvg:
+    prefer:
+    - '%gcc@12.5.0'
+  libseccomp:
+    prefer:
+    - '%gcc@12.5.0'
+  libsigsegv:
+    prefer:
+    - '%gcc@12.5.0'
+  libslirp:
+    prefer:
+    - '%gcc@12.5.0'
+  libssh2:
+    prefer:
+    - '%gcc@12.5.0'
+  libszip:
+    prefer:
+    - '%gcc@12.5.0'
+  libtheora:
+    prefer:
+    - '%gcc@12.5.0'
+  libtiff:
+    prefer:
+    - '%gcc@12.5.0'
+  libtirpc:
+    prefer:
+    - '%gcc@12.5.0'
+  libtool:
+    prefer:
+    - '%gcc@12.5.0'
+  libtree:
+    prefer:
+    - '%gcc@12.5.0'
+  libunwind:
+    prefer:
+    - '%gcc@12.5.0'
+  libuv:
+    prefer:
+    - '%gcc@12.5.0'
+  libwebp:
+    prefer:
+    - '%gcc@12.5.0'
+  libwhich:
+    prefer:
+    - '%gcc@12.5.0'
+  libxaw:
+    prefer:
+    - '%gcc@12.5.0'
+  libxcb:
+    prefer:
+    - '%gcc@12.5.0'
+  libx11:
+    prefer:
+    - '%gcc@12.5.0'
+  libxcrypt:
+    prefer:
+    - '%gcc@12.5.0'
+  libxft:
+    prefer:
+    - '%gcc@12.5.0'
+  libyaml:
+    prefer:
+    - '%gcc@12.5.0'
+  libzip:
+    prefer:
+    - '%gcc@12.5.0'
+  llvm:
+    prefer:
+    - '%gcc@12.5.0'
+  lmod:
+    prefer:
+    - '%gcc@12.5.0'
+  lua:
+    prefer:
+    - '%gcc@12.5.0'
+  lwgrp:
+    prefer:
+    - '%gcc@12.5.0'
+  lz4:
+    prefer:
+    - '%gcc@12.5.0'
+  lzo:
+    prefer:
+    - '%gcc@12.5.0'
+  m4:
+    prefer:
+    - '%gcc@12.5.0'
+  madis:
+    prefer:
+    - '%gcc@12.5.0'
+  maven:
+    prefer:
+    - '%gcc@12.5.0'
+  mbedtls:
+    prefer:
+    - '%gcc@12.5.0'
+  mesa-glu:
+    prefer:
+    - '%gcc@12.5.0'
+  mgard:
+    prefer:
+    - '%gcc@12.5.0'
+  motif:
+    prefer:
+    - '%gcc@12.5.0'
+  mpc:
+    prefer:
+    - '%gcc@12.5.0'
+  mpfr:
+    prefer:
+    - '%gcc@12.5.0'
+  muparser:
+    prefer:
+    - '%gcc@12.5.0'
+  nano:
+    prefer:
+    - '%gcc@12.5.0'
+  nasm:
+    prefer:
+    - '%gcc@12.5.0'
+  nccmp:
+    prefer:
+    - '%gcc@12.5.0'
+  nco:
+    prefer:
+    - '%gcc@12.5.0'
+  ncurses:
+    prefer:
+    - '%gcc@12.5.0'
+  ncview:
+    prefer:
+    - '%gcc@12.5.0'
+  ncvis:
+    prefer:
+    - '%gcc@12.5.0'
+  neovim:
+    prefer:
+    - '%gcc@12.5.0'
+  nghttp2:
+    prefer:
+    - '%gcc@12.5.0'
+  ninja:
+    prefer:
+    - '%gcc@12.5.0'
+  npm:
+    prefer:
+    - '%gcc@12.5.0'
+  nvhpc:
+    prefer:
+    - '%gcc@12.5.0'
+  nvtop:
+    prefer:
+    - '%gcc@12.5.0'
+  openjdk:
+    prefer:
+    - '%gcc@12.5.0'
+  openjpeg:
+    prefer:
+    - '%gcc@12.5.0'
+  openlibm:
+    prefer:
+    - '%gcc@12.5.0'
+  openpbs:
+    prefer:
+    - '%gcc@12.5.0'
+  openssh:
+    prefer:
+    - '%gcc@12.5.0'
+  osmesa:
+    prefer:
+    - '%gcc@12.5.0'
+  p7zip:
+    prefer:
+    - '%gcc@12.5.0'
+  pango:
+    prefer:
+    - '%gcc@12.5.0'
+  patchelf:
+    prefer:
+    - '%gcc@12.5.0'
+  pcre:
+    prefer:
+    - '%gcc@12.5.0'
+  pcre2:
+    prefer:
+    - '%gcc@12.5.0'
+  peak-memusage:
+    prefer:
+    - '%gcc@12.5.0'
+  pegtl:
+    prefer:
+    - '%gcc@12.5.0'
+  perl:
+    prefer:
+    - '%gcc@12.5.0'
+  pmix:
+    prefer:
+    - '%gcc@12.5.0'
+  podman:
+    prefer:
+    - '%gcc@12.5.0'
+  protobuf:
+    prefer:
+    - '%gcc@12.5.0'
+  py-cython:
+    prefer:
+    - '%gcc@12.5.0'
+  py-fypp:
+    prefer:
+    - '%gcc@12.5.0'
+  py-meson-python:
+    prefer:
+    - '%gcc@12.5.0'
+  py-numexpr:
+    prefer:
+    - '%gcc@12.5.0'
+  py-pandas:
+    prefer:
+    - '%gcc@12.5.0'
+  python:
+    prefer:
+    - '%gcc@12.5.0'
+  qhull:
+    prefer:
+    - '%gcc@12.5.0'
+  qt:
+    prefer:
+    - '%gcc@12.5.0'
+  rapidjson:
+    prefer:
+    - '%gcc@12.5.0'
+  readline:
+    prefer:
+    - '%gcc@12.5.0'
+  ripgrep:
+    prefer:
+    - '%gcc@12.5.0'
+  rsync:
+    prefer:
+    - '%gcc@12.5.0'
+  ruby:
+    prefer:
+    - '%gcc@12.5.0'
+  rust:
+    prefer:
+    - '%gcc@12.5.0'
+  sed:
+    prefer:
+    - '%gcc@12.5.0'
+  slirp4netns:
+    prefer:
+    - '%gcc@12.5.0'
+  snappy:
+    prefer:
+    - '%gcc@12.5.0'
+  source-highlight:
+    prefer:
+    - '%gcc@12.5.0'
+  sqlite:
+    prefer:
+    - '%gcc@12.5.0'
+  squashfs:
+    prefer:
+    - '%gcc@12.5.0'
+  squashfuse:
+    prefer:
+    - '%gcc@12.5.0'
+  sz:
+    prefer:
+    - '%gcc@12.5.0'
+  tar:
+    prefer:
+    - '%gcc@12.5.0'
+  tcl:
+    prefer:
+    - '%gcc@12.5.0'
+  teckit:
+    prefer:
+    - '%gcc@12.5.0'
+  texinfo:
+    prefer:
+    - '%gcc@12.5.0'
+  texlive:
+    prefer:
+    - '%gcc@12.5.0'
+  tk:
+    prefer:
+    - '%gcc@12.5.0'
+  tmux:
+    prefer:
+    - '%gcc@12.5.0'
+  tree:
+    prefer:
+    - '%gcc@12.5.0'
+  unzip:
+    prefer:
+    - '%gcc@12.5.0'
+  utf8proc:
+    prefer:
+    - '%gcc@12.5.0'
+  util-linux-uuid:
+    prefer:
+    - '%gcc@12.5.0'
+  vim:
+    prefer:
+    - '%gcc@12.5.0'
+  vtk:
+    prefer:
+    - '%gcc@12.5.0'
+  vtk-m:
+    prefer:
+    - '%gcc@12.5.0'
+  wget:
+    prefer:
+    - '%gcc@12.5.0'
+  wgrib2:
+    prefer:
+    - '%gcc@12.5.0'
+  which:
+    prefer:
+    - '%gcc@12.5.0'
+  xnedit:
+    prefer:
+    - '%gcc@12.5.0'
+  xsimd:
+    prefer:
+    - '%gcc@12.5.0'
+  xxd-standalone:
+    prefer:
+    - '%gcc@12.5.0'
+  xxdiff:
+    prefer:
+    - '%gcc@12.5.0'
+  xz:
+    prefer:
+    - '%gcc@12.5.0'
+  zfp:
+    prefer:
+    - '%gcc@12.5.0'
+  zlib:
+    prefer:
+    - '%gcc@12.5.0'
+  zlib-ng:
+    prefer:
+    - '%gcc@12.5.0'
+  zstd:
+    prefer:
+    - '%gcc@12.5.0'
+  zziplib:
+    prefer:
+    - '%gcc@12.5.0'
+  ucx:
+    require:
+    - '%gcc@14.3.0'
+  gmake:
+    require:
+    - '%gcc@12.5.0'
+  numactl:
+    require:
+    - '%gcc@12.5.0'
