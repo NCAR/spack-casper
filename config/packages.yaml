@@ -863,6 +863,9 @@ packages:
     - build_system=cmake
     require:
     - +nczarr_zip
+  netcdf-fortran:
+    require:
+    - ~doc
   nghttp2:
     prefer:
     - '%gcc@12.5.0'
