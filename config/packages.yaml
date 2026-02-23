@@ -1,7 +1,14 @@
 packages:
   lustre:
     externals:
+    - spec: lustre@2.15.7.1_cray_20_ga54ba87
+      prefix: /usr
     - spec: lustre@2.15.6.1_cray_100_g2c66dd0
+      prefix: /usr
+    buildable: false
+  pkg-config:
+    externals:
+    - spec: pkg-config@0.29.2
       prefix: /usr
     buildable: false
   gcc:
@@ -38,11 +45,6 @@ packages:
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
-  pkg-config:
-    externals:
-    - spec: pkg-config@0.29.2
-      prefix: /usr
-    buildable: false
   openssl:
     externals:
     - spec: openssl@1.1.1w-fips
@@ -1415,3 +1417,18 @@ packages:
   sz:
     prefer:
     - '%gcc@12.5.0'
+  matlab:
+    externals:
+    - spec: matlab@R2025b
+      prefix: /glade/u/apps/opt/matlab/R2025b
+    buildable: false
+  idl:
+    externals:
+    - spec: idl@9.2.0
+      prefix: /glade/u/apps/opt/idl/9.2.0
+    buildable: false
+  vapor:
+    externals:
+    - spec: vapor@3.10.1
+      prefix: /glade/u/apps/opt/vapor/3.10.1
+    buildable: false

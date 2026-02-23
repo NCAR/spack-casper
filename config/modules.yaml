@@ -45,6 +45,10 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - lrose-core
+      - matlab
+      - idl
+      - vapor
       - miniforge3
       - linaro-forge
       - grads
