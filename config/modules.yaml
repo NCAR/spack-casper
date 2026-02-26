@@ -45,6 +45,10 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - nvhpc
+      - intel-oneapi-advisor
+      - intel-oneapi-vtune
+      - intel-oneapi-compilers
       - lrose-core
       - matlab
       - idl
@@ -68,8 +72,6 @@ modules:
       - octave
       - gsl
       - eigen
-      - intel-oneapi-advisor
-      - intel-oneapi-vtune
       - darshan-util
       - ecflow
       - neovim
@@ -89,8 +91,6 @@ modules:
       - go
       - meson
       - cmake
-      - intel-oneapi-compilers
-      - nvhpc
       - gcc
       - miniconda
       cuda:

@@ -11,6 +11,15 @@ packages:
     - spec: pkg-config@0.29.2
       prefix: /usr
     buildable: false
+  openssl:
+    externals:
+    - spec: openssl@1.1.1w-fips
+      prefix: /usr
+    - spec: openssl@3.1.4
+      prefix: /usr
+    buildable: false
+    require:
+    - certs=system
   gcc:
     externals:
     - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
@@ -45,15 +54,6 @@ packages:
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
-  openssl:
-    externals:
-    - spec: openssl@1.1.1w-fips
-      prefix: /usr
-    - spec: openssl@3.1.4
-      prefix: /usr
-    buildable: false
-    require:
-    - certs=system
   pixi:
     externals:
     - spec: pixi@1.0.0
@@ -529,6 +529,8 @@ packages:
     externals:
     - spec: intel-oneapi-advisor@2025.3.0
       prefix: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-advisor/2025.3.0/gcc/12.5.0/fyfp
+    - spec: intel-oneapi-advisor@2025.4.1
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-advisor/2025.4.1/gcc/12.5.0/rt7t
   intel-oneapi-compilers:
     variants:
     - +nvidia
@@ -549,6 +551,13 @@ packages:
           c: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-compilers/2025.2.1/s4f2/compiler/2025.2/bin/icx
           cxx: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-compilers/2025.2.1/s4f2/compiler/2025.2/bin/icpx
           fortran: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-compilers/2025.2.1/s4f2/compiler/2025.2/bin/ifx
+    - spec: intel-oneapi-compilers@2025.3.2
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-compilers/2025.3.2/snvt
+      extra_attributes:
+        compilers:
+          c: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-compilers/2025.3.2/snvt/compiler/2025.3/bin/icx
+          cxx: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-compilers/2025.3.2/snvt/compiler/2025.3/bin/icpx
+          fortran: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-compilers/2025.3.2/snvt/compiler/2025.3/bin/ifx
     buildable: false
   intel-oneapi-mkl:
     require:
@@ -568,6 +577,8 @@ packages:
     externals:
     - spec: intel-oneapi-vtune@2025.6.0
       prefix: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-vtune/2025.6.0/gcc/12.5.0/e3bw
+    - spec: intel-oneapi-vtune@2025.8.1
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/intel-oneapi-vtune/2025.8.1/gcc/12.5.0/kwf5
   ip:
     prefer:
     - '%lapack=openblas'
@@ -650,8 +661,6 @@ packages:
     require:
     # Doesn't build without proj as a dependency for me
     - +proj
-    prefer:
-    - '%gcc@12.5.0'
   libglx:
     prefer:
     - opengl
@@ -893,6 +902,13 @@ packages:
           c: /glade/u/apps/casper/24.12/spack/opt/spack/nvhpc/25.9/gcc/12.4.0/luur/Linux_x86_64/25.9/compilers/bin/nvc
           cxx: /glade/u/apps/casper/24.12/spack/opt/spack/nvhpc/25.9/gcc/12.4.0/luur/Linux_x86_64/25.9/compilers/bin/nvc++
           fortran: /glade/u/apps/casper/24.12/spack/opt/spack/nvhpc/25.9/gcc/12.4.0/luur/Linux_x86_64/25.9/compilers/bin/nvfortran
+    - spec: nvhpc@26.1
+      prefix: /glade/u/apps/common/25.10/spack/opt/spack/nvhpc/26.1/tl4a
+      extra_attributes:
+        compilers:
+          c: /glade/u/apps/common/25.10/spack/opt/spack/nvhpc/26.1/tl4a/Linux_x86_64/26.1/compilers/bin/nvc
+          cxx: /glade/u/apps/common/25.10/spack/opt/spack/nvhpc/26.1/tl4a/Linux_x86_64/26.1/compilers/bin/nvc++
+          fortran: /glade/u/apps/common/25.10/spack/opt/spack/nvhpc/26.1/tl4a/Linux_x86_64/26.1/compilers/bin/nvfortran
     buildable: false
   nvtop:
     variants:
@@ -939,14 +955,17 @@ packages:
     - '%gcc@12.5.0'
   openmpi:
     require:
-    - fabrics=cma,ucx
-    - schedulers=tm
+    - +fortran
+    - fabrics:=cma,ucx
+    - schedulers:=tm
     - +gpfs
     - +lustre
     - +internal-pmix
     - +cuda
     - +romio
-    - romio-filesystem=nfs,gpfs,lustre,ufs
+    - romio-filesystem:=nfs,gpfs,lustre,ufs
+    - spec: cuda_arch:=60,70,80,89,90
+      when: '^cuda @5.0.9:'
   openpbs:
     externals:
     - spec: openpbs@2021.1.3
