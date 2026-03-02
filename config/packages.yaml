@@ -1,25 +1,4 @@
 packages:
-  lustre:
-    externals:
-    - spec: lustre@2.15.7.1_cray_20_ga54ba87
-      prefix: /usr
-    - spec: lustre@2.15.6.1_cray_100_g2c66dd0
-      prefix: /usr
-    buildable: false
-  pkg-config:
-    externals:
-    - spec: pkg-config@0.29.2
-      prefix: /usr
-    buildable: false
-  openssl:
-    externals:
-    - spec: openssl@1.1.1w-fips
-      prefix: /usr
-    - spec: openssl@3.1.4
-      prefix: /usr
-    buildable: false
-    require:
-    - certs=system
   gcc:
     externals:
     - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
@@ -54,6 +33,27 @@ packages:
     variants:
     - +piclibs
     - languages=c,c++,fortran,go
+  openssl:
+    externals:
+    - spec: openssl@1.1.1w-fips
+      prefix: /usr
+    - spec: openssl@3.1.4
+      prefix: /usr
+    buildable: false
+    require:
+    - certs=system
+  lustre:
+    externals:
+    - spec: lustre@2.15.7.1_cray_20_ga54ba87
+      prefix: /usr
+    - spec: lustre@2.15.6.1_cray_100_g2c66dd0
+      prefix: /usr
+    buildable: false
+  pkg-config:
+    externals:
+    - spec: pkg-config@0.29.2
+      prefix: /usr
+    buildable: false
   pixi:
     externals:
     - spec: pixi@1.0.0
@@ -1440,6 +1440,8 @@ packages:
     externals:
     - spec: matlab@R2025b
       prefix: /glade/u/apps/opt/matlab/R2025b
+    - spec: matlab@R2024b
+      prefix: /glade/u/apps/opt/matlab/R2024b
     buildable: false
   idl:
     externals:
@@ -1450,4 +1452,11 @@ packages:
     externals:
     - spec: vapor@3.10.1
       prefix: /glade/u/apps/opt/vapor/3.10.1
+    buildable: false
+  rstudio:
+    externals:
+    - spec: rstudio@2023.09.0
+      prefix: /glade/u/apps/opt/rstudio/2023.09.0
+    - spec: rstudio@2024.12.0
+      prefix: /glade/u/apps/opt/rstudio/2024.12.0
     buildable: false

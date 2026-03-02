@@ -45,12 +45,13 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - rstudio
+      - matlab
       - nvhpc
       - intel-oneapi-advisor
       - intel-oneapi-vtune
       - intel-oneapi-compilers
       - lrose-core
-      - matlab
       - idl
       - vapor
       - miniforge3
@@ -433,6 +434,10 @@ modules:
         template: ncar_wrapper.lua
       nccmp:
         autoload: none
+      ncl:
+        environment:
+          set:
+            NCARG_LIBS_ROOT: /glade/u/apps/opt/ncl/ncarglibs/{version}
       nco:
         autoload: none
       ncview:

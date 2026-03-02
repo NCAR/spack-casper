@@ -33,27 +33,6 @@ spack:
       NVCCFLAGS: -allow-unsupported-compiler
       NVCC_PREPEND_FLAGS: -allow-unsupported-compiler
   packages:
-    lustre:
-      externals:
-      - spec: lustre@2.15.7.1_cray_20_ga54ba87
-        prefix: /usr
-      - spec: lustre@2.15.6.1_cray_100_g2c66dd0
-        prefix: /usr
-      buildable: false
-    pkg-config:
-      externals:
-      - spec: pkg-config@0.29.2
-        prefix: /usr
-      buildable: false
-    openssl:
-      externals:
-      - spec: openssl@1.1.1w-fips
-        prefix: /usr
-      - spec: openssl@3.1.4
-        prefix: /usr
-      buildable: false
-      require:
-      - certs=system
     gcc:
       externals:
       - spec: gcc@14.3.0 languages:='c,c++,fortran,go'
@@ -88,6 +67,27 @@ spack:
       variants:
       - +piclibs
       - languages=c,c++,fortran,go
+    openssl:
+      externals:
+      - spec: openssl@1.1.1w-fips
+        prefix: /usr
+      - spec: openssl@3.1.4
+        prefix: /usr
+      buildable: false
+      require:
+      - certs=system
+    lustre:
+      externals:
+      - spec: lustre@2.15.7.1_cray_20_ga54ba87
+        prefix: /usr
+      - spec: lustre@2.15.6.1_cray_100_g2c66dd0
+        prefix: /usr
+      buildable: false
+    pkg-config:
+      externals:
+      - spec: pkg-config@0.29.2
+        prefix: /usr
+      buildable: false
     pixi:
       externals:
       - spec: pixi@1.0.0
@@ -1474,6 +1474,8 @@ spack:
       externals:
       - spec: matlab@R2025b
         prefix: /glade/u/apps/opt/matlab/R2025b
+      - spec: matlab@R2024b
+        prefix: /glade/u/apps/opt/matlab/R2024b
       buildable: false
     idl:
       externals:
@@ -1484,6 +1486,13 @@ spack:
       externals:
       - spec: vapor@3.10.1
         prefix: /glade/u/apps/opt/vapor/3.10.1
+      buildable: false
+    rstudio:
+      externals:
+      - spec: rstudio@2023.09.0
+        prefix: /glade/u/apps/opt/rstudio/2023.09.0
+      - spec: rstudio@2024.12.0
+        prefix: /glade/u/apps/opt/rstudio/2024.12.0
       buildable: false
   view:
     baseenv:
@@ -1604,12 +1613,13 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - rstudio
+        - matlab
         - nvhpc
         - intel-oneapi-advisor
         - intel-oneapi-vtune
         - intel-oneapi-compilers
         - lrose-core
-        - matlab
         - idl
         - vapor
         - miniforge3
@@ -1992,6 +2002,10 @@ spack:
           template: ncar_wrapper.lua
         nccmp:
           autoload: none
+        ncl:
+          environment:
+            set:
+              NCARG_LIBS_ROOT: /glade/u/apps/opt/ncl/ncarglibs/{version}
         nco:
           autoload: none
         ncview:
@@ -2467,3 +2481,5 @@ spack:
   - parallelio@2.6.8+mpi %[when='%c'] c=nvhpc@26.1 %[when='%cxx'] cxx=nvhpc@26.1 %[when='%fortran'] fortran=nvhpc@26.1 %[when='%blas'] blas=nvhpc@26.1 %[when='%lapack'] lapack=nvhpc@26.1 ^openmpi@5.0.9 %nvhpc@26.1
   - esmf@8.9.1+mpi %[when='%c'] c=nvhpc@26.1 %[when='%cxx'] cxx=nvhpc@26.1 %[when='%fortran'] fortran=nvhpc@26.1 %[when='%blas'] blas=nvhpc@26.1 %[when='%lapack'] lapack=nvhpc@26.1 ^hdf5 %nvhpc@26.1 ^openmpi@5.0.9 %nvhpc@26.1
   - osu-micro-benchmarks %[when='%c'] c=nvhpc@26.1 %[when='%cxx'] cxx=nvhpc@26.1 %[when='%fortran'] fortran=nvhpc@26.1 %[when='%blas'] blas=nvhpc@26.1 %[when='%lapack'] lapack=nvhpc@26.1 ^openmpi@5.0.9 %nvhpc@26.1
+  - matlab@R2024b
+  - rstudio@2024.12.0
