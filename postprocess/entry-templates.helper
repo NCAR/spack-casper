@@ -6,12 +6,12 @@
 #       on some cluster-specific conditional.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   14:11, 24 Dec 2025
+#   Last Revised:   11:07, 03 Mar 2026
 #
 
 # This version of entry-templates should be run by the Casper cluster type, and so
 # we need to derive a corresponding casper-rocm cluser path to use
-rocm_path=${util_path/$NCAR_SPACK_HOST_VERSION/${NCAR_SPACK_HOST_VERSION}-rocm}
+export rocm_path=${util_path/$NCAR_SPACK_HOST_VERSION/${NCAR_SPACK_HOST_VERSION}-rocm}
 
 # If there is no corresponding version, use the latest version
 if [[ ! -d $rocm_path ]]; then
