@@ -196,6 +196,8 @@ packages:
     - +curl
     prefer:
     - '%gcc@12.5.0'
+    - +netcdf
+    - grib2=eccodes
     - ^udunits %gcc@12.5.0
   charliecloud:
     variants:
@@ -873,9 +875,8 @@ packages:
     - +dap
     - ~mpi
     prefer:
-    # Would do require, but ncvis barfs
     - ~hdf4
-    - build_system=cmake
+    - build_system=autotools
     require:
     - +nczarr_zip
   netcdf-fortran:

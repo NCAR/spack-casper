@@ -230,6 +230,8 @@ spack:
       - +curl
       prefer:
       - '%gcc@12.5.0'
+      - +netcdf
+      - grib2=eccodes
       - ^udunits %gcc@12.5.0
     charliecloud:
       variants:
@@ -907,9 +909,8 @@ spack:
       - +dap
       - ~mpi
       prefer:
-      # Would do require, but ncvis barfs
       - ~hdf4
-      - build_system=cmake
+      - build_system=autotools
       require:
       - +nczarr_zip
     netcdf-fortran:
@@ -1613,6 +1614,7 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - cdo
         - rstudio
         - matlab
         - nvhpc
@@ -1631,7 +1633,6 @@ spack:
         - paraview
         - nco
         - gmt
-        - cdo
         - nccmp
         - ncview
         - madis
@@ -2377,7 +2378,6 @@ spack:
   - madis
   - ncview@2.1.9
   - nccmp@1.9.1.0
-  - cdo@2.5.2
   - gmt@6.5.0
   - nco@5.3.4
   - hdf5@1.14.6+mpi %[when='%c'] c=gcc@14.3.0 %[when='%cxx'] cxx=gcc@14.3.0 %[when='%fortran'] fortran=gcc@14.3.0 %[when='%blas'] blas=openblas@0.3.30 %[when='%lapack'] lapack=openblas@0.3.30 ^openmpi@5.0.8 %gcc@14.3.0
@@ -2483,3 +2483,4 @@ spack:
   - osu-micro-benchmarks %[when='%c'] c=nvhpc@26.1 %[when='%cxx'] cxx=nvhpc@26.1 %[when='%fortran'] fortran=nvhpc@26.1 %[when='%blas'] blas=nvhpc@26.1 %[when='%lapack'] lapack=nvhpc@26.1 ^openmpi@5.0.9 %nvhpc@26.1
   - matlab@R2024b
   - rstudio@2024.12.0
+  - cdo@2.5.2

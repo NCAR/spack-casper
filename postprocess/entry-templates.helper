@@ -6,9 +6,8 @@
 #       on some cluster-specific conditional.
 #
 #   Author:         Brian Vanderwende
-#   Last Revised:   11:07, 03 Mar 2026
+#   Last Revised:   15:45, 03 Mar 2026
 #
-
 # This version of entry-templates should be run by the Casper cluster type, and so
 # we need to derive a corresponding casper-rocm cluser path to use
 export rocm_path=${util_path/$NCAR_SPACK_HOST_VERSION/${NCAR_SPACK_HOST_VERSION}-rocm}
@@ -44,3 +43,4 @@ else
 endif
 EOF
 }
+set +x

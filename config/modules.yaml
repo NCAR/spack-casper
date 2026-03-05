@@ -45,6 +45,7 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - cdo
       - rstudio
       - matlab
       - nvhpc
@@ -63,7 +64,6 @@ modules:
       - paraview
       - nco
       - gmt
-      - cdo
       - nccmp
       - ncview
       - madis
