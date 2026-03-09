@@ -2484,3 +2484,4 @@ spack:
   - matlab@R2024b
   - rstudio@2024.12.0
   - cdo@2.5.2
+  - hdf5@1.14.6~mpi %[when='%c'] c=oneapi@2025.3.2 %[when='%cxx'] cxx=oneapi@2025.3.2 %[when='%fortran'] fortran=oneapi@2025.3.2 %[when='%blas'] blas=intel-oneapi-mkl@2025.3.1 %[when='%lapack'] lapack=intel-oneapi-mkl@2025.3.1
