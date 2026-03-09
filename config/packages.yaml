@@ -503,12 +503,13 @@ packages:
       when: '%intel-oneapi-compilers'
   hdf5:
     variants:
+    - +map
+    - ~mpi
+    prefer:
     - +cxx
     - +fortran
     - +hl
-    - +map
     - +szip
-    - ~mpi
   heaptrack:
     prefer:
     - '%gcc@12.5.0'
