@@ -1207,10 +1207,9 @@ packages:
   wgrib2:
     variants:
     - +ipolates
-    - +netcdf
-    - +proj4
     - +udf
-    - ~netcdf3
+    require:
+    - +netcdf
     prefer:
     - '%gcc@12.5.0'
   wxwidgets:

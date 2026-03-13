@@ -45,6 +45,7 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - wgrib2
       - cdo
       - rstudio
       - matlab
@@ -68,7 +69,6 @@ modules:
       - ncview
       - madis
       - ferret
-      - wgrib2
       - nvtop
       - octave
       - gsl
