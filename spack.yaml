@@ -1614,10 +1614,10 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - matlab
         - wgrib2
         - cdo
         - rstudio
-        - matlab
         - nvhpc
         - intel-oneapi-advisor
         - intel-oneapi-vtune
@@ -2484,3 +2484,4 @@ spack:
   - cdo@2.5.2
   - hdf5@1.14.6~mpi %[when='%c'] c=oneapi@2025.3.2 %[when='%cxx'] cxx=oneapi@2025.3.2 %[when='%fortran'] fortran=oneapi@2025.3.2 %[when='%blas'] blas=intel-oneapi-mkl@2025.3.1 %[when='%lapack'] lapack=intel-oneapi-mkl@2025.3.1
   - wgrib2
+  - matlab@R2025b

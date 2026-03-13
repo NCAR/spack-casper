@@ -45,10 +45,10 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - matlab
       - wgrib2
       - cdo
       - rstudio
-      - matlab
       - nvhpc
       - intel-oneapi-advisor
       - intel-oneapi-vtune
