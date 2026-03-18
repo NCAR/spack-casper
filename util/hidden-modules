@@ -5,3 +5,4 @@ hide-modulefile /glade/u/apps/casper/modules/environment/ncarenv-basic/25.08-roc
 hide-modulefile /glade/u/apps/casper/modules/environment/ncarenv-basic/25.10.lua
 hide-modulefile /glade/u/apps/casper/modules/environment/ncarenv-basic/25.10-rocm.lua
 hide-modulefile /glade/u/apps/casper/modules/environment/ncarenv-basic/default
+hide-modulefile /glade/u/apps/casper/modules/25.10/Core/matlab/R2025b.lua
