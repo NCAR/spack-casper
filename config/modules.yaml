@@ -45,6 +45,7 @@ modules:
       core_compilers:
       - gcc@12.5.0
       core_specs:
+      - podman
       - matlab
       - wgrib2
       - cdo
@@ -86,7 +87,6 @@ modules:
       - cuda
       - charliecloud
       - peak-memusage
-      - podman
       - pcre
       - apptainer
       - go

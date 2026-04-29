@@ -1614,6 +1614,7 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - podman
         - matlab
         - wgrib2
         - cdo
@@ -1655,7 +1656,6 @@ spack:
         - cuda
         - charliecloud
         - peak-memusage
-        - podman
         - pcre
         - apptainer
         - go
@@ -2307,7 +2307,6 @@ spack:
   - py-pandas@2.1.4
   - apptainer
   - pcre
-  - podman
   - peak-memusage
   - charliecloud
   - cuda@12.9.0
@@ -2485,3 +2484,4 @@ spack:
   - hdf5@1.14.6~mpi %[when='%c'] c=oneapi@2025.3.2 %[when='%cxx'] cxx=oneapi@2025.3.2 %[when='%fortran'] fortran=oneapi@2025.3.2 %[when='%blas'] blas=intel-oneapi-mkl@2025.3.1 %[when='%lapack'] lapack=intel-oneapi-mkl@2025.3.1
   - wgrib2
   - matlab@R2025b
+  - podman@4.5.1
