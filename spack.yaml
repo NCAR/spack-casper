@@ -1614,6 +1614,7 @@ spack:
         core_compilers:
         - gcc@12.5.0
         core_specs:
+        - gh
         - podman
         - matlab
         - wgrib2
@@ -2485,3 +2486,4 @@ spack:
   - wgrib2
   - matlab@R2025b
   - podman@4.5.1
+  - gh@2.74.2
