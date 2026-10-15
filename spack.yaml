@@ -1499,6 +1499,7 @@ spack:
     baseenv:
       root: /glade/u/apps/casper/25.10/opt/view
       select:
+      - socat
       - mysql
       - npm
       - node-js
@@ -1712,6 +1713,7 @@ spack:
           - openmpi
           - cray-mpich
         exclude:
+        - socat
         - mysql
         - py-pandas@2.1.4
         - py-tabulate
@@ -2487,3 +2489,4 @@ spack:
   - matlab@R2025b
   - podman@4.5.1
   - gh@2.74.2
+  - socat

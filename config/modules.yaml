@@ -143,6 +143,7 @@ modules:
         - openmpi
         - cray-mpich
       exclude:
+      - socat
       - mysql
       - py-pandas@2.1.4
       - py-tabulate
